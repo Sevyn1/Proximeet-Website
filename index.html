@@ -1,376 +1,758 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="ThemeStarz">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="assets/img/favicon-96x96.png" sizes="96x96" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ProxiMeet | Real People. Real Spaces. Real Intent.</title>
+    <meta
+      name="description"
+      content="ProxiMeet connects people nearby based on real-time intent safely and intentionally in public spaces."
+    />
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
-    <link rel="manifest" href="assets/img/site.webmanifest" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <title>Proximeet - Coming Soon</title>
-</head>
-<body class="has-loading-screen ts-theme-dark">
-    <div class="ts-page-wrapper">
-        <div class="container">
+    <style>
+      :root {
+        --bg: #fafafa;
+        --surface: #ffffff;
+        --surface-soft: #f7f5f9;
+        --text: #2d2d2d;
+        --muted: #6b6b6b;
+        --primary: #1e3a8a;
+        --teal: #00a99d;
+        --coral: #ff6b6b;
+        --purple: #9b59b6;
+        --yellow: #f4d03f;
+        --grey-light: #ecf0f1;
+        --accent: #00a99d;
+        --line: #e8e8e8;
+        --radius-lg: 28px;
+        --radius-md: 18px;
+        --shadow: 0 12px 32px rgba(30, 58, 138, 0.12);
+      }
 
-            <!--NAVIGATION ******************************************************************************************-->
-            <header id="header">
-                <nav class="navbar navbar-dark ts-separate-bg-element">
-                    <a class="navbar-brand" href="#">
-                        <img src="assets/img/logo.png" alt="Logo" width="150">
-                    </a>
-                    <!--end navbar-brand-->
-                    <button class="navbar-toggler ts-open-side-panel" type="button" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <!--end navbar-toggler-->
-                </nav>
-                <!--end navbar-->
-            </header>
-            <!--end #header-->
+      * {
+        box-sizing: border-box;
+      }
 
-            <!--CONTENT *********************************************************************************************-->
-            <main id="main-content">
-                <div class="ts-content-wrapper">
-                    <div class="row">
-                        <!--Page Title-->
-                        <div class="col-md-6">
-                            <h1>The Future of Social Networking is Almost Here.</h1>
-                            <p>
-                                Proximeet is coming! We're using proximity technology to bring you instant, in-person connections. Get ready to meet new people and engage with your community in a whole new way.
-                            </p>
-                                <a href="#" class="btn btn-primary mr-2 ts-open-side-panel">Learn More</a>
-                            <!-- <a href="#" class="btn btn-outline-light video-popup"><i class="fa fa-play mr-2"></i>Video</a> -->
-                        </div>
-                        <!--end col-md-6-->
-                        <!--Count Down-->
-                        <div class="col-md-6">
-                            <div class="text-center my-4">
-                                <div class="ts-count-down" data-date="2025/12/31 00:00:00"></div>
-                                <!--end ts-count-down-->
-                            </div>
-                        </div>
-                        <!--end col-md-6-->
-                    </div>
-                    <!--end row-->
-                </div>
-                <!--end ts-content-wrapper-->
-            </main>
-            <!--end #main-content-->
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
 
-            <!--FOOTER **********************************************************************************************-->
-            <footer id="footer">
-    <hr class="my-2 w-100 ts-opacity__50">
-    <div class="clearfix py-4 d-flex flex-column flex-sm-row align-items-center align-items-sm-start">
-        <div class="footer-links d-flex flex-wrap justify-content-center justify-content-sm-start gap-2 mb-2 mb-sm-0">
-            <a href="#" class="ts-scroll-link px-2 footer-underline" data-target="about-us">About Us</a>
-            <a href="#" class="ts-scroll-link px-2 footer-underline" data-target="what-drives-us">What Drives Us</a>
-            <a href="#" class="ts-scroll-link px-2 footer-underline" data-target="our-mission">Our Mission</a>
-            <a href="#" class="ts-scroll-link px-2 footer-underline" data-target="contact-form">Contact Us</a>
-            <a href="privacy-policy.html" class="footer-underline px-2">Privacy Policy</a>
-            <a href="terms-conditions.html" class="footer-underline px-2">Terms and Conditions</a>
+      a {
+        color: inherit;
+      }
+
+      .container {
+        width: min(1140px, 92%);
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(248, 249, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(8px);
+      }
+
+      .nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+      }
+
+      .brand img {
+        height: 42px;
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        color: var(--muted);
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 77px;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 19;
+        padding: 1.5rem;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .mobile-menu ul li {
+        margin-bottom: 1rem;
+      }
+
+      .mobile-menu ul li a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 0;
+      }
+
+      .mobile-menu .mobile-actions {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .mobile-menu .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .actions {
+        display: flex;
+        gap: 0.6rem;
+      }
+
+      .btn {
+        border: 2px solid transparent;
+        border-radius: 999px;
+        padding: 0.8rem 1.3rem;
+        text-decoration: none;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--teal);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: #009189;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(30, 58, 138, 0.05);
+      }
+
+      .hero {
+        padding: 4.3rem 0 3.2rem;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 1.25rem;
+        align-items: center;
+      }
+
+      .kicker {
+        color: var(--muted);
+        font-weight: 600;
+        margin: 0 0 0.6rem;
+        font-size: 0.95rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3.7rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+      }
+
+      .highlight-primary {
+        color: var(--teal);
+      }
+
+      .highlight-accent {
+        color: var(--coral);
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 56ch;
+        margin: 1rem 0 1.4rem;
+      }
+
+      .hero-visual {
+        background: linear-gradient(135deg, var(--grey-light) 0%, #fff 100%);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: 1.2rem;
+        overflow: hidden;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 380px;
+        border-radius: var(--radius-lg);
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+
+      .phone-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+
+      .phone {
+        background: rgba(0, 169, 157, 0.08);
+        border: 1px solid rgba(0, 169, 157, 0.2);
+        border-radius: 16px;
+        min-height: 125px;
+        padding: 0.9rem;
+      }
+
+      .phone h4 {
+        margin: 0 0 0.4rem;
+        font-size: 0.92rem;
+        color: var(--teal);
+        font-weight: 700;
+      }
+
+      .phone p {
+        margin: 0;
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      h2 {
+        margin: 0 0 0.65rem;
+        font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+        letter-spacing: -0.01em;
+      }
+
+      .sub {
+        margin: 0 0 1.2rem;
+        color: var(--muted);
+        max-width: 64ch;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+      }
+
+      .card h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.04rem;
+        color: var(--primary);
+      }
+
+      .card p,
+      .card li {
+        color: var(--muted);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .step {
+        background: var(--surface);
+        border-radius: var(--radius-md);
+        border: 1px solid var(--line);
+        padding: 1rem;
+      }
+
+      .step .index {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 100%);
+        color: #fff;
+        font-weight: 800;
+        margin-bottom: 0.6rem;
+        box-shadow: 0 4px 12px rgba(0, 169, 157, 0.25);
+      }
+
+      .step h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1rem;
+      }
+
+      .safety {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 1.1rem;
+      }
+
+      .safety-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.85rem;
+      }
+
+      .safety-item {
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0.8rem;
+      }
+
+      .safety-item strong {
+        display: block;
+        color: var(--primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .social-proof {
+        background: linear-gradient(
+          130deg,
+          var(--primary) 0%,
+          var(--teal) 100%
+        );
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: 1.4rem;
+        box-shadow: 0 12px 32px rgba(30, 58, 138, 0.3);
+      }
+
+      .social-proof .stats {
+        margin-top: 0.8rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      .metric {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        padding: 0.8rem;
+      }
+
+      .metric strong {
+        font-size: 1.3rem;
+        display: block;
+      }
+
+      .final-cta {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 1.4rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .final-cta p {
+        margin: 0.45rem 0 0;
+        color: var(--muted);
+      }
+
+      .footer {
+        padding: 2rem 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        color: var(--muted);
+      }
+
+      .footer-nav {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-nav a {
+        text-decoration: none;
+      }
+
+      @media (max-width: 1040px) {
+        .hero,
+        .final-cta {
+          grid-template-columns: 1fr;
+        }
+
+        .steps {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .safety-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav-links {
+          display: none;
+        }
+
+        .actions {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .grid,
+        .social-proof .stats,
+        .phone-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="container nav" aria-label="Main navigation">
+        <a href="index.html" class="brand"
+          ><img src="assets/img/logo.png" alt="ProxiMeet"
+        /></a>
+        <ul class="nav-links">
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#proof">Social Proof</a></li>
+          <li><a href="download.html">Download</a></li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-secondary" href="waitlist.html">Join Waitlist</a>
+          <a class="btn btn-primary" href="download.html">Download Now</a>
         </div>
-        <div class="text-center text-sm-end ts-opacity__50 ms-sm-auto mt-2 mt-sm-0">
-            <small>© 2025 Proximeet Limited, All Rights Reserved</small>
+        <button class="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+      <div class="mobile-menu">
+        <ul>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#proof">Social Proof</a></li>
+          <li><a href="download.html">Download</a></li>
+        </ul>
+        <div class="mobile-actions">
+          <a class="btn btn-secondary" href="waitlist.html">Join Waitlist</a>
+          <a class="btn btn-primary" href="download.html">Download Now</a>
         </div>
-    </div>
-    <!--end clearfix-->
-</footer>
-            <!--end #footer-->
+      </div>
+    </header>
 
-<!-- Inline CSS for footer underline animation and mobile divider -->
-<style>
-.footer-underline {
-  position: relative;
-  text-decoration: none !important;
-  color: inherit;
-}
-.footer-underline::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: currentColor;
-  transform: scaleX(0);
-  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
-  transform-origin: left;
-}
-.footer-underline:hover::after,
-.footer-underline:focus::after {
-  transform: scaleX(1);
-}
-
-/* Mobile-only divider above copyright */
-.footer-divider-mobile {
-  display: none;
-}
-</style>
-            <!--end #footer-->
+    <main class="container">
+      <section class="hero">
+        <div>
+          <p class="kicker">Real People. Real Spaces. Real Intent.</p>
+          <h1>
+            <span class="highlight-accent">Connect</span> Instantly,
+            <span class="highlight-primary">Meet</span> Nearby
+          </h1>
+          <p>
+            Find and connect with people around you in real-time based on shared
+            interests and immediate needs.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="waitlist.html"
+              >Join the Waitlist</a
+            >
+            <a class="btn btn-secondary" href="download.html">Download Now</a>
+          </div>
         </div>
-        <!--end container-->
-
-        <!--BACKGROUND **********************************************************************************************-->
-        <div class="ts-background ts-shapes-canvas position-fixed ts-separate-bg-element" data-bg-color="#ffffff">
-            <div class="ts-background-image ts-animate ts-scale" data-bg-image="assets/img/bg/14.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/13.png"></div>
-            <div class="ts-background-image ts-animate ts-scale" data-bg-image="assets/img/bg/12.png" data-bg-opacity=".3"></div>
-            <div class="ts-background-image ts-animate ts-scale" data-bg-image="assets/img/bg/11.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/10.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/9.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/8.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/7.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/6.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate" data-bg-image="assets/img/bg/5.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/4.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/3.png" data-bg-opacity=".8"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/2.png"></div>
-            <div class="ts-background-image ts-animate ts-bounce" data-bg-image="assets/img/bg/1.png" data-bg-opacity=".8"></div>
-        </div>
-        <!--end ts-background-->
-    </div>
-    <!--end ts-page-wrapper-->
-
-    <!--*************************************************************************************************************-->
-    <!--************ SIDE PANEL *************************************************************************************-->
-    <!--*************************************************************************************************************-->
-
-    <div class="ts-side-panel" data-bg-color="#001330">
-        <a href="#" class="ts-close-side-panel">
-            <i class="far fa-times-circle"></i>
-        </a>
-        <!--end ts-close-side-panel-->
-        <div class="container-fluid">
-            <section id="about-us">
-                <div class="ts-title">
-                    <h2>About Us</h2>
-                </div>
-                <!--end ts-title-->
-                <p>
-                    At ProxiMeet, we are more than just a social networking platform; we are a pioneering force dedicated to revolutionizing how people connect in the real world. Inspired by the need for genuine, in-person interactions, we've created a unique platform that leverages proximity technology to connect individuals based on their immediate needs and offerings.
-                </p>
-                <!-- Team section commented out -->
-            </section>
-            <!--end section-->
-            <section id="what-drives-us">
-                <div class="ts-title">
-                    <h2>What Drives Us?</h2>
-                </div>
-                <!--end ts-title-->
-                <div id="drivesCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="d-flex flex-column align-items-center text-center py-4">
-                                <i class="fa-solid fa-group-arrows-rotate mb-4 fa-2x" style="max-width: 120px;"></i>
-                               <h3>Customer-Centricity</h3>
-                                <p>
-                                    We prioritize our users above all else, designing every feature with your needs and satisfaction in mind.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="d-flex flex-column align-items-center text-center py-4">
-                                <i class="fa-regular fa-lightbulb mb-4 fa-2x" style="max-width: 120px;"></i>
-                                <h3>Innovation</h3>
-                                <p>
-                                    We continuously strive to stay ahead of the curve, developing and improving our services to provide the best possible user experience.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="d-flex flex-column align-items-center text-center py-4">
-                                <i class="fa-solid fa-shield-halved mb-4 fa-2x" style="max-width: 120px;"></i>
-                                <h3>Reliability</h3>
-                                <p>
-                                    We ensure our app is consistently available, secure, and efficient, so you can always count on ProxiMeet.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="d-flex flex-column align-items-center text-center py-4">
-                                <i class="fa-solid fa-trophy mb-4 fa-2x" style="max-width: 120px;"></i>
-                                <h3>Excellence</h3>
-                                <p>
-                                    We pursue excellence in everything we do, from our technology to our customer support.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="d-flex flex-column align-items-center text-center py-4">
-                                <i class="fa-solid fa-globe mb-4 fa-2x" style="max-width: 120px;"></i>
-                                <h3>Social Responsibility</h3>
-                                <p>
-                                    We are committed to giving back to our community through education and other initiatives, aiming to make a positive impact on society.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#drivesCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#drivesCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#drivesCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#drivesCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#drivesCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#drivesCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#drivesCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                    </div>
-                </div>
-                <!--end carousel-->
-            </section>
-            <!--end section-->
-            <section id="our-mission">
-                <div class="ts-title">
-                    <h2>Our Mission</h2>
-                </div>
-                <!--end ts-title-->
-                <div class="row">
-                    <p>
-                            Our mission is to connect people in real-time, using our proximity-enabled platform, to facilitate safe and meaningful public meetups that enhance community bonds and personal interactions. We believe in empowering connections that stand the test of time, forging stronger bonds and laying the foundation for a brighter tomorrow.                        
-                        </p>
-                </div>
-                <!--end row-->
-            </section>
-            <!--end section-->
-            <section id="contact-form">
-                <div class="ts-title">
-                    <h2>Contact</h2>
-                </div>
-                <!--end ts-tile-->
-                <!-- <h3>Map</h3>
-                <div class="map ts-height__200px mb-5" id="map"></div> -->
-                <!--end map-->
-                <div class="row">
-                    <div class="col-xl-4 mb-4 mb-xl-0 me-xl-4">
-                        <h3>For more info</h3>
-                        <address>
-                            <!-- 4758 Nancy Street -->
-                            <br>
-                            +1 (805) 860-3490
-                            <br>
-                            <a href="#">developer@proximeet.ca</a>
-                        </address>
-                    </div>
-                    <!--end col-xl-4-->
-                    <div class="col-xl-7">
-                        <h3>Contact Form</h3>
-                        <form id="form-contact" class="ts-form ts-form-email ts-inputs__transparent"
-      action="https://formsubmit.co/developer@proximeet.ca" method="POST">
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-                <input type="text" class="form-control" id="form-contact-name" name="name" placeholder="Your Name" required>
+        <aside class="hero-visual" aria-label="App preview">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
+            alt="People connecting in real life"
+          />
+          <div class="phone-grid">
+            <div class="phone">
+              <h4>🎯 Real-time matching</h4>
+              <p>Find people nearby right now</p>
             </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-                <input type="email" class="form-control" id="form-contact-email" name="email" placeholder="Your Email" required>
+            <div class="phone">
+              <h4>🔒 Safe by design</h4>
+              <p>Public meetups only</p>
             </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="problem">
+        <h2>
+          <span class="highlight-accent">Smart</span> Safety,
+          <span class="highlight-primary">Seamless</span> Connections
+        </h2>
+        <p class="sub">
+          Decide who sees you and when. Your safety is our priority as you
+          connect with the right people in your space.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Library</h3>
+            <p>
+              Sitting next to 200 students and no structured way to find a study
+              partner.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Gym</h3>
+            <p>
+              Training near dozens of potential partners with no safe signal to
+              connect.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Conferences</h3>
+            <p>
+              Hundreds of professionals in one room and no context-first
+              introduction flow.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Creative Hubs</h3>
+            <p>
+              Creators in the same space but no intentional way to start
+              collaboration.
+            </p>
+          </article>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-group">
-                <textarea class="form-control" id="form-contact-message" rows="6" name="message" placeholder="Your Message" required></textarea>
+      </section>
+
+      <section id="how">
+        <h2>
+          Your <span class="highlight-primary">Interests</span>, Your
+          <span class="highlight-accent">Network</span>
+        </h2>
+        <p class="sub">
+          Select your interests, and we'll match you with like-minded
+          individuals nearby.
+        </p>
+        <div class="steps">
+          <article class="step">
+            <div class="index">1</div>
+            <h3>Set your reason</h3>
+            <p>
+              Choose Study, Workout, Network, or Create based on what you need
+              now.
+            </p>
+          </article>
+          <article class="step">
+            <div class="index">2</div>
+            <h3>Appear on the live map</h3>
+            <p>
+              Become visible to relevant nearby users in your current space.
+            </p>
+          </article>
+          <article class="step">
+            <div class="index">3</div>
+            <h3>Match intentionally</h3>
+            <p>
+              Only mutual interest opens chat so every interaction has clear
+              consent.
+            </p>
+          </article>
+          <article class="step">
+            <div class="index">4</div>
+            <h3>Meet in public zones</h3>
+            <p>
+              Coordinate in visible, approved locations built for safety and
+              clarity.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="safety">
+        <div class="safety">
+          <h2>Safety-first by design.</h2>
+          <p class="sub">
+            ProxiMeet is built for trust from first match to in-person meetup.
+          </p>
+          <div class="safety-grid">
+            <article class="safety-item">
+              <strong>Public Zones Only</strong>
+              Meetups are coordinated only in visible, public spaces.
+            </article>
+            <article class="safety-item">
+              <strong>Mutual Matching</strong>
+              No one can message unless both people opt in.
+            </article>
+            <article class="safety-item">
+              <strong>Profile Accountability</strong>
+              Structured identity signals discourage anonymous misuse.
+            </article>
+            <article class="safety-item">
+              <strong>Moderation System</strong>
+              Reports are reviewed to maintain a trusted environment.
+            </article>
+            <article class="safety-item">
+              <strong>Safe Zone Restrictions</strong>
+              Match visibility follows location and safety boundaries.
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="proof">
+        <article class="social-proof">
+          <h2>Launching soon with early adopters.</h2>
+          <p>
+            Social proof is ready for rollout: testimonials, beta numbers, and
+            city-by-city expansion.
+          </p>
+          <div class="stats">
+            <div class="metric">
+              <strong>300+</strong>
+              Early waitlist signups
             </div>
+            <div class="metric">
+              <strong>4 Cities</strong>
+              Pilot city shortlist
+            </div>
+            <div class="metric">
+              <strong>Q2 2026</strong>
+              Planned beta launch
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <div class="final-cta">
+          <div>
+            <h2>Stop scrolling. Start meeting.</h2>
+            <p>
+              High-signal, safe in-person connection starts with one intentional
+              match.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-secondary" href="waitlist.html">Join Waitlist</a>
+            <a class="btn btn-primary" href="download.html">Download iOS</a>
+          </div>
         </div>
-    </div>
-    <div class="form-group clearfix">
-        <button type="submit" class="btn float-end btn-outline-primary" id="form-contact-submit">Send a Message</button>
-    </div>
-    <div class="form-contact-status"></div>
-</form>
-                        <!--end form-contact -->
-                    </div>
-                    <!--end col-xl-8-->
-                </div>
-                <!--end row-->
-            </section>
-            <!--end section-->
-        </div>
-        <!--end container-fluid-->
-    </div>
-    <!--end ts-side-panel-->
+      </section>
+    </main>
 
-    <!--*************************************************************************************************************-->
-    <!--************ JS SCRIPTS *************************************************************************************-->
-    <!--*************************************************************************************************************-->
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <small
+          >&copy; <span id="year"></span> Proximeet Limited, All Rights
+          Reserved</small
+        >
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-    <!-- Bootstrap 5 JS Bundle (with Popper) -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <!-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58"></script> -->
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.countdown.min.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/jquery-validate.bootstrap-tooltip.min.js"></script>
-    <script src="assets/js/custom.js"></script>
+      // Hamburger menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const mobileMenu = document.querySelector(".mobile-menu");
 
-    <!--Google map-->
-    <!-- <script>
-        var latitude = 34.038405;
-        var longitude = -117.946944;
-        var markerImage = "assets/img/map-marker.png";
-        var mapElement = "map";
-        var mapStyle = [{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
-        google.maps.event.addDomListener(window, 'load', simpleMap(latitude, longitude, markerImage, mapStyle, mapElement));
-    </script> -->
-</body>
-</html>
-<script>
-// Robustly prevent body shifting when modal or side panel opens
-(function() {
-  function fixBodyPaddingAndClass() {
-    document.body.style.paddingRight = '0px';
-    document.body.classList.remove('modal-open');
-  }
-
-  // Side panel only
-
-  // Custom Side Panel
-  var sidePanel = document.querySelector('.ts-side-panel');
-  var openBtns = document.querySelectorAll('.ts-open-side-panel');
-  var closeBtn = document.querySelector('.ts-close-side-panel');
-  if (sidePanel && openBtns.length) {
-    openBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        setTimeout(fixBodyPaddingAndClass, 10);
+      hamburger.addEventListener("click", function () {
+        this.classList.toggle("active");
+        mobileMenu.classList.toggle("active");
       });
-    });
-  }
-  if (sidePanel && closeBtn) {
-    closeBtn.addEventListener('click', function() {
-      setTimeout(fixBodyPaddingAndClass, 10);
-    });
-  }
 
-  // Also fix on window resize
-  window.addEventListener('resize', fixBodyPaddingAndClass);
-
-  // MutationObserver to catch any changes to body style and fix padding
-  var observer = new MutationObserver(function() {
-    if (document.body.style.paddingRight && document.body.style.paddingRight !== '0px') {
-      document.body.style.paddingRight = '0px';
-    }
-    if (document.body.classList.contains('modal-open')) {
-      document.body.classList.remove('modal-open');
-    }
-  });
-  observer.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
-})();
-</script>
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", function () {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

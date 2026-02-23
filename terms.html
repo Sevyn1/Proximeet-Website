@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms | ProxiMeet</title>
+    <meta name="description" content="ProxiMeet Terms and Conditions." />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <style>
+      :root {
+        --bg: #fafafa;
+        --surface: #ffffff;
+        --text: #2d2d2d;
+        --muted: #6b6b6b;
+        --primary: #1e3a8a;
+        --teal: #00a99d;
+        --coral: #ff6b6b;
+        --purple: #9b59b6;
+        --yellow: #f4d03f;
+        --grey-light: #ecf0f1;
+        --accent: #00a99d;
+        --line: #e8e8e8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .container {
+        width: min(900px, 92%);
+        margin: 0 auto;
+      }
+      @media (min-width: 761px) and (max-width: 1024px) {
+        .container {
+          width: min(850px, 90%);
+        }
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(248, 249, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(8px);
+      }
+
+      footer {
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+
+      header .container {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      footer .container {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .brand img {
+        height: 42px;
+        width: auto;
+      }
+
+      article {
+        margin: 2rem 0;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1.2rem;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      h2 {
+        margin-bottom: 0.3rem;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+      }
+
+      nav a {
+        margin-left: 0.8rem;
+        color: var(--muted);
+        text-decoration: none;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        font-size: 15px;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+        background: rgba(30, 58, 138, 0.08);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        width: auto;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hamburger:hover {
+        background: transparent;
+        transform: none;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 77px;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 19;
+        padding: 1.5rem;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .mobile-menu ul li {
+        margin-bottom: 1rem;
+      }
+
+      .mobile-menu ul li a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 0;
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a class="brand" href="index.html"
+          ><img src="assets/img/logo.png" alt="ProxiMeet"
+        /></a>
+        <nav>
+          <a href="privacy.html">Privacy</a>
+          <a href="waitlist.html">Waitlist</a>
+        </nav>
+        <button class="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="waitlist.html">Waitlist</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <article>
+        <h1>Terms & Conditions</h1>
+        <p>Last updated: July 1, 2025</p>
+        <p>
+          Please read these Terms and Conditions ("Terms," "Terms and
+          Conditions") carefully before using the ProxiMeet mobile application
+          (the "App") operated by Proximeet Technologies Inc. ("Proximeet,"
+          "us," "we," or "our").
+        </p>
+        <p>
+          Your access to and use of the App is conditioned on your acceptance of
+          and compliance with these Terms. These Terms apply to all visitors,
+          users, and others who access or use the App.
+        </p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By accessing or using the App, you agree to be bound by these Terms.
+          If you disagree with any part of the Terms, then you may not access
+          the App.
+        </p>
+
+        <h2>2. Eligibility and User Accounts</h2>
+        <p>
+          <strong>Age Restriction:</strong> You must be at least 18 years of age
+          to use the ProxiMeet App. By using the App, you represent and warrant
+          that you are at least 18 years old.
+        </p>
+        <p>
+          <strong>Account Creation:</strong> When you create an account with us,
+          you must provide us with information that is accurate, complete, and
+          current at all times. Failure to do so constitutes a breach of the
+          Terms, which may result in immediate termination of your account on
+          our App.
+        </p>
+        <p>
+          <strong>Account Security:</strong> You are responsible for
+          safeguarding the password that you use to access the App and for any
+          activities or actions under your password, whether your password is
+          with our App or a third-party service. You agree not to disclose your
+          password to any third party. You must notify us immediately upon
+          becoming aware of any breach of security or unauthorized use of your
+          account.
+        </p>
+
+        <h2>3. App Usage and Functionality</h2>
+        <p>
+          <strong>Purpose:</strong> ProxiMeet is designed to connect people in
+          real-time based on their immediate needs and offerings, facilitating
+          safe, meaningful public meetups.
+        </p>
+        <p>
+          <strong>User Profiles:</strong> You agree to create a detailed and
+          comprehensive profile, providing mandatory information including your
+          date of birth, preferred gender, mobile number, and email address for
+          verification and safety. You will choose from existing interaction
+          types or create new ones to describe your immediate personal needs or
+          offerings.
+        </p>
+        <p>
+          <strong>Connection Process:</strong>
+        </p>
+        <ul>
+          <li>
+            The App utilizes proximity technology (Bluetooth or GPS) to alert
+            you about nearby matches.
+          </li>
+          <li>
+            Matching is based on profile inputs and interaction preferences.
+          </li>
+          <li>
+            Once a match is made, a unique connection profile is created, and
+            both parties receive a shared code and color for visual
+            identification.
+          </li>
+          <li>
+            You acknowledge that connections are intended to be made in public
+            spaces, and the App incorporates safety features like geo-fencing
+            and safe zone identification via Google Maps.
+          </li>
+        </ul>
+        <p>
+          <strong>Tier 1 vs. Tier 2 Access:</strong>
+        </p>
+        <ul>
+          <li>
+            Upon initial registration and basic verification (Tier 1), you may
+            be able to see possible connections within your locality.
+          </li>
+          <li>
+            To initiate or accept connections and utilize full meetup
+            functionality, you must complete Tier 2 validation, which includes
+            further verification steps as outlined in our Privacy Policy. The
+            App will visually indicate users who have completed Tier 2
+            validation.
+          </li>
+        </ul>
+
+        <h2>4. Safety and Conduct</h2>
+        <p>
+          <strong>Public Meetups:</strong> You agree to only engage in meetups
+          in public, safe spaces as encouraged by the App. While the App
+          provides safety features, you are solely responsible for your personal
+          safety during any meetup.
+        </p>
+        <p>
+          <strong>No Misuse:</strong> You agree not to use the App for any
+          unlawful purpose or in any way that could harm us or any third party.
+          This includes, but is not limited to:
+        </p>
+        <ul>
+          <li>Harassment, abuse, or intimidation of other users.</li>
+          <li>
+            Posting or transmitting any content that is offensive, hateful, or
+            discriminatory.
+          </li>
+          <li>Impersonating any person or entity.</li>
+          <li>
+            Engaging in any activity that violates the privacy or rights of
+            others.
+          </li>
+          <li>
+            Using the 'kill switch' or geo-fencing features inappropriately.
+          </li>
+        </ul>
+        <p>
+          <strong>Reporting:</strong> We encourage you to report any
+          inappropriate behavior or safety concerns to us immediately through
+          the App's support system.
+        </p>
+
+        <h2>5. Intellectual Property</h2>
+        <p>
+          The App and its original content, features, and functionality are and
+          will remain the exclusive property of Proximeet Technologies Inc. The
+          "ProxiMeet" name, logo, and any associated trademarks are trademarks
+          of Proximeet Technologies Inc. You may not use our trademarks without
+          prior written permission.
+        </p>
+
+        <h2>6. Termination</h2>
+        <p>
+          We may terminate or suspend your account immediately, without prior
+          notice or liability, for any reason whatsoever, including without
+          limitation if you breach the Terms. Upon termination, your right to
+          use the App will immediately cease. If you wish to terminate your
+          account, you may simply discontinue using the App or follow the
+          account deletion process within the App.
+        </p>
+
+        <h2>7. Disclaimer of Warranties</h2>
+        <p>
+          The App is provided on an "AS IS" and "AS AVAILABLE" basis. We make no
+          warranties, expressed or implied, regarding the operation or
+          availability of the App, or the information, content, materials, or
+          products included on the App.
+        </p>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>
+          In no event shall Proximeet Technologies Inc., nor its directors,
+          employees, partners, agents, suppliers, or affiliates, be liable for
+          any indirect, incidental, special, consequential, or punitive damages,
+          including without limitation, loss of profits, data, use, goodwill, or
+          other intangible losses, resulting from (i) your access to or use of
+          or inability to access or use the App; (ii) any conduct or content of
+          any third party on the App; (iii) any content obtained from the App;
+          and (iv) unauthorized access, use, or alteration of your transmissions
+          or content, whether based on warranty, contract, tort (including
+          negligence), or any other legal theory, whether or not we have been
+          informed of the possibility of such damage.
+        </p>
+
+        <h2>9. Governing Law</h2>
+        <p>
+          These Terms shall be governed and construed in accordance with the
+          laws of Canada, without regard to its conflict of law provisions.
+        </p>
+
+        <h2>10. Changes to Terms</h2>
+        <p>
+          We reserve the right, at our sole discretion, to modify or replace
+          these Terms at any time. If a revision is material, we will try to
+          provide at least 30 days' notice prior to any new terms taking effect.
+          What constitutes a material change will be determined at our sole
+          discretion. By continuing to access or use our App after those
+          revisions become effective, you agree to be bound by the revised
+          terms. If you do not agree to the new terms, please stop using the
+          App.
+        </p>
+
+        <h2>11. Contact Us</h2>
+        <p>
+          If you have any questions about these Terms, please contact us at:
+        </p>
+        <p>
+          <strong>Proximeet Technologies Inc.</strong><br />
+          142 Cove Crescent, Stoney Creek, ON, Canada, L8E5A2<br />
+          Email:
+          <a href="mailto:developer@proximeet.ca">developer@proximeet.ca</a>
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <div class="container">
+        <small
+          >&copy; <span id="year"></span> Proximeet Limited, All Rights
+          Reserved</small
+        >
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Hamburger menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      hamburger.addEventListener("click", function () {
+        this.classList.toggle("active");
+        mobileMenu.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", function () {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>

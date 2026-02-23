@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Download ProxiMeet</title>
+    <meta
+      name="description"
+      content="Download ProxiMeet and start intentional real-world connections."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <style>
+      :root {
+        --bg: #fafafa;
+        --surface: #ffffff;
+        --text: #2d2d2d;
+        --muted: #6b6b6b;
+        --primary: #1e3a8a;
+        --teal: #00a99d;
+        --coral: #ff6b6b;
+        --purple: #9b59b6;
+        --yellow: #f4d03f;
+        --grey-light: #ecf0f1;
+        --accent: #00a99d;
+        --line: #e8e8e8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .container {
+        width: min(980px, 92%);
+        margin: 0 auto;
+      }
+      @media (min-width: 761px) and (max-width: 1024px) {
+        .container {
+          width: min(850px, 90%);
+        }
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(248, 249, 252, 0.92);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(8px);
+      }
+
+      footer {
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+
+      header .container {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      footer .container {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .brand img {
+        height: 42px;
+        width: auto;
+      }
+
+      .hero {
+        margin: 2.8rem 0;
+        padding: 1.4rem;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      h1 {
+        margin: 0 0 0.65rem;
+        font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+      }
+
+      p {
+        margin: 0 0 1rem;
+        color: var(--muted);
+      }
+
+      .shots {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin: 1rem 0;
+      }
+
+      .shot {
+        border: 1px solid var(--line);
+        background: #f3f6ff;
+        border-radius: 14px;
+        min-height: 160px;
+        padding: 0.9rem;
+      }
+
+      .shot strong {
+        color: var(--primary);
+      }
+
+      .buttons {
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border: 2px solid transparent;
+        border-radius: 999px;
+        text-decoration: none;
+        padding: 0.8rem 1.2rem;
+        font-weight: 700;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: #7a4ea6;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: #fff;
+        color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(139, 95, 184, 0.05);
+      }
+
+      .list {
+        margin: 0;
+        padding-left: 1.15rem;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        margin-left: 0.85rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        font-size: 15px;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+        background: rgba(30, 58, 138, 0.08);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        width: auto;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hamburger:hover {
+        background: transparent;
+        transform: none;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 77px;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 19;
+        padding: 1.5rem;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .mobile-menu ul li {
+        margin-bottom: 1rem;
+      }
+
+      .mobile-menu ul li a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 0;
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .shots {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a class="brand" href="index.html"
+          ><img src="assets/img/logo.png" alt="ProxiMeet"
+        /></a>
+        <nav>
+          <a href="waitlist.html">Waitlist</a>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+        <button class="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="waitlist.html">Waitlist</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1>Ready to meet with purpose?</h1>
+        <p>
+          ProxiMeet helps you connect with people nearby based on real-time
+          intent, not endless scrolling.
+        </p>
+
+        <div class="shots" aria-label="App screenshots">
+          <article class="shot">
+            <strong>Live Map</strong>
+            <p>Nearby people by intent.</p>
+          </article>
+          <article class="shot">
+            <strong>Safe Zones</strong>
+            <p>Public-only meetup points.</p>
+          </article>
+          <article class="shot">
+            <strong>Mutual Match</strong>
+            <p>Only consent-first chats open.</p>
+          </article>
+        </div>
+
+        <ul class="list">
+          <li>Supported pilot cities: London, Lagos, Toronto, Austin</li>
+          <li>iOS launch first, Android coming soon</li>
+          <li>Safety and moderation enabled from day one</li>
+        </ul>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#">Download iOS</a>
+          <a class="btn btn-secondary" href="waitlist.html"
+            >Android Coming Soon</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <small
+          >&copy; <span id="year"></span> Proximeet Limited, All Rights
+          Reserved</small
+        >
+        <nav>
+          <a href="terms.html">Terms</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Hamburger menu toggle
+      const hamburger = document.querySelector(".hamburger");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      hamburger.addEventListener("click", function () {
+        this.classList.toggle("active");
+        mobileMenu.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", function () {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>
