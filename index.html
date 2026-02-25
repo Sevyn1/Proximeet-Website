@@ -29,6 +29,11 @@
         --shadow: 0 12px 32px rgba(30, 58, 138, 0.12);
       }
 
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -268,24 +273,85 @@
       }
 
       .phone {
-        background: rgba(0, 169, 157, 0.08);
-        border: 1px solid rgba(0, 169, 157, 0.2);
-        border-radius: 16px;
-        min-height: 125px;
-        padding: 0.9rem;
+        border-radius: 18px;
+        min-height: 135px;
+        padding: 1.1rem 1.2rem;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .phone:hover {
+        transform: translateY(-3px);
+      }
+
+      /* Real-time matching card */
+      .phone.feature-matching {
+        background: linear-gradient(135deg, rgba(0, 169, 157, 0.12) 0%, rgba(0, 169, 157, 0.04) 100%);
+        border: 1.5px solid rgba(0, 169, 157, 0.3);
+        box-shadow: 0 4px 20px rgba(0, 169, 157, 0.15);
+      }
+
+      .phone.feature-matching:hover {
+        box-shadow: 0 8px 30px rgba(0, 169, 157, 0.25);
+      }
+
+      .phone.feature-matching .feature-icon {
+        background: linear-gradient(135deg, var(--teal), var(--accent));
+      }
+
+      .phone.feature-matching h4 {
+        color: var(--teal);
+      }
+
+      /* Safe by design card */
+      .phone.feature-safety {
+        background: linear-gradient(135deg, rgba(30, 58, 138, 0.10) 0%, rgba(30, 58, 138, 0.03) 100%);
+        border: 1.5px solid rgba(30, 58, 138, 0.25);
+        box-shadow: 0 4px 20px rgba(30, 58, 138, 0.12);
+      }
+
+      .phone.feature-safety:hover {
+        box-shadow: 0 8px 30px rgba(30, 58, 138, 0.22);
+      }
+
+      .phone.feature-safety .feature-icon {
+        background: linear-gradient(135deg, var(--primary), #2a4fbc);
+      }
+
+      .phone.feature-safety h4 {
+        color: var(--primary);
+      }
+
+      .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(0, 169, 157, 0.15); }
+        50% { box-shadow: 0 0 16px 4px rgba(0, 169, 157, 0.2); }
       }
 
       .phone h4 {
-        margin: 0 0 0.4rem;
-        font-size: 0.92rem;
-        color: var(--teal);
-        font-weight: 700;
+        margin: 0 0 0.35rem;
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
       }
 
       .phone p {
         margin: 0;
         font-size: 0.84rem;
         color: var(--muted);
+        line-height: 1.45;
       }
 
       section {
@@ -427,6 +493,85 @@
         gap: 1rem;
       }
 
+      .faq-list {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-md);
+        margin-bottom: 0.65rem;
+        overflow: hidden;
+        transition: box-shadow 0.25s ease;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 4px 16px rgba(30, 58, 138, 0.08);
+      }
+
+      .faq-question {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.15rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        text-align: left;
+      }
+
+      .faq-question:hover {
+        color: var(--primary);
+      }
+
+      .faq-icon {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--teal);
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        background: var(--teal);
+        color: #fff;
+        border-color: var(--teal);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+        padding: 0 1.15rem;
+      }
+
+      .faq-item.open .faq-answer {
+        max-height: 300px;
+        padding: 0 1.15rem 1rem;
+      }
+
+      .faq-answer p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
       .final-cta p {
         margin: 0.45rem 0 0;
         color: var(--muted);
@@ -501,6 +646,7 @@
           <li><a href="#how">How It Works</a></li>
           <li><a href="#safety">Safety</a></li>
           <li><a href="#proof">Social Proof</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="download.html">Download</a></li>
         </ul>
         <div class="actions">
@@ -518,6 +664,7 @@
           <li><a href="#how">How It Works</a></li>
           <li><a href="#safety">Safety</a></li>
           <li><a href="#proof">Social Proof</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="download.html">Download</a></li>
         </ul>
         <div class="mobile-actions">
@@ -553,12 +700,14 @@
             alt="People connecting in real life"
           />
           <div class="phone-grid">
-            <div class="phone">
-              <h4>🎯 Real-time matching</h4>
+            <div class="phone feature-matching">
+              <div class="feature-icon">🎯</div>
+              <h4>Real-time matching</h4>
               <p>Find people nearby right now</p>
             </div>
-            <div class="phone">
-              <h4>🔒 Safe by design</h4>
+            <div class="phone feature-safety">
+              <div class="feature-icon">🔒</div>
+              <h4>Safe by design</h4>
               <p>Public meetups only</p>
             </div>
           </div>
@@ -705,6 +854,67 @@
         </article>
       </section>
 
+      <section id="faq">
+        <h2>Frequently Asked <span class="highlight-accent">Questions</span></h2>
+        <p class="sub">Everything you need to know about ProxiMeet.</p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is ProxiMeet?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>ProxiMeet is a real-time, location-based app that helps you discover and connect with people nearby who share your interests or immediate needs — safely and intentionally in public spaces.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is ProxiMeet safe to use?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. Safety is built into every layer. All meetups happen in public spaces, your precise location is never shared, and every profile is verified. You always control who sees you and when.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How does matching work?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>ProxiMeet uses real-time proximity and shared intent signals to match you with nearby people. Set your interest or need, and the app surfaces compatible people around you right now — no endless swiping.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              When will ProxiMeet launch?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We're planning a beta launch in Q2 2026, starting in select pilot cities. Join the waitlist to get early access and help shape the product.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is ProxiMeet free?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>ProxiMeet will be free to download and use. We may introduce optional premium features in the future, but core matching and safety features will always remain free.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What makes ProxiMeet different from other social apps?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Unlike traditional social apps, ProxiMeet focuses on real-time, in-person connection with built-in safety. No profiles to browse endlessly — just genuine, context-first introductions with people who are actually nearby.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section>
         <div class="final-cta">
           <div>
@@ -746,11 +956,45 @@
         mobileMenu.classList.toggle("active");
       });
 
-      // Close mobile menu when clicking a link
-      document.querySelectorAll(".mobile-menu a").forEach((link) => {
-        link.addEventListener("click", function () {
-          hamburger.classList.remove("active");
-          mobileMenu.classList.remove("active");
+      // Close mobile menu when clicking a link (use delegation for reliability)
+      function closeMobileMenu() {
+        hamburger.classList.remove("active");
+        mobileMenu.classList.remove("active");
+      }
+
+      mobileMenu.addEventListener("click", function (e) {
+        if (e.target.closest("a")) {
+          closeMobileMenu();
+        }
+      });
+
+      // Close mobile menu when clicking outside of it
+      document.addEventListener("click", function (e) {
+        if (
+          mobileMenu.classList.contains("active") &&
+          !mobileMenu.contains(e.target) &&
+          !hamburger.contains(e.target)
+        ) {
+          closeMobileMenu();
+        }
+      });
+      // FAQ accordion
+      document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const item = this.closest(".faq-item");
+          const isOpen = item.classList.contains("open");
+
+          // Close all items
+          document.querySelectorAll(".faq-item").forEach((i) => {
+            i.classList.remove("open");
+            i.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+          });
+
+          // Toggle clicked item
+          if (!isOpen) {
+            item.classList.add("open");
+            this.setAttribute("aria-expanded", "true");
+          }
         });
       });
     </script>

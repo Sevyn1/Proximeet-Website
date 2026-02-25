@@ -22,6 +22,11 @@
         --line: #e8e8e8;
       }
 
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -459,12 +464,27 @@
         mobileMenu.classList.toggle("active");
       });
 
-      // Close mobile menu when clicking a link
-      document.querySelectorAll(".mobile-menu a").forEach((link) => {
-        link.addEventListener("click", function () {
-          hamburger.classList.remove("active");
-          mobileMenu.classList.remove("active");
-        });
+      // Close mobile menu when clicking a link (use delegation for reliability)
+      function closeMobileMenu() {
+        hamburger.classList.remove("active");
+        mobileMenu.classList.remove("active");
+      }
+
+      mobileMenu.addEventListener("click", function (e) {
+        if (e.target.closest("a")) {
+          closeMobileMenu();
+        }
+      });
+
+      // Close mobile menu when clicking outside of it
+      document.addEventListener("click", function (e) {
+        if (
+          mobileMenu.classList.contains("active") &&
+          !mobileMenu.contains(e.target) &&
+          !hamburger.contains(e.target)
+        ) {
+          closeMobileMenu();
+        }
       });
     </script>
   </body>
