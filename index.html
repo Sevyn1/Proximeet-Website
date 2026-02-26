@@ -278,7 +278,9 @@
         padding: 1.1rem 1.2rem;
         position: relative;
         overflow: hidden;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
       }
 
       .phone:hover {
@@ -287,7 +289,11 @@
 
       /* Real-time matching card */
       .phone.feature-matching {
-        background: linear-gradient(135deg, rgba(0, 169, 157, 0.12) 0%, rgba(0, 169, 157, 0.04) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 169, 157, 0.12) 0%,
+          rgba(0, 169, 157, 0.04) 100%
+        );
         border: 1.5px solid rgba(0, 169, 157, 0.3);
         box-shadow: 0 4px 20px rgba(0, 169, 157, 0.15);
       }
@@ -306,7 +312,11 @@
 
       /* Safe by design card */
       .phone.feature-safety {
-        background: linear-gradient(135deg, rgba(30, 58, 138, 0.10) 0%, rgba(30, 58, 138, 0.03) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(30, 58, 138, 0.1) 0%,
+          rgba(30, 58, 138, 0.03) 100%
+        );
         border: 1.5px solid rgba(30, 58, 138, 0.25);
         box-shadow: 0 4px 20px rgba(30, 58, 138, 0.12);
       }
@@ -336,8 +346,13 @@
       }
 
       @keyframes pulse-glow {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(0, 169, 157, 0.15); }
-        50% { box-shadow: 0 0 16px 4px rgba(0, 169, 157, 0.2); }
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(0, 169, 157, 0.15);
+        }
+        50% {
+          box-shadow: 0 0 16px 4px rgba(0, 169, 157, 0.2);
+        }
       }
 
       .phone h4 {
@@ -483,14 +498,50 @@
       }
 
       .final-cta {
-        background: var(--surface);
-        border: 1px solid var(--line);
+        background: linear-gradient(
+          130deg,
+          var(--primary) 0%,
+          var(--teal) 100%
+        );
+        color: #fff;
+        border: none;
         border-radius: var(--radius-lg);
-        padding: 1.4rem;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 1rem;
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 12px 32px rgba(30, 58, 138, 0.3);
+      }
+
+      .final-cta h2 {
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      .final-cta p {
+        margin: 0 auto 1.3rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 48ch;
+      }
+
+      .final-cta .actions {
+        justify-content: center;
+      }
+
+      .final-cta .btn-primary {
+        background: #fff;
+        color: var(--primary);
+      }
+
+      .final-cta .btn-primary:hover {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .final-cta .btn-secondary {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      .final-cta .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.12);
       }
 
       .faq-list {
@@ -544,7 +595,9 @@
         font-size: 1.1rem;
         font-weight: 600;
         color: var(--teal);
-        transition: transform 0.3s ease, background 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          background 0.3s ease;
       }
 
       .faq-item.open .faq-icon {
@@ -557,7 +610,9 @@
       .faq-answer {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.35s ease, padding 0.35s ease;
+        transition:
+          max-height 0.35s ease,
+          padding 0.35s ease;
         padding: 0 1.15rem;
       }
 
@@ -573,8 +628,9 @@
       }
 
       .final-cta p {
-        margin: 0.45rem 0 0;
-        color: var(--muted);
+        margin: 0 auto 1.3rem;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 48ch;
       }
 
       .contact-details {
@@ -665,7 +721,9 @@
         font-size: 0.92rem;
         background: var(--bg);
         color: var(--text);
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
       .form-group input:focus,
@@ -683,19 +741,6 @@
       .contact-form .btn {
         width: 100%;
         justify-content: center;
-      }
-
-      @media (max-width: 760px) {
-        .contact-form .form-row {
-          grid-template-columns: 1fr;
-        }
-        .contact-details {
-          flex-direction: column;
-          align-items: center;
-        }
-        .contact-card {
-          max-width: 100%;
-        }
       }
 
       .form-success {
@@ -754,8 +799,7 @@
       }
 
       @media (max-width: 1040px) {
-        .hero,
-        .final-cta {
+        .hero {
           grid-template-columns: 1fr;
         }
 
@@ -785,6 +829,29 @@
         .social-proof .stats,
         .phone-grid {
           grid-template-columns: 1fr;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+
+        .actions .btn {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+        }
+
+        .contact-form .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-details {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .contact-card {
+          max-width: 100%;
         }
       }
     </style>
@@ -1010,7 +1077,9 @@
       </section>
 
       <section id="faq">
-        <h2>Frequently Asked <span class="highlight-accent">Questions</span></h2>
+        <h2>
+          Frequently Asked <span class="highlight-accent">Questions</span>
+        </h2>
         <p class="sub">Everything you need to know about ProxiMeet.</p>
         <div class="faq-list">
           <div class="faq-item">
@@ -1019,7 +1088,11 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>ProxiMeet is a real-time, location-based app that helps you discover and connect with people nearby who share your interests or immediate needs — safely and intentionally in public spaces.</p>
+              <p>
+                ProxiMeet is a real-time, location-based app that helps you
+                discover and connect with people nearby who share your interests
+                or immediate needs — safely and intentionally in public spaces.
+              </p>
             </div>
           </div>
           <div class="faq-item">
@@ -1028,7 +1101,12 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Absolutely. Safety is built into every layer. All meetups happen in public spaces, your precise location is never shared, and every profile is verified. You always control who sees you and when.</p>
+              <p>
+                Absolutely. Safety is built into every layer. All meetups happen
+                in public spaces, your precise location is never shared, and
+                every profile is verified. You always control who sees you and
+                when.
+              </p>
             </div>
           </div>
           <div class="faq-item">
@@ -1037,7 +1115,12 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>ProxiMeet uses real-time proximity and shared intent signals to match you with nearby people. Set your interest or need, and the app surfaces compatible people around you right now — no endless swiping.</p>
+              <p>
+                ProxiMeet uses real-time proximity and shared intent signals to
+                match you with nearby people. Set your interest or need, and the
+                app surfaces compatible people around you right now — no endless
+                swiping.
+              </p>
             </div>
           </div>
           <div class="faq-item">
@@ -1046,7 +1129,11 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>We're planning a beta launch in Q2 2026, starting in select pilot cities. Join the waitlist to get early access and help shape the product.</p>
+              <p>
+                We're planning a beta launch in Q2 2026, starting in select
+                pilot cities. Join the waitlist to get early access and help
+                shape the product.
+              </p>
             </div>
           </div>
           <div class="faq-item">
@@ -1055,7 +1142,11 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>ProxiMeet will be free to download and use. We may introduce optional premium features in the future, but core matching and safety features will always remain free.</p>
+              <p>
+                ProxiMeet will be free to download and use. We may introduce
+                optional premium features in the future, but core matching and
+                safety features will always remain free.
+              </p>
             </div>
           </div>
           <div class="faq-item">
@@ -1064,7 +1155,12 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Unlike traditional social apps, ProxiMeet focuses on real-time, in-person connection with built-in safety. No profiles to browse endlessly — just genuine, context-first introductions with people who are actually nearby.</p>
+              <p>
+                Unlike traditional social apps, ProxiMeet focuses on real-time,
+                in-person connection with built-in safety. No profiles to browse
+                endlessly — just genuine, context-first introductions with
+                people who are actually nearby.
+              </p>
             </div>
           </div>
         </div>
@@ -1072,20 +1168,35 @@
 
       <section id="contact">
         <h2>Get in <span class="highlight-accent">Touch</span></h2>
-        <p class="sub">Have a question, partnership idea, or just want to say hi? We'd love to hear from you.</p>
+        <p class="sub">
+          Have a question, partnership idea, or just want to say hi? We'd love
+          to hear from you.
+        </p>
         <div class="contact-details">
           <div class="contact-card">
             <div class="contact-card-icon">✉️</div>
             <div>
               <strong>Email</strong>
-              <span><a href="mailto:developer@proximeet.ca" style="color:var(--teal);text-decoration:none">developer@proximeet.ca</a></span>
+              <span
+                ><a
+                  href="mailto:developer@proximeet.ca"
+                  style="color: var(--teal); text-decoration: none"
+                  >developer@proximeet.ca</a
+                ></span
+              >
             </div>
           </div>
           <div class="contact-card">
             <div class="contact-card-icon">📞</div>
             <div>
               <strong>Phone</strong>
-              <span><a href="tel:+18058603490" style="color:inherit;text-decoration:none">+1 (805) 860-3490</a></span>
+              <span
+                ><a
+                  href="tel:+18058603490"
+                  style="color: inherit; text-decoration: none"
+                  >+1 (805) 860-3490</a
+                ></span
+              >
             </div>
           </div>
           <div class="contact-card">
@@ -1098,22 +1209,47 @@
         </div>
         <div class="contact-form" id="contactForm">
           <h3>Send us a message</h3>
-          <form id="contactFormEl" action="https://formsubmit.co/developer@proximeet.ca" method="POST">
-            <input type="hidden" name="_subject" value="New message from ProxiMeet website">
-            <input type="hidden" name="_captcha" value="false">
+          <form
+            id="contactFormEl"
+            action="https://formsubmit.co/developer@proximeet.ca"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New message from ProxiMeet website"
+            />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="form-row">
               <div class="form-group">
                 <label for="contactName">Name</label>
-                <input type="text" id="contactName" name="name" placeholder="Your name" required />
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="contactEmail">Email</label>
-                <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required />
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
               </div>
             </div>
             <div class="form-group">
               <label for="contactMessage">Message</label>
-              <textarea id="contactMessage" name="message" placeholder="Your message" required></textarea>
+              <textarea
+                id="contactMessage"
+                name="message"
+                placeholder="Your message"
+                required
+              ></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Send Message</button>
           </form>
@@ -1126,13 +1262,12 @@
       </section>
 
       <section>
-          <div>
-            <h2>Stop scrolling. Start meeting.</h2>
-            <p>
-              High-signal, safe in-person connection starts with one intentional
-              match.
-            </p>
-          </div>
+        <div class="final-cta">
+          <h2>Stop scrolling. Start meeting.</h2>
+          <p>
+            High-signal, safe in-person connection starts with one intentional
+            match.
+          </p>
           <div class="actions">
             <a class="btn btn-secondary" href="waitlist.html">Join Waitlist</a>
             <a class="btn btn-primary" href="download.html">Download iOS</a>
@@ -1197,7 +1332,10 @@
           // Close all items
           document.querySelectorAll(".faq-item").forEach((i) => {
             i.classList.remove("open");
-            i.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+            i.querySelector(".faq-question").setAttribute(
+              "aria-expanded",
+              "false",
+            );
           });
 
           // Toggle clicked item
