@@ -393,20 +393,119 @@
 
       .card {
         background: var(--surface);
-        border: 1px solid var(--line);
         border-radius: var(--radius-md);
-        padding: 1rem;
+        padding: 1.15rem;
+        position: relative;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+      }
+
+      .card-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        margin-bottom: 0.65rem;
       }
 
       .card h3 {
         margin: 0 0 0.4rem;
         font-size: 1.04rem;
-        color: var(--primary);
+        font-weight: 800;
       }
 
       .card p,
       .card li {
         color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* Library - teal */
+      .card.card-library {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 169, 157, 0.08) 0%,
+          rgba(0, 169, 157, 0.02) 100%
+        );
+        border: 1.5px solid rgba(0, 169, 157, 0.25);
+        box-shadow: 0 4px 16px rgba(0, 169, 157, 0.1);
+      }
+      .card.card-library:hover {
+        box-shadow: 0 8px 28px rgba(0, 169, 157, 0.2);
+      }
+      .card.card-library .card-icon {
+        background: linear-gradient(135deg, var(--teal), var(--accent));
+      }
+      .card.card-library h3 {
+        color: var(--teal);
+      }
+
+      /* Gym - coral */
+      .card.card-gym {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 107, 0.08) 0%,
+          rgba(255, 107, 107, 0.02) 100%
+        );
+        border: 1.5px solid rgba(255, 107, 107, 0.25);
+        box-shadow: 0 4px 16px rgba(255, 107, 107, 0.1);
+      }
+      .card.card-gym:hover {
+        box-shadow: 0 8px 28px rgba(255, 107, 107, 0.2);
+      }
+      .card.card-gym .card-icon {
+        background: linear-gradient(135deg, var(--coral), #ff8e8e);
+      }
+      .card.card-gym h3 {
+        color: var(--coral);
+      }
+
+      /* Conferences - primary */
+      .card.card-conferences {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 58, 138, 0.08) 0%,
+          rgba(30, 58, 138, 0.02) 100%
+        );
+        border: 1.5px solid rgba(30, 58, 138, 0.2);
+        box-shadow: 0 4px 16px rgba(30, 58, 138, 0.08);
+      }
+      .card.card-conferences:hover {
+        box-shadow: 0 8px 28px rgba(30, 58, 138, 0.18);
+      }
+      .card.card-conferences .card-icon {
+        background: linear-gradient(135deg, var(--primary), #2a4fbc);
+      }
+      .card.card-conferences h3 {
+        color: var(--primary);
+      }
+
+      /* Creative Hubs - purple */
+      .card.card-creative {
+        background: linear-gradient(
+          135deg,
+          rgba(155, 89, 182, 0.08) 0%,
+          rgba(155, 89, 182, 0.02) 100%
+        );
+        border: 1.5px solid rgba(155, 89, 182, 0.2);
+        box-shadow: 0 4px 16px rgba(155, 89, 182, 0.1);
+      }
+      .card.card-creative:hover {
+        box-shadow: 0 8px 28px rgba(155, 89, 182, 0.2);
+      }
+      .card.card-creative .card-icon {
+        background: linear-gradient(135deg, var(--purple), #b07cc6);
+      }
+      .card.card-creative h3 {
+        color: var(--purple);
       }
 
       .steps {
@@ -946,28 +1045,32 @@
           connect with the right people in your space.
         </p>
         <div class="grid">
-          <article class="card">
+          <article class="card card-library">
+            <div class="card-icon">📚</div>
             <h3>Library</h3>
             <p>
               Sitting next to 200 students and no structured way to find a study
               partner.
             </p>
           </article>
-          <article class="card">
+          <article class="card card-gym">
+            <div class="card-icon">🏋️</div>
             <h3>Gym</h3>
             <p>
               Training near dozens of potential partners with no safe signal to
               connect.
             </p>
           </article>
-          <article class="card">
+          <article class="card card-conferences">
+            <div class="card-icon">🌐</div>
             <h3>Conferences</h3>
             <p>
               Hundreds of professionals in one room and no context-first
               introduction flow.
             </p>
           </article>
-          <article class="card">
+          <article class="card card-creative">
+            <div class="card-icon">🎨</div>
             <h3>Creative Hubs</h3>
             <p>
               Creators in the same space but no intentional way to start
