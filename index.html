@@ -373,6 +373,59 @@
         padding: 3rem 0;
       }
 
+      section:nth-of-type(odd) {
+        background: var(--bg);
+      }
+
+      .full-bleed {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-left: max(4%, calc((100vw - 1140px) / 2));
+        padding-right: max(4%, calc((100vw - 1140px) / 2));
+      }
+
+      #problem {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 169, 157, 0.06) 0%,
+          rgba(0, 169, 157, 0.02) 100%
+        );
+      }
+
+      #how {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 58, 138, 0.06) 0%,
+          rgba(155, 89, 182, 0.04) 100%
+        );
+      }
+
+      #safety {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 169, 157, 0.04) 0%,
+          rgba(30, 58, 138, 0.06) 100%
+        );
+      }
+
+      #faq {
+        background: linear-gradient(
+          135deg,
+          rgba(155, 89, 182, 0.06) 0%,
+          rgba(255, 107, 107, 0.04) 100%
+        );
+      }
+
+      #contact {
+        background: linear-gradient(
+          135deg,
+          rgba(30, 58, 138, 0.04) 0%,
+          rgba(0, 169, 157, 0.06) 100%
+        );
+      }
+
       h2 {
         margin: 0 0 0.65rem;
         font-size: clamp(1.6rem, 3.4vw, 2.4rem);
@@ -1055,7 +1108,7 @@
         </aside>
       </section>
 
-      <section id="problem">
+      <section id="problem" class="full-bleed">
         <h2>
           <span class="highlight-accent">Smart</span> Safety,
           <span class="highlight-primary">Seamless</span> Connections
@@ -1100,7 +1153,7 @@
         </div>
       </section>
 
-      <section id="how">
+      <section id="how" class="full-bleed">
         <h2>
           Your <span class="highlight-primary">Interests</span>, Your
           <span class="highlight-accent">Network</span>
@@ -1144,7 +1197,7 @@
         </div>
       </section>
 
-      <section id="safety">
+      <section id="safety" class="full-bleed">
         <div class="safety">
           <h2>Safety-first by design.</h2>
           <p class="sub">
@@ -1199,7 +1252,7 @@
         </article>
       </section>
 
-      <section id="faq">
+      <section id="faq" class="full-bleed">
         <h2>
           Frequently Asked <span class="highlight-accent">Questions</span>
         </h2>
@@ -1289,7 +1342,7 @@
         </div>
       </section>
 
-      <section id="contact">
+      <section id="contact" class="full-bleed">
         <h2>Get in <span class="highlight-accent">Touch</span></h2>
         <p class="sub">
           Have a question, partnership idea, or just want to say hi? We'd love
