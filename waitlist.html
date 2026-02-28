@@ -10,9 +10,17 @@
     />
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
     <style>
+      @font-face {
+        font-family: 'Oxanium';
+        src: url('assets/fonts/Oxanium-VariableFont_wght.ttf') format('truetype');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+
       :root {
         --bg: #fafafa;
         --surface: #ffffff;
+        --surface-soft: #f7f5f9;
         --text: #2d2d2d;
         --muted: #6b6b6b;
         --primary: #1e3a8a;
@@ -23,6 +31,9 @@
         --grey-light: #ecf0f1;
         --accent: #00a99d;
         --line: #e8e8e8;
+        --radius-lg: 28px;
+        --radius-md: 18px;
+        --shadow: 0 12px 32px rgba(30, 58, 138, 0.12);
       }
 
       html {
@@ -36,9 +47,10 @@
 
       body {
         margin: 0;
-        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        font-family: Oxanium, Inter, "Segoe UI", Roboto, Arial, sans-serif;
         background: var(--bg);
         color: var(--text);
+        line-height: 1.5;
       }
 
       .container {
@@ -62,8 +74,8 @@
       }
 
       footer {
-        border-bottom: 1px solid var(--line);
-        background: #fff;
+        border-top: 1px solid var(--line);
+        background: var(--surface);
       }
 
       header .container {
@@ -94,14 +106,23 @@
       .card {
         background: var(--surface);
         border: 1px solid var(--line);
-        border-radius: 20px;
-        padding: 1.2rem;
+        border-radius: var(--radius-lg);
+        padding: 2.2rem;
         margin: 3rem 0;
+        box-shadow: var(--shadow);
       }
 
       h1 {
         margin: 0 0 0.6rem;
         font-size: clamp(1.8rem, 4vw, 2.5rem);
+        letter-spacing: -0.01em;
+      }
+
+      h1 .highlight {
+        background: linear-gradient(135deg, var(--teal), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
 
       p {
@@ -110,41 +131,60 @@
       }
 
       ul {
-        margin: 0 0 1rem;
+        margin: 0 0 1.2rem;
         padding-left: 1.1rem;
         color: var(--muted);
+      }
+
+      ul li {
+        margin-bottom: 0.4rem;
+      }
+
+      ul li::marker {
+        color: var(--teal);
       }
 
       label {
         display: block;
         font-weight: 600;
         margin-bottom: 0.35rem;
+        font-size: 0.95rem;
       }
 
       input {
         width: 100%;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 0.75rem 0.85rem;
-        margin-bottom: 0.9rem;
+        border: 1.5px solid var(--line);
+        border-radius: 14px;
+        padding: 0.85rem 1rem;
+        margin-bottom: 1rem;
         font: inherit;
+        background: var(--surface-soft);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
       }
 
-      button {
+      input:focus {
+        outline: none;
+        border-color: var(--teal);
+        box-shadow: 0 0 0 3px rgba(0, 169, 157, 0.15);
+      }
+
+      button[type="submit"] {
         width: 100%;
         border: 0;
         border-radius: 999px;
-        padding: 0.85rem 1rem;
+        padding: 0.95rem 1rem;
         font-weight: 700;
-        background: var(--teal);
+        font-size: 1rem;
+        background: linear-gradient(135deg, var(--teal), var(--primary));
         color: #fff;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.25s ease;
+        box-shadow: 0 6px 20px rgba(0, 169, 157, 0.3);
       }
 
-      button:hover {
-        background: #009189;
-        transform: translateY(-1px);
+      button[type="submit"]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 169, 157, 0.4);
       }
 
       nav a {
@@ -175,17 +215,19 @@
         min-height: 44px;
         justify-content: center;
         align-items: center;
+        border-radius: 10px;
+        transition: background 0.2s ease;
       }
 
       .hamburger:hover {
-        background: transparent;
+        background: rgba(30, 58, 138, 0.08);
         transform: none;
       }
 
       .hamburger span {
         display: block;
-        width: 25px;
-        height: 3px;
+        width: 22px;
+        height: 2.5px;
         background: var(--primary);
         border-radius: 2px;
         transition: all 0.3s ease;
@@ -287,7 +329,7 @@
 
     <main class="container">
       <section class="card">
-        <h1>Be first to experience ProxiMeet.</h1>
+        <h1>Be first to experience <span class="highlight">ProxiMeet</span>.</h1>
         <p>
           Get early access to the platform built for safe, purposeful in-person
           connection.

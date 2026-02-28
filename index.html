@@ -10,6 +10,13 @@
     />
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
     <style>
+      @font-face {
+        font-family: 'Oxanium';
+        src: url('assets/fonts/Oxanium-VariableFont_wght.ttf') format('truetype');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+
       :root {
         --bg: #fafafa;
         --surface: #ffffff;
@@ -40,7 +47,7 @@
 
       body {
         margin: 0;
-        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        font-family: Oxanium, Inter, "Segoe UI", Roboto, Arial, sans-serif;
         background: var(--bg);
         color: var(--text);
         line-height: 1.5;
@@ -51,7 +58,7 @@
       }
 
       .container {
-        width: min(1140px, 92%);
+        width: min(1320px, 92%);
         margin: 0 auto;
       }
 
@@ -100,16 +107,28 @@
         display: none;
         flex-direction: column;
         gap: 5px;
-        background: none;
+        background: transparent;
         border: none;
         cursor: pointer;
-        padding: 5px;
+        padding: 10px;
+        width: auto;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        transition: background 0.2s ease;
+      }
+
+      .hamburger:hover {
+        background: rgba(30, 58, 138, 0.08);
+        transform: none;
       }
 
       .hamburger span {
         display: block;
-        width: 25px;
-        height: 3px;
+        width: 22px;
+        height: 2.5px;
         background: var(--primary);
         border-radius: 2px;
         transition: all 0.3s ease;
@@ -280,6 +299,15 @@
         flex-shrink: 0;
       }
 
+      @media (min-width: 1400px) {
+        .hero-banner {
+          max-height: 480px;
+        }
+        .hero-image {
+          height: 480px;
+        }
+      }
+
       .slideshow-dots {
         position: absolute;
         bottom: 14px;
@@ -426,8 +454,8 @@
         position: relative;
         left: 50%;
         transform: translateX(-50%);
-        padding-left: max(4%, calc((100vw - 1140px) / 2));
-        padding-right: max(4%, calc((100vw - 1140px) / 2));
+        padding-left: max(4%, calc((100vw - 1320px) / 2));
+        padding-right: max(4%, calc((100vw - 1320px) / 2));
       }
 
       #problem {
@@ -470,6 +498,14 @@
         );
       }
 
+      #proof {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 107, 0.04) 0%,
+          rgba(30, 58, 138, 0.06) 100%
+        );
+      }
+
       h2 {
         margin: 0 0 0.65rem;
         font-size: clamp(1.6rem, 3.4vw, 2.4rem);
@@ -482,127 +518,173 @@
         max-width: 64ch;
       }
 
-      .grid {
+      /* ── Venue section: two-column layout ── */
+      .venue-layout {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
-      .card {
-        background: var(--surface);
-        border-radius: var(--radius-md);
-        padding: 1.15rem;
-        position: relative;
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-3px);
-      }
-
-      .card-icon {
-        display: inline-flex;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
         align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        font-size: 1.2rem;
-        margin-bottom: 0.65rem;
+        min-height: 480px;
       }
 
-      .card h3 {
-        margin: 0 0 0.4rem;
-        font-size: 1.04rem;
-        font-weight: 800;
-      }
-
-      .card p,
-      .card li {
-        color: var(--muted);
-        line-height: 1.5;
-      }
-
-      /* Library - teal */
-      .card.card-library {
-        background: linear-gradient(
-          135deg,
-          rgba(0, 169, 157, 0.08) 0%,
-          rgba(0, 169, 157, 0.02) 100%
-        );
-        border: 1.5px solid rgba(0, 169, 157, 0.25);
-        box-shadow: 0 4px 16px rgba(0, 169, 157, 0.1);
-      }
-      .card.card-library:hover {
-        box-shadow: 0 8px 28px rgba(0, 169, 157, 0.2);
-      }
-      .card.card-library .card-icon {
-        background: linear-gradient(135deg, var(--teal), var(--accent));
-      }
-      .card.card-library h3 {
+      .venue-text .venue-label {
+        display: inline-block;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
         color: var(--teal);
+        margin-bottom: 0.6rem;
       }
 
-      /* Gym - coral */
-      .card.card-gym {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 107, 107, 0.08) 0%,
-          rgba(255, 107, 107, 0.02) 100%
-        );
-        border: 1.5px solid rgba(255, 107, 107, 0.25);
-        box-shadow: 0 4px 16px rgba(255, 107, 107, 0.1);
-      }
-      .card.card-gym:hover {
-        box-shadow: 0 8px 28px rgba(255, 107, 107, 0.2);
-      }
-      .card.card-gym .card-icon {
-        background: linear-gradient(135deg, var(--coral), #ff8e8e);
-      }
-      .card.card-gym h3 {
-        color: var(--coral);
+      .venue-text p.venue-desc {
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.65;
+        max-width: 44ch;
+        margin: 0.4rem 0 1.4rem;
       }
 
-      /* Conferences - primary */
-      .card.card-conferences {
-        background: linear-gradient(
-          135deg,
-          rgba(30, 58, 138, 0.08) 0%,
-          rgba(30, 58, 138, 0.02) 100%
-        );
-        border: 1.5px solid rgba(30, 58, 138, 0.2);
-        box-shadow: 0 4px 16px rgba(30, 58, 138, 0.08);
-      }
-      .card.card-conferences:hover {
-        box-shadow: 0 8px 28px rgba(30, 58, 138, 0.18);
-      }
-      .card.card-conferences .card-icon {
-        background: linear-gradient(135deg, var(--primary), #2a4fbc);
-      }
-      .card.card-conferences h3 {
-        color: var(--primary);
+      .venue-indicators {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
       }
 
-      /* Creative Hubs - purple */
-      .card.card-creative {
-        background: linear-gradient(
-          135deg,
-          rgba(155, 89, 182, 0.08) 0%,
-          rgba(155, 89, 182, 0.02) 100%
-        );
-        border: 1.5px solid rgba(155, 89, 182, 0.2);
-        box-shadow: 0 4px 16px rgba(155, 89, 182, 0.1);
+      .venue-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--line);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.3s ease, transform 0.3s ease;
       }
-      .card.card-creative:hover {
-        box-shadow: 0 8px 28px rgba(155, 89, 182, 0.2);
+
+      .venue-dot.active {
+        background: var(--teal);
+        transform: scale(1.3);
       }
-      .card.card-creative .card-icon {
-        background: linear-gradient(135deg, var(--purple), #b07cc6);
+
+      /* ── Fanned card stack (right side) ── */
+      .card-stack {
+        position: relative;
+        width: 100%;
+        height: 440px;
+        perspective: 1200px;
       }
-      .card.card-creative h3 {
-        color: var(--purple);
+
+      .stack-card {
+        position: absolute;
+        width: 260px;
+        height: 370px;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+        transition:
+          transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.5s ease,
+          filter 0.5s ease,
+          box-shadow 0.5s ease;
+        will-change: transform, opacity, filter;
+        cursor: pointer;
+      }
+
+      .stack-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .stack-card .card-badge {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        padding: 0.45rem 1rem;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.88rem;
+        color: #fff;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        padding: 1rem 0.55rem;
+        letter-spacing: 0.03em;
+      }
+
+      .stack-card .card-badge.badge-teal {
+        background: var(--teal);
+      }
+      .stack-card .card-badge.badge-coral {
+        background: var(--coral);
+      }
+      .stack-card .card-badge.badge-primary {
+        background: var(--primary);
+      }
+      .stack-card .card-badge.badge-purple {
+        background: var(--purple);
+      }
+
+      /* Card positions: fanned out from left-to-right */
+      .stack-card:nth-child(1) {
+        z-index: 4;
+        left: 0;
+        top: 20px;
+        --rot: -4deg;
+        transform: rotate(-4deg);
+      }
+      .stack-card:nth-child(2) {
+        z-index: 3;
+        left: 120px;
+        top: 0;
+        --rot: 2deg;
+        transform: rotate(2deg);
+      }
+      .stack-card:nth-child(3) {
+        z-index: 2;
+        left: 230px;
+        top: 30px;
+        --rot: 6deg;
+        transform: rotate(6deg);
+      }
+      .stack-card:nth-child(4) {
+        z-index: 1;
+        left: 320px;
+        top: 10px;
+        --rot: -2deg;
+        transform: rotate(-2deg);
+      }
+
+      /* Active card: pops forward */
+      .stack-card.stack-active {
+        z-index: 10 !important;
+        transform: rotate(0deg) scale(1.08) translateY(-10px) !important;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        opacity: 1 !important;
+        filter: brightness(1) !important;
+      }
+
+      /* Non-active cards recede */
+      .card-stack.has-active .stack-card:not(.stack-active) {
+        transform: scale(0.88) rotate(var(--rot)) !important;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Scroll reveal for the whole section */
+      .venue-layout {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .venue-layout.revealed {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .steps {
@@ -670,8 +752,10 @@
         );
         color: #fff;
         border-radius: var(--radius-lg);
-        padding: 1.4rem;
+        padding: 2rem 2.2rem;
         box-shadow: 0 12px 32px rgba(30, 58, 138, 0.3);
+        max-width: 1320px;
+        margin: 0 auto;
       }
 
       .social-proof .stats {
@@ -702,9 +786,11 @@
         color: #fff;
         border: none;
         border-radius: var(--radius-lg);
-        padding: 2.5rem 1.5rem;
+        padding: 3rem 2rem;
         text-align: center;
         box-shadow: 0 12px 32px rgba(30, 58, 138, 0.3);
+        max-width: 1320px;
+        margin: 0 auto;
       }
 
       .final-cta h2 {
@@ -999,6 +1085,26 @@
           grid-template-columns: 1fr;
         }
 
+        .venue-layout {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          min-height: 400px;
+        }
+
+        .card-stack {
+          height: 380px;
+        }
+
+        .stack-card {
+          width: 200px;
+          height: 290px;
+        }
+
+        .stack-card:nth-child(1) { left: 0; }
+        .stack-card:nth-child(2) { left: 90px; }
+        .stack-card:nth-child(3) { left: 170px; }
+        .stack-card:nth-child(4) { left: 240px; }
+
         .steps {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -1021,7 +1127,43 @@
           display: flex;
         }
 
-        .grid,
+        .venue-layout {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 1.5rem;
+          min-height: auto;
+        }
+
+        .venue-text {
+          order: 1;
+        }
+
+        .venue-text .venue-desc {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .venue-indicators {
+          justify-content: center;
+        }
+
+        .card-stack {
+          order: 0;
+          height: 340px;
+          max-width: 420px;
+          margin: 0 auto;
+        }
+
+        .stack-card {
+          width: 180px;
+          height: 260px;
+        }
+
+        .stack-card:nth-child(1) { left: 10px; }
+        .stack-card:nth-child(2) { left: 80px; }
+        .stack-card:nth-child(3) { left: 150px; }
+        .stack-card:nth-child(4) { left: 210px; }
+
         .social-proof .stats,
         .phone-grid {
           grid-template-columns: 1fr;
@@ -1083,6 +1225,70 @@
         section {
           padding: 2rem 0;
         }
+
+      }
+
+      /* Large screens */
+      @media (min-width: 1600px) {
+        .container {
+          width: min(1440px, 90%);
+        }
+
+        .full-bleed {
+          padding-left: max(4%, calc((100vw - 1440px) / 2));
+          padding-right: max(4%, calc((100vw - 1440px) / 2));
+        }
+
+        .social-proof,
+        .final-cta {
+          max-width: 1440px;
+        }
+
+        .hero {
+          gap: 2rem;
+        }
+
+        .venue-layout {
+          gap: 4rem;
+        }
+
+        .stack-card {
+          width: 290px;
+          height: 400px;
+        }
+
+        .card-stack {
+          height: 480px;
+        }
+
+        .stack-card:nth-child(1) { left: 0; }
+        .stack-card:nth-child(2) { left: 140px; }
+        .stack-card:nth-child(3) { left: 260px; }
+        .stack-card:nth-child(4) { left: 360px; }
+      }
+
+      /* Small phones */
+      @media (max-width: 480px) {
+        .card-stack {
+          height: 280px;
+          max-width: 340px;
+        }
+
+        .stack-card {
+          width: 150px;
+          height: 220px;
+          border-radius: 16px;
+        }
+
+        .stack-card:nth-child(1) { left: 5px; top: 15px; }
+        .stack-card:nth-child(2) { left: 60px; top: 0; }
+        .stack-card:nth-child(3) { left: 115px; top: 20px; }
+        .stack-card:nth-child(4) { left: 165px; top: 5px; }
+
+        .stack-card .card-badge {
+          font-size: 0.75rem;
+          padding: 0.7rem 0.4rem;
+        }
       }
     </style>
   </head>
@@ -1135,8 +1341,8 @@
         />
         <img
           class="hero-image"
-          src="https://images.unsplash.com/photo-1627483297886-49710ae1fc22?auto=format&fit=crop&w=1600&q=80"
-          alt="Two Black women friends hanging out together on a bench"
+          src="https://images.unsplash.com/photo-1750698544858-c139cc7a2885?auto=format&fit=crop&w=1600&q=80"
+          alt="Three people in different outfits connecting at the gym"
         />
         <img
           class="hero-image"
@@ -1193,47 +1399,36 @@
       </section>
 
       <section id="problem" class="full-bleed">
-        <h2>
-          <span class="highlight-accent">Smart</span> Safety,
-          <span class="highlight-primary">Seamless</span> Connections
-        </h2>
-        <p class="sub">
-          Decide who sees you and when. Your safety is our priority as you
-          connect with the right people in your space.
-        </p>
-        <div class="grid">
-          <article class="card card-library">
-            <div class="card-icon">📚</div>
-            <h3>Library</h3>
-            <p>
-              Sitting next to 200 students and no structured way to find a study
-              partner.
+        <div class="venue-layout" id="venueLayout">
+          <div class="venue-text">
+            <span class="venue-label">Where it happens</span>
+            <h2>
+              <span class="highlight-accent">Smart</span> Safety,
+              <span class="highlight-primary">Seamless</span> Connections
+            </h2>
+            <p class="venue-desc" id="venueDesc">
+              Sitting next to 200 students and no structured way to find a study partner.
             </p>
-          </article>
-          <article class="card card-gym">
-            <div class="card-icon">🏋️</div>
-            <h3>Gym</h3>
-            <p>
-              Training near dozens of potential partners with no safe signal to
-              connect.
-            </p>
-          </article>
-          <article class="card card-conferences">
-            <div class="card-icon">🌐</div>
-            <h3>Conferences</h3>
-            <p>
-              Hundreds of professionals in one room and no context-first
-              introduction flow.
-            </p>
-          </article>
-          <article class="card card-creative">
-            <div class="card-icon">🎨</div>
-            <h3>Creative Hubs</h3>
-            <p>
-              Creators in the same space but no intentional way to start
-              collaboration.
-            </p>
-          </article>
+            <div class="venue-indicators" id="venueDots"></div>
+          </div>
+          <div class="card-stack" id="cardStack">
+            <div class="stack-card stack-active" data-index="0" data-desc="Sitting next to 200 students and no structured way to find a study partner.">
+              <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=520&h=700&fit=crop&q=80" alt="Library">
+              <span class="card-badge badge-teal">Library</span>
+            </div>
+            <div class="stack-card" data-index="1" data-desc="Training near dozens of potential partners with no safe signal to connect.">
+              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=520&h=700&fit=crop&q=80" alt="Gym">
+              <span class="card-badge badge-coral">Gym</span>
+            </div>
+            <div class="stack-card" data-index="2" data-desc="Hundreds of professionals in one room and no context-first introduction flow.">
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=520&h=700&fit=crop&q=80" alt="Conferences">
+              <span class="card-badge badge-primary">Conferences</span>
+            </div>
+            <div class="stack-card" data-index="3" data-desc="Creators in the same space but no intentional way to start collaboration.">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=520&h=700&fit=crop&q=80" alt="Creative Hubs">
+              <span class="card-badge badge-purple">Creative Hubs</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1312,7 +1507,7 @@
         </div>
       </section>
 
-      <section id="proof">
+      <section id="proof" class="full-bleed">
         <article class="social-proof">
           <h2>Launching soon with early adopters.</h2>
           <p>
@@ -1521,7 +1716,7 @@
         </div>
       </section>
 
-      <section>
+      <section class="full-bleed">
         <div class="final-cta">
           <h2>Stop scrolling. Start meeting.</h2>
           <p>
@@ -1670,6 +1865,76 @@
         }
 
         resetInterval();
+      })();
+    </script>
+    <script>
+      // Venue card stack: auto-cycle & interactions
+      (function () {
+        var layout = document.getElementById('venueLayout');
+        var stack = document.getElementById('cardStack');
+        var cards = stack.querySelectorAll('.stack-card');
+        var desc = document.getElementById('venueDesc');
+        var dotsWrap = document.getElementById('venueDots');
+        var current = 0;
+        var interval;
+
+        // Build dots
+        for (var i = 0; i < cards.length; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'venue-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Show ' + cards[i].querySelector('.card-badge').textContent);
+          (function(idx) {
+            dot.addEventListener('click', function () { goTo(idx); resetInterval(); });
+          })(i);
+          dotsWrap.appendChild(dot);
+        }
+
+        // Click on card
+        cards.forEach(function (card) {
+          card.addEventListener('click', function () {
+            var idx = parseInt(card.dataset.index);
+            goTo(idx);
+            resetInterval();
+          });
+        });
+
+        function goTo(idx) {
+          current = idx;
+          cards.forEach(function (c) { c.classList.remove('stack-active'); });
+          cards[current].classList.add('stack-active');
+          stack.classList.add('has-active');
+          desc.style.opacity = '0';
+          desc.style.transform = 'translateY(8px)';
+          setTimeout(function () {
+            desc.textContent = cards[current].dataset.desc;
+            desc.style.opacity = '1';
+            desc.style.transform = 'translateY(0)';
+          }, 250);
+          var dots = dotsWrap.querySelectorAll('.venue-dot');
+          dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+        }
+
+        function next() { goTo((current + 1) % cards.length); }
+
+        function resetInterval() {
+          clearInterval(interval);
+          interval = setInterval(next, 3500);
+        }
+
+        // Scroll reveal
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              layout.classList.add('revealed');
+              resetInterval();
+              observer.unobserve(layout);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(layout);
+
+        // Add transition to desc
+        desc.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
       })();
     </script>
   </body>
