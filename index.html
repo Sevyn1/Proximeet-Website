@@ -258,12 +258,56 @@
         overflow: hidden;
       }
 
+      .hero-banner {
+        width: 100%;
+        overflow: hidden;
+        max-height: 420px;
+        position: relative;
+      }
+
+      .slideshow-track {
+        display: flex;
+        transition: transform 0.6s ease;
+        will-change: transform;
+      }
+
       .hero-image {
         width: 100%;
-        height: 380px;
-        border-radius: var(--radius-lg);
+        height: 420px;
         object-fit: cover;
-        margin-bottom: 1rem;
+        display: block;
+        filter: brightness(0.85);
+        flex-shrink: 0;
+      }
+
+      .slideshow-dots {
+        position: absolute;
+        bottom: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 2;
+      }
+
+      .slideshow-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        padding: 0;
+      }
+
+      .slideshow-dot.active {
+        background: #fff;
+        transform: scale(1.25);
+      }
+
+      .slideshow-dot:hover {
+        background: rgba(255, 255, 255, 0.85);
       }
 
       .phone-grid {
@@ -1011,7 +1055,21 @@
         }
 
         .hero-image {
-          height: 220px;
+          height: 260px;
+        }
+
+        .hero-banner {
+          max-height: 260px;
+        }
+
+        .slideshow-dots {
+          bottom: 10px;
+          gap: 8px;
+        }
+
+        .slideshow-dot {
+          width: 8px;
+          height: 8px;
         }
 
         h1 {
@@ -1068,6 +1126,37 @@
       </div>
     </header>
 
+    <div class="hero-banner" id="heroBanner">
+      <div class="slideshow-track" id="slideshowTrack">
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1619629867548-28424fb2732d?auto=format&fit=crop&w=1600&q=80"
+          alt="Black friends enjoying a social night out together"
+        />
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/flagged/photo-1557162565-c40449d639cb?auto=format&fit=crop&w=1600&q=80"
+          alt="Two Black women friends posing together"
+        />
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1687422808366-c5b2800c6e98?auto=format&fit=crop&w=1600&q=80"
+          alt="Group of African women connecting over a smartphone"
+        />
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1758272133786-ee98adcc6837?auto=format&fit=crop&w=1600&q=80"
+          alt="Diverse group of friends including Black people smiling at a rooftop party"
+        />
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1758613171187-9a41d0fc93ab?auto=format&fit=crop&w=1600&q=80"
+          alt="Four diverse friends posing and laughing together outdoors"
+        />
+      </div>
+      <div class="slideshow-dots" id="slideshowDots"></div>
+    </div>
+
     <main class="container">
       <section class="hero">
         <div>
@@ -1088,11 +1177,6 @@
           </div>
         </div>
         <aside class="hero-visual" aria-label="App preview">
-          <img
-            class="hero-image"
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80"
-            alt="People connecting in real life"
-          />
           <div class="phone-grid">
             <div class="phone feature-matching">
               <div class="feature-icon">🎯</div>
@@ -1544,6 +1628,49 @@
             });
         });
       }
+    </script>
+    <script>
+      // Hero banner slideshow
+      (function () {
+        const track = document.getElementById("slideshowTrack");
+        const dotsContainer = document.getElementById("slideshowDots");
+        const slides = track.querySelectorAll(".hero-image");
+        const count = slides.length;
+        let current = 0;
+        let interval;
+
+        // Create dots
+        for (let i = 0; i < count; i++) {
+          const dot = document.createElement("button");
+          dot.className = "slideshow-dot" + (i === 0 ? " active" : "");
+          dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+          dot.addEventListener("click", function () {
+            goTo(i);
+            resetInterval();
+          });
+          dotsContainer.appendChild(dot);
+        }
+
+        function goTo(index) {
+          current = index;
+          track.style.transform = "translateX(-" + current * 100 + "%)";
+          const dots = dotsContainer.querySelectorAll(".slideshow-dot");
+          dots.forEach(function (d, i) {
+            d.classList.toggle("active", i === current);
+          });
+        }
+
+        function next() {
+          goTo((current + 1) % count);
+        }
+
+        function resetInterval() {
+          clearInterval(interval);
+          interval = setInterval(next, 4500);
+        }
+
+        resetInterval();
+      })();
     </script>
   </body>
 </html>
