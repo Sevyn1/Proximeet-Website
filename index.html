@@ -318,6 +318,85 @@
         z-index: 2;
       }
 
+      /* Slide nav bars */
+      .slide-bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 48px;
+        z-index: 3;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        -webkit-tap-highlight-color: transparent;
+        transition: background 0.3s ease;
+        opacity: 0;
+        animation: barFadeIn 0.5s ease 0.8s forwards;
+      }
+
+      .slide-bar:hover {
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .slide-bar:active {
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .slide-bar--prev {
+        left: 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .slide-bar--next {
+        right: 0;
+        border-radius: 8px 0 0 8px;
+      }
+
+      .slide-bar .chevron {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.6rem;
+        font-weight: 300;
+        line-height: 1;
+        transition: color 0.3s ease, transform 0.3s ease;
+        display: block;
+      }
+
+      .slide-bar:hover .chevron {
+        color: #fff;
+      }
+
+      .slide-bar--prev:hover .chevron {
+        transform: translateX(-2px);
+      }
+
+      .slide-bar--next:hover .chevron {
+        transform: translateX(2px);
+      }
+
+      .slide-bar:active .chevron {
+        color: #fff;
+      }
+
+      @keyframes barFadeIn {
+        to { opacity: 1; }
+      }
+
+      @media (max-width: 760px) {
+        .slide-bar {
+          width: 38px;
+        }
+
+        .slide-bar .chevron {
+          font-size: 1.3rem;
+        }
+      }
+
       .slideshow-dot {
         width: 10px;
         height: 10px;
@@ -1361,6 +1440,8 @@
         />
       </div>
       <div class="slideshow-dots" id="slideshowDots"></div>
+      <button class="slide-bar slide-bar--prev" id="slidePrev" aria-label="Previous slide"><span class="chevron">‹</span></button>
+      <button class="slide-bar slide-bar--next" id="slideNext" aria-label="Next slide"><span class="chevron">›</span></button>
     </div>
 
     <main class="container">
@@ -1827,8 +1908,11 @@
     <script>
       // Hero banner slideshow
       (function () {
+        const banner = document.getElementById("heroBanner");
         const track = document.getElementById("slideshowTrack");
         const dotsContainer = document.getElementById("slideshowDots");
+        const prevBtn = document.getElementById("slidePrev");
+        const nextBtn = document.getElementById("slideNext");
         const slides = track.querySelectorAll(".hero-image");
         const count = slides.length;
         let current = 0;
@@ -1847,7 +1931,7 @@
         }
 
         function goTo(index) {
-          current = index;
+          current = ((index % count) + count) % count;
           track.style.transform = "translateX(-" + current * 100 + "%)";
           const dots = dotsContainer.querySelectorAll(".slideshow-dot");
           dots.forEach(function (d, i) {
@@ -1856,8 +1940,40 @@
         }
 
         function next() {
-          goTo((current + 1) % count);
+          goTo(current + 1);
         }
+
+        function prev() {
+          goTo(current - 1);
+        }
+
+        // Edge bar tap
+        nextBtn.addEventListener("click", function () { next(); resetInterval(); });
+        prevBtn.addEventListener("click", function () { prev(); resetInterval(); });
+
+        // Touch / swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isSwiping = false;
+
+        banner.addEventListener("touchstart", function (e) {
+          touchStartX = e.changedTouches[0].screenX;
+          isSwiping = true;
+        }, { passive: true });
+
+        banner.addEventListener("touchmove", function (e) {
+          touchEndX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        banner.addEventListener("touchend", function () {
+          if (!isSwiping) return;
+          isSwiping = false;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) next(); else prev();
+            resetInterval();
+          }
+        });
 
         function resetInterval() {
           clearInterval(interval);
