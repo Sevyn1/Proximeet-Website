@@ -11,8 +11,9 @@
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
     <style>
       @font-face {
-        font-family: 'Oxanium';
-        src: url('assets/fonts/Oxanium-VariableFont_wght.ttf') format('truetype');
+        font-family: "Oxanium";
+        src: url("assets/fonts/Oxanium-VariableFont_wght.ttf")
+          format("truetype");
         font-weight: 100 900;
         font-display: swap;
       }
@@ -187,7 +188,11 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: linear-gradient(135deg, rgba(0, 169, 157, 0.1), rgba(30, 58, 138, 0.08));
+        background: linear-gradient(
+          135deg,
+          rgba(0, 169, 157, 0.1),
+          rgba(30, 58, 138, 0.08)
+        );
         border: 1px solid rgba(0, 169, 157, 0.2);
         border-radius: 999px;
         padding: 0.55rem 1.2rem;
@@ -206,8 +211,15 @@
       }
 
       @keyframes pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.5; transform: scale(1.6); }
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.6);
+        }
       }
 
       /* Features row */
@@ -222,9 +234,15 @@
       .feature {
         padding: 1.2rem 0.8rem;
         border-radius: var(--radius-md);
-        background: linear-gradient(135deg, rgba(0, 169, 157, 0.05), rgba(30, 58, 138, 0.03));
+        background: linear-gradient(
+          135deg,
+          rgba(0, 169, 157, 0.05),
+          rgba(30, 58, 138, 0.03)
+        );
         border: 1px solid var(--line);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
       }
 
       .feature:hover {
@@ -315,7 +333,9 @@
         padding: 0.75rem 1.1rem;
         font: inherit;
         background: var(--surface-soft);
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
       .notify-form input:focus {
@@ -501,7 +521,9 @@
       <section class="hero">
         <div class="launch-badge"><span class="pulse"></span> Coming Soon</div>
 
-        <h1>Something <span class="highlight-accent">big</span> is on the way</h1>
+        <h1>
+          Something <span class="highlight-accent">big</span> is on the way
+        </h1>
         <p class="subtitle">
           ProxiMeet is almost here — intentional, real-world connections powered
           by proximity. No endless scrolling, just meaningful meetups.
@@ -554,11 +576,24 @@
 
         <div class="notify">
           <p>Get notified the moment we launch:</p>
-          <form class="notify-form" action="https://formsubmit.co/developer@proximeet.ca" method="POST">
+          <form
+            class="notify-form"
+            action="https://formsubmit.co/developer@proximeet.ca"
+            method="POST"
+          >
             <input type="hidden" name="_subject" value="Launch Notify Signup" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://proximeet.ca/download.html" />
-            <input type="email" name="email" placeholder="your@email.com" required />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://proximeet.ca/download.html"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
             <button type="submit">Notify Me</button>
           </form>
         </div>
@@ -582,22 +617,25 @@
 
       // Countdown timer
       (function () {
-        const launch = new Date('2026-03-27T00:00:00');
-        const $d = document.getElementById('cd-days');
-        const $h = document.getElementById('cd-hours');
-        const $m = document.getElementById('cd-mins');
-        const $s = document.getElementById('cd-secs');
+        const launch = new Date("2026-03-27T00:00:00");
+        const $d = document.getElementById("cd-days");
+        const $h = document.getElementById("cd-hours");
+        const $m = document.getElementById("cd-mins");
+        const $s = document.getElementById("cd-secs");
 
-        function pad(n) { return String(n).padStart(2, '0'); }
+        function pad(n) {
+          return String(n).padStart(2, "0");
+        }
 
         function tick() {
           const diff = launch - Date.now();
           if (diff <= 0) {
-            $d.textContent = '00';
-            $h.textContent = '00';
-            $m.textContent = '00';
-            $s.textContent = '00';
-            document.querySelector('.launch-badge').innerHTML = '<span class="pulse"></span> We\'re Live!';
+            $d.textContent = "00";
+            $h.textContent = "00";
+            $m.textContent = "00";
+            $s.textContent = "00";
+            document.querySelector(".launch-badge").innerHTML =
+              '<span class="pulse"></span> We\'re Live!';
             return;
           }
           const s = Math.floor(diff / 1000);

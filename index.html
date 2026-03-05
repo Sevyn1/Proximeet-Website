@@ -11,8 +11,9 @@
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
     <style>
       @font-face {
-        font-family: 'Oxanium';
-        src: url('assets/fonts/Oxanium-VariableFont_wght.ttf') format('truetype');
+        font-family: "Oxanium";
+        src: url("assets/fonts/Oxanium-VariableFont_wght.ttf")
+          format("truetype");
         font-weight: 100 900;
         font-display: swap;
       }
@@ -39,6 +40,7 @@
       html {
         scroll-behavior: smooth;
         scroll-padding-top: 5rem;
+        overflow-x: hidden;
       }
 
       * {
@@ -51,6 +53,7 @@
         background: var(--bg);
         color: var(--text);
         line-height: 1.5;
+        overflow-x: hidden;
       }
 
       a {
@@ -363,7 +366,9 @@
         font-size: 1.6rem;
         font-weight: 300;
         line-height: 1;
-        transition: color 0.3s ease, transform 0.3s ease;
+        transition:
+          color 0.3s ease,
+          transform 0.3s ease;
         display: block;
       }
 
@@ -384,7 +389,9 @@
       }
 
       @keyframes barFadeIn {
-        to { opacity: 1; }
+        to {
+          opacity: 1;
+        }
       }
 
       @media (max-width: 760px) {
@@ -404,7 +411,9 @@
         background: rgba(255, 255, 255, 0.5);
         border: none;
         cursor: pointer;
-        transition: background 0.3s, transform 0.3s;
+        transition:
+          background 0.3s,
+          transform 0.3s;
         padding: 0;
       }
 
@@ -638,7 +647,9 @@
         border: none;
         cursor: pointer;
         padding: 0;
-        transition: background 0.3s ease, transform 0.3s ease;
+        transition:
+          background 0.3s ease,
+          transform 0.3s ease;
       }
 
       .venue-dot.active {
@@ -758,7 +769,9 @@
       .venue-layout {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
       }
 
       .venue-layout.revealed {
@@ -1179,10 +1192,18 @@
           height: 290px;
         }
 
-        .stack-card:nth-child(1) { left: 0; }
-        .stack-card:nth-child(2) { left: 90px; }
-        .stack-card:nth-child(3) { left: 170px; }
-        .stack-card:nth-child(4) { left: 240px; }
+        .stack-card:nth-child(1) {
+          left: 0;
+        }
+        .stack-card:nth-child(2) {
+          left: 90px;
+        }
+        .stack-card:nth-child(3) {
+          left: 170px;
+        }
+        .stack-card:nth-child(4) {
+          left: 240px;
+        }
 
         .steps {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1238,10 +1259,18 @@
           height: 260px;
         }
 
-        .stack-card:nth-child(1) { left: 10px; }
-        .stack-card:nth-child(2) { left: 80px; }
-        .stack-card:nth-child(3) { left: 150px; }
-        .stack-card:nth-child(4) { left: 210px; }
+        .stack-card:nth-child(1) {
+          left: 10px;
+        }
+        .stack-card:nth-child(2) {
+          left: 80px;
+        }
+        .stack-card:nth-child(3) {
+          left: 150px;
+        }
+        .stack-card:nth-child(4) {
+          left: 210px;
+        }
 
         .social-proof .stats,
         .phone-grid {
@@ -1304,7 +1333,6 @@
         section {
           padding: 2rem 0;
         }
-
       }
 
       /* Large screens */
@@ -1340,10 +1368,18 @@
           height: 480px;
         }
 
-        .stack-card:nth-child(1) { left: 0; }
-        .stack-card:nth-child(2) { left: 140px; }
-        .stack-card:nth-child(3) { left: 260px; }
-        .stack-card:nth-child(4) { left: 360px; }
+        .stack-card:nth-child(1) {
+          left: 0;
+        }
+        .stack-card:nth-child(2) {
+          left: 140px;
+        }
+        .stack-card:nth-child(3) {
+          left: 260px;
+        }
+        .stack-card:nth-child(4) {
+          left: 360px;
+        }
       }
 
       /* Small phones */
@@ -1359,10 +1395,22 @@
           border-radius: 16px;
         }
 
-        .stack-card:nth-child(1) { left: 5px; top: 15px; }
-        .stack-card:nth-child(2) { left: 60px; top: 0; }
-        .stack-card:nth-child(3) { left: 115px; top: 20px; }
-        .stack-card:nth-child(4) { left: 165px; top: 5px; }
+        .stack-card:nth-child(1) {
+          left: 5px;
+          top: 15px;
+        }
+        .stack-card:nth-child(2) {
+          left: 60px;
+          top: 0;
+        }
+        .stack-card:nth-child(3) {
+          left: 115px;
+          top: 20px;
+        }
+        .stack-card:nth-child(4) {
+          left: 165px;
+          top: 5px;
+        }
 
         .stack-card .card-badge {
           font-size: 0.75rem;
@@ -1420,8 +1468,8 @@
         />
         <img
           class="hero-image"
-          src="https://images.unsplash.com/photo-1750698544858-c139cc7a2885?auto=format&fit=crop&w=1600&q=80"
-          alt="Three people in different outfits connecting at the gym"
+          src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80"
+          alt="Group of young friends laughing and having coffee together"
         />
         <img
           class="hero-image"
@@ -1440,8 +1488,20 @@
         />
       </div>
       <div class="slideshow-dots" id="slideshowDots"></div>
-      <button class="slide-bar slide-bar--prev" id="slidePrev" aria-label="Previous slide"><span class="chevron">‹</span></button>
-      <button class="slide-bar slide-bar--next" id="slideNext" aria-label="Next slide"><span class="chevron">›</span></button>
+      <button
+        class="slide-bar slide-bar--prev"
+        id="slidePrev"
+        aria-label="Previous slide"
+      >
+        <span class="chevron">‹</span>
+      </button>
+      <button
+        class="slide-bar slide-bar--next"
+        id="slideNext"
+        aria-label="Next slide"
+      >
+        <span class="chevron">›</span>
+      </button>
     </div>
 
     <main class="container">
@@ -1488,25 +1548,54 @@
               <span class="highlight-primary">Seamless</span> Connections
             </h2>
             <p class="venue-desc" id="venueDesc">
-              Sitting next to 200 students and no structured way to find a study partner.
+              Sitting next to 200 students and no structured way to find a study
+              partner.
             </p>
             <div class="venue-indicators" id="venueDots"></div>
           </div>
           <div class="card-stack" id="cardStack">
-            <div class="stack-card stack-active" data-index="0" data-desc="Sitting next to 200 students and no structured way to find a study partner.">
-              <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=520&h=700&fit=crop&q=80" alt="Library">
+            <div
+              class="stack-card stack-active"
+              data-index="0"
+              data-desc="Sitting next to 200 students and no structured way to find a study partner."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=520&h=700&fit=crop&q=80"
+                alt="Library"
+              />
               <span class="card-badge badge-teal">Library</span>
             </div>
-            <div class="stack-card" data-index="1" data-desc="Training near dozens of potential partners with no safe signal to connect.">
-              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=520&h=700&fit=crop&q=80" alt="Gym">
+            <div
+              class="stack-card"
+              data-index="1"
+              data-desc="Training near dozens of potential partners with no safe signal to connect."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=520&h=700&fit=crop&q=80"
+                alt="Gym"
+              />
               <span class="card-badge badge-coral">Gym</span>
             </div>
-            <div class="stack-card" data-index="2" data-desc="Hundreds of professionals in one room and no context-first introduction flow.">
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=520&h=700&fit=crop&q=80" alt="Conferences">
+            <div
+              class="stack-card"
+              data-index="2"
+              data-desc="Hundreds of professionals in one room and no context-first introduction flow."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=520&h=700&fit=crop&q=80"
+                alt="Conferences"
+              />
               <span class="card-badge badge-primary">Conferences</span>
             </div>
-            <div class="stack-card" data-index="3" data-desc="Creators in the same space but no intentional way to start collaboration.">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=520&h=700&fit=crop&q=80" alt="Creative Hubs">
+            <div
+              class="stack-card"
+              data-index="3"
+              data-desc="Creators in the same space but no intentional way to start collaboration."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=520&h=700&fit=crop&q=80"
+                alt="Creative Hubs"
+              />
               <span class="card-badge badge-purple">Creative Hubs</span>
             </div>
           </div>
@@ -1948,29 +2037,49 @@
         }
 
         // Edge bar tap
-        nextBtn.addEventListener("click", function () { next(); resetInterval(); });
-        prevBtn.addEventListener("click", function () { prev(); resetInterval(); });
+        nextBtn.addEventListener("click", function () {
+          next();
+          resetInterval();
+        });
+        prevBtn.addEventListener("click", function () {
+          prev();
+          resetInterval();
+        });
 
         // Touch / swipe support
         let touchStartX = 0;
         let touchEndX = 0;
         let isSwiping = false;
 
-        banner.addEventListener("touchstart", function (e) {
-          touchStartX = e.changedTouches[0].screenX;
-          isSwiping = true;
-        }, { passive: true });
+        banner.addEventListener(
+          "touchstart",
+          function (e) {
+            // Ignore touches on the nav buttons
+            if (e.target.closest(".slide-bar")) return;
+            touchStartX = e.changedTouches[0].screenX;
+            touchEndX = touchStartX;
+            isSwiping = true;
+          },
+          { passive: true },
+        );
 
-        banner.addEventListener("touchmove", function (e) {
-          touchEndX = e.changedTouches[0].screenX;
-        }, { passive: true });
+        banner.addEventListener(
+          "touchmove",
+          function (e) {
+            if (!isSwiping) return;
+            touchEndX = e.changedTouches[0].screenX;
+          },
+          { passive: true },
+        );
 
-        banner.addEventListener("touchend", function () {
+        banner.addEventListener("touchend", function (e) {
           if (!isSwiping) return;
+          if (e.target.closest(".slide-bar")) return;
           isSwiping = false;
           const diff = touchStartX - touchEndX;
           if (Math.abs(diff) > 50) {
-            if (diff > 0) next(); else prev();
+            if (diff > 0) next();
+            else prev();
             resetInterval();
           }
         });
@@ -1986,28 +2095,34 @@
     <script>
       // Venue card stack: auto-cycle & interactions
       (function () {
-        var layout = document.getElementById('venueLayout');
-        var stack = document.getElementById('cardStack');
-        var cards = stack.querySelectorAll('.stack-card');
-        var desc = document.getElementById('venueDesc');
-        var dotsWrap = document.getElementById('venueDots');
+        var layout = document.getElementById("venueLayout");
+        var stack = document.getElementById("cardStack");
+        var cards = stack.querySelectorAll(".stack-card");
+        var desc = document.getElementById("venueDesc");
+        var dotsWrap = document.getElementById("venueDots");
         var current = 0;
         var interval;
 
         // Build dots
         for (var i = 0; i < cards.length; i++) {
-          var dot = document.createElement('button');
-          dot.className = 'venue-dot' + (i === 0 ? ' active' : '');
-          dot.setAttribute('aria-label', 'Show ' + cards[i].querySelector('.card-badge').textContent);
-          (function(idx) {
-            dot.addEventListener('click', function () { goTo(idx); resetInterval(); });
+          var dot = document.createElement("button");
+          dot.className = "venue-dot" + (i === 0 ? " active" : "");
+          dot.setAttribute(
+            "aria-label",
+            "Show " + cards[i].querySelector(".card-badge").textContent,
+          );
+          (function (idx) {
+            dot.addEventListener("click", function () {
+              goTo(idx);
+              resetInterval();
+            });
           })(i);
           dotsWrap.appendChild(dot);
         }
 
         // Click on card
         cards.forEach(function (card) {
-          card.addEventListener('click', function () {
+          card.addEventListener("click", function () {
             var idx = parseInt(card.dataset.index);
             goTo(idx);
             resetInterval();
@@ -2016,21 +2131,27 @@
 
         function goTo(idx) {
           current = idx;
-          cards.forEach(function (c) { c.classList.remove('stack-active'); });
-          cards[current].classList.add('stack-active');
-          stack.classList.add('has-active');
-          desc.style.opacity = '0';
-          desc.style.transform = 'translateY(8px)';
+          cards.forEach(function (c) {
+            c.classList.remove("stack-active");
+          });
+          cards[current].classList.add("stack-active");
+          stack.classList.add("has-active");
+          desc.style.opacity = "0";
+          desc.style.transform = "translateY(8px)";
           setTimeout(function () {
             desc.textContent = cards[current].dataset.desc;
-            desc.style.opacity = '1';
-            desc.style.transform = 'translateY(0)';
+            desc.style.opacity = "1";
+            desc.style.transform = "translateY(0)";
           }, 250);
-          var dots = dotsWrap.querySelectorAll('.venue-dot');
-          dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+          var dots = dotsWrap.querySelectorAll(".venue-dot");
+          dots.forEach(function (d, i) {
+            d.classList.toggle("active", i === current);
+          });
         }
 
-        function next() { goTo((current + 1) % cards.length); }
+        function next() {
+          goTo((current + 1) % cards.length);
+        }
 
         function resetInterval() {
           clearInterval(interval);
@@ -2038,19 +2159,22 @@
         }
 
         // Scroll reveal
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              layout.classList.add('revealed');
-              resetInterval();
-              observer.unobserve(layout);
-            }
-          });
-        }, { threshold: 0.2 });
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                layout.classList.add("revealed");
+                resetInterval();
+                observer.unobserve(layout);
+              }
+            });
+          },
+          { threshold: 0.2 },
+        );
         observer.observe(layout);
 
         // Add transition to desc
-        desc.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        desc.style.transition = "opacity 0.3s ease, transform 0.3s ease";
       })();
     </script>
   </body>
