@@ -287,7 +287,7 @@ h2 { margin-bottom: 0; font-size: 58px; line-height: 1.04; }
   .join-content h2 { font-size: 38px; }
   .join-note { width: 176px; height: 176px; padding: 22px; align-self: flex-end; margin-right: 6px; }
   .join-note-mark { font-size: 30px; }
-  .join-note-mark--pin { width: 24px; height: 24px; margin: 10px 0 0 12px; box-shadow: 0 0 0 6px rgba(255,255,255,.16); }
+  .join-note-mark--pin { width: 24px; height: 24px; box-shadow: 0 0 0 6px rgba(255,255,255,.16); }
   .join-note p { font-size: 14px; }
   .faq-layout { gap: 24px; }
   .faq-list summary { min-height: 66px; font-size: 15px; }
