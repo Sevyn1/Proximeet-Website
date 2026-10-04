@@ -3,1841 +3,388 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ProxiMeet | Real People. Real Spaces. Real Intent.</title>
+    <meta name="theme-color" content="#14162b" />
+    <title>ProxiMeet | Your people are closer than you think</title>
     <meta
       name="description"
-      content="ProxiMeet connects people nearby based on real-time intent safely and intentionally in public spaces."
+      content="ProxiMeet helps you find people nearby who share your interests and are open to meeting."
     />
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-    <style>
-      @font-face {
-        font-family: "Oxanium";
-        src: url("assets/fonts/Oxanium-VariableFont_wght.ttf")
-          format("truetype");
-        font-weight: 100 900;
-        font-display: swap;
-      }
-
-      :root {
-        --bg: #fafafa;
-        --surface: #ffffff;
-        --surface-soft: #f7f5f9;
-        --text: #2d2d2d;
-        --muted: #6b6b6b;
-        --primary: #1e3a8a;
-        --teal: #00a99d;
-        --coral: #ff6b6b;
-        --purple: #9b59b6;
-        --yellow: #f4d03f;
-        --grey-light: #ecf0f1;
-        --accent: #00a99d;
-        --line: #e8e8e8;
-        --radius-lg: 28px;
-        --radius-md: 18px;
-        --shadow: 0 12px 32px rgba(30, 58, 138, 0.12);
-      }
-
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 5rem;
-        overflow-x: hidden;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Oxanium, Inter, "Segoe UI", Roboto, Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.5;
-        overflow-x: hidden;
-      }
-
-      a {
-        color: inherit;
-      }
-
-      .container {
-        width: min(1320px, 92%);
-        margin: 0 auto;
-      }
-
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        background: rgba(248, 249, 252, 0.92);
-        border-bottom: 1px solid var(--line);
-        backdrop-filter: blur(8px);
-      }
-
-      .nav {
-        min-height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-      }
-
-      .brand img {
-        height: 42px;
-        width: auto;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 1.1rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        color: var(--muted);
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        width: auto;
-        min-width: 44px;
-        min-height: 44px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        transition: background 0.2s ease;
-      }
-
-      .hamburger:hover {
-        background: rgba(30, 58, 138, 0.08);
-        transform: none;
-      }
-
-      .hamburger span {
-        display: block;
-        width: 22px;
-        height: 2.5px;
-        background: var(--primary);
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-      }
-
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-      }
-
-      .mobile-menu {
-        display: none;
-        position: fixed;
-        top: 77px;
-        left: 0;
-        right: 0;
-        background: var(--surface);
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        z-index: 19;
-        padding: 1.5rem;
-      }
-
-      .mobile-menu.active {
-        display: block;
-      }
-
-      .mobile-menu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .mobile-menu ul li {
-        margin-bottom: 1rem;
-      }
-
-      .mobile-menu ul li a {
-        text-decoration: none;
-        color: var(--text);
-        font-weight: 600;
-        font-size: 1.1rem;
-        display: block;
-        padding: 0.5rem 0;
-      }
-
-      .mobile-menu .mobile-actions {
-        margin-top: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .mobile-menu .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .actions {
-        display: flex;
-        gap: 0.6rem;
-      }
-
-      .btn {
-        border: 2px solid transparent;
-        border-radius: 999px;
-        padding: 0.8rem 1.3rem;
-        text-decoration: none;
-        font-weight: 700;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        transition: all 0.2s ease;
-      }
-
-      .btn-primary {
-        background: var(--teal);
-        color: #fff;
-      }
-
-      .btn-primary:hover {
-        background: #009189;
-        transform: translateY(-1px);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        border-color: var(--primary);
-        color: var(--primary);
-      }
-
-      .btn-secondary:hover {
-        background: rgba(30, 58, 138, 0.05);
-      }
-
-      .hero {
-        padding: 4.3rem 0 3.2rem;
-        display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 1.25rem;
-        align-items: center;
-      }
-
-      .kicker {
-        color: var(--muted);
-        font-weight: 600;
-        margin: 0 0 0.6rem;
-        font-size: 0.95rem;
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(2rem, 5vw, 3.7rem);
-        line-height: 1.05;
-        letter-spacing: -0.02em;
-      }
-
-      .highlight-primary {
-        color: var(--teal);
-      }
-
-      .highlight-accent {
-        color: var(--coral);
-      }
-
-      .hero p {
-        color: var(--muted);
-        max-width: 56ch;
-        margin: 1rem 0 1.4rem;
-      }
-
-      .hero-visual {
-        background: linear-gradient(135deg, var(--grey-light) 0%, #fff 100%);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow);
-        padding: 1.2rem;
-        overflow: hidden;
-      }
-
-      .hero-banner {
-        width: 100%;
-        overflow: hidden;
-        max-height: 420px;
-        position: relative;
-      }
-
-      .slideshow-track {
-        display: flex;
-        transition: transform 1s ease;
-        will-change: transform;
-      }
-
-      .hero-image {
-        width: 100%;
-        height: 420px;
-        object-fit: cover;
-        display: block;
-        filter: brightness(0.85);
-        flex-shrink: 0;
-      }
-
-      @media (min-width: 1400px) {
-        .hero-banner {
-          max-height: 480px;
-        }
-        .hero-image {
-          height: 480px;
-        }
-      }
-
-      .slideshow-dots {
-        position: absolute;
-        bottom: 14px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-        z-index: 2;
-      }
-
-      /* Slide nav bars */
-      .slide-bar {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 48px;
-        z-index: 3;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        background: rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
-        -webkit-tap-highlight-color: transparent;
-        transition: background 0.3s ease;
-        opacity: 0;
-        animation: barFadeIn 0.5s ease 0.8s forwards;
-      }
-
-      .slide-bar:hover {
-        background: rgba(255, 255, 255, 0.18);
-      }
-
-      .slide-bar:active {
-        background: rgba(255, 255, 255, 0.28);
-      }
-
-      .slide-bar--prev {
-        left: 0;
-        border-radius: 0 8px 8px 0;
-      }
-
-      .slide-bar--next {
-        right: 0;
-        border-radius: 8px 0 0 8px;
-      }
-
-      .slide-bar .chevron {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 1.6rem;
-        font-weight: 300;
-        line-height: 1;
-        transition:
-          color 0.3s ease,
-          transform 0.3s ease;
-        display: block;
-      }
-
-      .slide-bar:hover .chevron {
-        color: #fff;
-      }
-
-      .slide-bar--prev:hover .chevron {
-        transform: translateX(-2px);
-      }
-
-      .slide-bar--next:hover .chevron {
-        transform: translateX(2px);
-      }
-
-      .slide-bar:active .chevron {
-        color: #fff;
-      }
-
-      @keyframes barFadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 760px) {
-        .slide-bar {
-          width: 38px;
-        }
-
-        .slide-bar .chevron {
-          font-size: 1.3rem;
-        }
-      }
-
-      .slideshow-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
-        border: none;
-        cursor: pointer;
-        transition:
-          background 0.3s,
-          transform 0.3s;
-        padding: 0;
-      }
-
-      .slideshow-dot.active {
-        background: #fff;
-        transform: scale(1.25);
-      }
-
-      .slideshow-dot:hover {
-        background: rgba(255, 255, 255, 0.85);
-      }
-
-      .phone-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
-      }
-
-      .phone {
-        border-radius: 18px;
-        min-height: 135px;
-        padding: 1.1rem 1.2rem;
-        position: relative;
-        overflow: hidden;
-        transition:
-          transform 0.25s ease,
-          box-shadow 0.25s ease;
-      }
-
-      .phone:hover {
-        transform: translateY(-3px);
-      }
-
-      /* Real-time matching card */
-      .phone.feature-matching {
-        background: linear-gradient(
-          135deg,
-          rgba(0, 169, 157, 0.12) 0%,
-          rgba(0, 169, 157, 0.04) 100%
-        );
-        border: 1.5px solid rgba(0, 169, 157, 0.3);
-        box-shadow: 0 4px 20px rgba(0, 169, 157, 0.15);
-      }
-
-      .phone.feature-matching:hover {
-        box-shadow: 0 8px 30px rgba(0, 169, 157, 0.25);
-      }
-
-      .phone.feature-matching .feature-icon {
-        background: linear-gradient(135deg, var(--teal), var(--accent));
-      }
-
-      .phone.feature-matching h4 {
-        color: var(--teal);
-      }
-
-      /* Safe by design card */
-      .phone.feature-safety {
-        background: linear-gradient(
-          135deg,
-          rgba(30, 58, 138, 0.1) 0%,
-          rgba(30, 58, 138, 0.03) 100%
-        );
-        border: 1.5px solid rgba(30, 58, 138, 0.25);
-        box-shadow: 0 4px 20px rgba(30, 58, 138, 0.12);
-      }
-
-      .phone.feature-safety:hover {
-        box-shadow: 0 8px 30px rgba(30, 58, 138, 0.22);
-      }
-
-      .phone.feature-safety .feature-icon {
-        background: linear-gradient(135deg, var(--primary), #2a4fbc);
-      }
-
-      .phone.feature-safety h4 {
-        color: var(--primary);
-      }
-
-      .feature-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        font-size: 1.2rem;
-        margin-bottom: 0.6rem;
-        animation: pulse-glow 3s ease-in-out infinite;
-      }
-
-      @keyframes pulse-glow {
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(0, 169, 157, 0.15);
-        }
-        50% {
-          box-shadow: 0 0 16px 4px rgba(0, 169, 157, 0.2);
-        }
-      }
-
-      .phone h4 {
-        margin: 0 0 0.35rem;
-        font-size: 0.95rem;
-        font-weight: 800;
-        letter-spacing: -0.01em;
-      }
-
-      .phone p {
-        margin: 0;
-        font-size: 0.84rem;
-        color: var(--muted);
-        line-height: 1.45;
-      }
-
-      section {
-        padding: 3rem 0;
-      }
-
-      section:nth-of-type(odd) {
-        background: var(--bg);
-      }
-
-      .full-bleed {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        padding-left: max(4%, calc((100vw - 1320px) / 2));
-        padding-right: max(4%, calc((100vw - 1320px) / 2));
-      }
-
-      #problem {
-        background: linear-gradient(
-          135deg,
-          rgba(0, 169, 157, 0.06) 0%,
-          rgba(0, 169, 157, 0.02) 100%
-        );
-      }
-
-      #how {
-        background: linear-gradient(
-          135deg,
-          rgba(30, 58, 138, 0.06) 0%,
-          rgba(155, 89, 182, 0.04) 100%
-        );
-      }
-
-      #safety {
-        background: linear-gradient(
-          135deg,
-          rgba(0, 169, 157, 0.04) 0%,
-          rgba(30, 58, 138, 0.06) 100%
-        );
-      }
-
-      #faq {
-        background: linear-gradient(
-          135deg,
-          rgba(155, 89, 182, 0.06) 0%,
-          rgba(255, 107, 107, 0.04) 100%
-        );
-      }
-
-      #contact {
-        background: linear-gradient(
-          135deg,
-          rgba(30, 58, 138, 0.04) 0%,
-          rgba(0, 169, 157, 0.06) 100%
-        );
-      }
-
-      #proof {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 107, 107, 0.04) 0%,
-          rgba(30, 58, 138, 0.06) 100%
-        );
-      }
-
-      h2 {
-        margin: 0 0 0.65rem;
-        font-size: clamp(1.6rem, 3.4vw, 2.4rem);
-        letter-spacing: -0.01em;
-      }
-
-      .sub {
-        margin: 0 0 1.2rem;
-        color: var(--muted);
-        max-width: 64ch;
-      }
-
-      /* ── Venue section: two-column layout ── */
-      .venue-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-        min-height: 480px;
-      }
-
-      .venue-text .venue-label {
-        display: inline-block;
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--teal);
-        margin-bottom: 0.6rem;
-      }
-
-      .venue-text p.venue-desc {
-        color: var(--muted);
-        font-size: 1.05rem;
-        line-height: 1.65;
-        max-width: 44ch;
-        margin: 0.4rem 0 1.4rem;
-      }
-
-      .venue-indicators {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-      }
-
-      .venue-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--line);
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        transition:
-          background 0.3s ease,
-          transform 0.3s ease;
-      }
-
-      .venue-dot.active {
-        background: var(--teal);
-        transform: scale(1.3);
-      }
-
-      /* ── Fanned card stack (right side) ── */
-      .card-stack {
-        position: relative;
-        width: 100%;
-        height: 440px;
-        perspective: 1200px;
-      }
-
-      .stack-card {
-        position: absolute;
-        width: 260px;
-        height: 370px;
-        border-radius: 22px;
-        overflow: hidden;
-        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
-        transition:
-          transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
-          opacity 0.5s ease,
-          filter 0.5s ease,
-          box-shadow 0.5s ease;
-        will-change: transform, opacity, filter;
-        cursor: pointer;
-      }
-
-      .stack-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .stack-card .card-badge {
-        position: absolute;
-        top: 18px;
-        left: 18px;
-        padding: 0.45rem 1rem;
-        border-radius: 50px;
-        font-weight: 800;
-        font-size: 0.88rem;
-        color: #fff;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
-        transform: rotate(180deg);
-        padding: 1rem 0.55rem;
-        letter-spacing: 0.03em;
-      }
-
-      .stack-card .card-badge.badge-teal {
-        background: var(--teal);
-      }
-      .stack-card .card-badge.badge-coral {
-        background: var(--coral);
-      }
-      .stack-card .card-badge.badge-primary {
-        background: var(--primary);
-      }
-      .stack-card .card-badge.badge-purple {
-        background: var(--purple);
-      }
-
-      /* Card positions: fanned out from left-to-right */
-      .stack-card:nth-child(1) {
-        z-index: 4;
-        left: 0;
-        top: 20px;
-        --rot: -4deg;
-        transform: rotate(-4deg);
-      }
-      .stack-card:nth-child(2) {
-        z-index: 3;
-        left: 120px;
-        top: 0;
-        --rot: 2deg;
-        transform: rotate(2deg);
-      }
-      .stack-card:nth-child(3) {
-        z-index: 2;
-        left: 230px;
-        top: 30px;
-        --rot: 6deg;
-        transform: rotate(6deg);
-      }
-      .stack-card:nth-child(4) {
-        z-index: 1;
-        left: 320px;
-        top: 10px;
-        --rot: -2deg;
-        transform: rotate(-2deg);
-      }
-
-      /* Active card: pops forward */
-      .stack-card.stack-active {
-        z-index: 10 !important;
-        transform: rotate(0deg) scale(1.08) translateY(-10px) !important;
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-        opacity: 1 !important;
-        filter: brightness(1) !important;
-      }
-
-      /* Non-active cards recede */
-      .card-stack.has-active .stack-card:not(.stack-active) {
-        transform: scale(0.88) rotate(var(--rot)) !important;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Scroll reveal for the whole section */
-      .venue-layout {
-        opacity: 0;
-        transform: translateY(40px);
-        transition:
-          opacity 0.8s ease,
-          transform 0.8s ease;
-      }
-
-      .venue-layout.revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .steps {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1rem;
-      }
-
-      .step {
-        background: var(--surface);
-        border-radius: var(--radius-md);
-        border: 1px solid var(--line);
-        padding: 1rem;
-      }
-
-      .step .index {
-        width: 36px;
-        height: 36px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 100%);
-        color: #fff;
-        font-weight: 800;
-        margin-bottom: 0.6rem;
-        box-shadow: 0 4px 12px rgba(0, 169, 157, 0.25);
-      }
-
-      .step h3 {
-        margin: 0 0 0.35rem;
-        font-size: 1rem;
-      }
-
-      .safety {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        padding: 1.1rem;
-      }
-
-      .safety-grid {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 0.85rem;
-      }
-
-      .safety-item {
-        background: var(--surface-soft);
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        padding: 0.8rem;
-      }
-
-      .safety-item strong {
-        display: block;
-        color: var(--primary);
-        margin-bottom: 0.25rem;
-      }
-
-      .social-proof {
-        background: linear-gradient(
-          130deg,
-          var(--primary) 0%,
-          var(--teal) 100%
-        );
-        color: #fff;
-        border-radius: var(--radius-lg);
-        padding: 2rem 2.2rem;
-        box-shadow: 0 12px 32px rgba(30, 58, 138, 0.3);
-        max-width: 1320px;
-        margin: 0 auto;
-      }
-
-      .social-proof .stats {
-        margin-top: 0.8rem;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.8rem;
-      }
-
-      .metric {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 12px;
-        padding: 0.8rem;
-      }
-
-      .metric strong {
-        font-size: 1.3rem;
-        display: block;
-      }
-
-      .final-cta {
-        background: linear-gradient(
-          130deg,
-          var(--primary) 0%,
-          var(--teal) 100%
-        );
-        color: #fff;
-        border: none;
-        border-radius: var(--radius-lg);
-        padding: 3rem 2rem;
-        text-align: center;
-        box-shadow: 0 12px 32px rgba(30, 58, 138, 0.3);
-        max-width: 1320px;
-        margin: 0 auto;
-      }
-
-      .final-cta h2 {
-        color: #fff;
-        margin-bottom: 0.5rem;
-      }
-
-      .final-cta p {
-        margin: 0 auto 1.3rem;
-        color: rgba(255, 255, 255, 0.85);
-        max-width: 48ch;
-      }
-
-      .final-cta .actions {
-        justify-content: center;
-      }
-
-      .final-cta .btn-primary {
-        background: #fff;
-        color: var(--primary);
-      }
-
-      .final-cta .btn-primary:hover {
-        background: rgba(255, 255, 255, 0.9);
-      }
-
-      .final-cta .btn-secondary {
-        border-color: #fff;
-        color: #fff;
-      }
-
-      .final-cta .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.12);
-      }
-
-      .faq-list {
-        max-width: 760px;
-        margin: 0 auto;
-      }
-
-      .faq-item {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-md);
-        margin-bottom: 0.65rem;
-        overflow: hidden;
-        transition: box-shadow 0.25s ease;
-      }
-
-      .faq-item:hover {
-        box-shadow: 0 4px 16px rgba(30, 58, 138, 0.08);
-      }
-
-      .faq-question {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 1.15rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-        font: inherit;
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--text);
-        text-align: left;
-      }
-
-      .faq-question:hover {
-        color: var(--primary);
-      }
-
-      .faq-icon {
-        flex-shrink: 0;
-        width: 28px;
-        height: 28px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--surface-soft);
-        border: 1px solid var(--line);
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--teal);
-        transition:
-          transform 0.3s ease,
-          background 0.3s ease;
-      }
-
-      .faq-item.open .faq-icon {
-        transform: rotate(45deg);
-        background: var(--teal);
-        color: #fff;
-        border-color: var(--teal);
-      }
-
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition:
-          max-height 0.35s ease,
-          padding 0.35s ease;
-        padding: 0 1.15rem;
-      }
-
-      .faq-item.open .faq-answer {
-        max-height: 300px;
-        padding: 0 1.15rem 1rem;
-      }
-
-      .faq-answer p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .final-cta p {
-        margin: 0 auto 1.3rem;
-        color: rgba(255, 255, 255, 0.85);
-        max-width: 48ch;
-      }
-
-      .contact-details {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        flex-wrap: wrap;
-      }
-
-      .contact-card {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-md);
-        padding: 0.85rem 1.1rem;
-        flex: 1;
-        min-width: 200px;
-        max-width: 280px;
-      }
-
-      .contact-card-icon {
-        width: 38px;
-        height: 38px;
-        display: grid;
-        place-items: center;
-        border-radius: 10px;
-        font-size: 1.1rem;
-        flex-shrink: 0;
-        background: linear-gradient(135deg, var(--teal), var(--accent));
-      }
-
-      .contact-card strong {
-        display: block;
-        font-size: 0.88rem;
-        color: var(--text);
-        margin-bottom: 0.1rem;
-      }
-
-      .contact-card span {
-        font-size: 0.82rem;
-        color: var(--muted);
-      }
-
-      .contact-form {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        padding: 1.6rem;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .contact-form .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.85rem;
-      }
-
-      .contact-form h3 {
-        margin: 0 0 1rem;
-        font-size: 1.1rem;
-        color: var(--primary);
-        text-align: center;
-      }
-
-      .form-group {
-        margin-bottom: 0.85rem;
-      }
-
-      .form-group label {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: var(--text);
-        margin-bottom: 0.3rem;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        width: 100%;
-        padding: 0.7rem 0.85rem;
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        font: inherit;
-        font-size: 0.92rem;
-        background: var(--bg);
-        color: var(--text);
-        transition:
-          border-color 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--teal);
-        box-shadow: 0 0 0 3px rgba(0, 169, 157, 0.12);
-      }
-
-      .form-group textarea {
-        resize: vertical;
-        min-height: 100px;
-      }
-
-      .contact-form .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .form-success {
-        display: none;
-        text-align: center;
-        padding: 2rem 1rem;
-      }
-
-      .form-success.show {
-        display: block;
-      }
-
-      .form-success .checkmark {
-        width: 48px;
-        height: 48px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--teal);
-        color: #fff;
-        font-size: 1.5rem;
-        margin: 0 auto 0.75rem;
-      }
-
-      .form-success h3 {
-        margin: 0 0 0.3rem;
-        color: var(--text);
-      }
-
-      .form-success p {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .footer {
-        padding: 2rem 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .footer-wrap {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        flex-wrap: wrap;
-        color: var(--muted);
-      }
-
-      .footer-nav {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .footer-nav a {
-        text-decoration: none;
-      }
-
-      @media (max-width: 1040px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-
-        .venue-layout {
-          grid-template-columns: 1fr 1fr;
-          gap: 2rem;
-          min-height: 400px;
-        }
-
-        .card-stack {
-          height: 380px;
-        }
-
-        .stack-card {
-          width: 200px;
-          height: 290px;
-        }
-
-        .stack-card:nth-child(1) {
-          left: 0;
-        }
-        .stack-card:nth-child(2) {
-          left: 90px;
-        }
-        .stack-card:nth-child(3) {
-          left: 170px;
-        }
-        .stack-card:nth-child(4) {
-          left: 240px;
-        }
-
-        .steps {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .safety-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 760px) {
-        .nav-links {
-          display: none;
-        }
-
-        .nav > .actions {
-          display: none;
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        .venue-layout {
-          grid-template-columns: 1fr;
-          text-align: center;
-          gap: 1.5rem;
-          min-height: auto;
-        }
-
-        .venue-text {
-          order: 1;
-        }
-
-        .venue-text .venue-desc {
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .venue-indicators {
-          justify-content: center;
-        }
-
-        .card-stack {
-          order: 0;
-          height: 340px;
-          max-width: 420px;
-          margin: 0 auto;
-        }
-
-        .stack-card {
-          width: 180px;
-          height: 260px;
-        }
-
-        .stack-card:nth-child(1) {
-          left: 10px;
-        }
-        .stack-card:nth-child(2) {
-          left: 80px;
-        }
-        .stack-card:nth-child(3) {
-          left: 150px;
-        }
-        .stack-card:nth-child(4) {
-          left: 210px;
-        }
-
-        .social-proof .stats,
-        .phone-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .actions {
-          flex-direction: column;
-        }
-
-        .actions .btn {
-          width: 100%;
-          text-align: center;
-          justify-content: center;
-        }
-
-        .contact-form .form-row {
-          grid-template-columns: 1fr;
-        }
-
-        .contact-details {
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .contact-card {
-          max-width: 100%;
-        }
-
-        .hero {
-          padding: 2rem 0 1.5rem;
-        }
-
-        .hero-image {
-          height: 260px;
-        }
-
-        .hero-banner {
-          max-height: 260px;
-        }
-
-        .slideshow-dots {
-          bottom: 10px;
-          gap: 8px;
-        }
-
-        .slideshow-dot {
-          width: 8px;
-          height: 8px;
-        }
-
-        h1 {
-          font-size: clamp(1.6rem, 7vw, 2.2rem);
-        }
-
-        .hero p {
-          margin: 0.7rem 0 1rem;
-        }
-
-        section {
-          padding: 2rem 0;
-        }
-      }
-
-      /* Large screens */
-      @media (min-width: 1600px) {
-        .container {
-          width: min(1440px, 90%);
-        }
-
-        .full-bleed {
-          padding-left: max(4%, calc((100vw - 1440px) / 2));
-          padding-right: max(4%, calc((100vw - 1440px) / 2));
-        }
-
-        .social-proof,
-        .final-cta {
-          max-width: 1440px;
-        }
-
-        .hero {
-          gap: 2rem;
-        }
-
-        .venue-layout {
-          gap: 4rem;
-        }
-
-        .stack-card {
-          width: 290px;
-          height: 400px;
-        }
-
-        .card-stack {
-          height: 480px;
-        }
-
-        .stack-card:nth-child(1) {
-          left: 0;
-        }
-        .stack-card:nth-child(2) {
-          left: 140px;
-        }
-        .stack-card:nth-child(3) {
-          left: 260px;
-        }
-        .stack-card:nth-child(4) {
-          left: 360px;
-        }
-      }
-
-      /* Small phones */
-      @media (max-width: 480px) {
-        .card-stack {
-          height: 280px;
-          max-width: 340px;
-        }
-
-        .stack-card {
-          width: 150px;
-          height: 220px;
-          border-radius: 16px;
-        }
-
-        .stack-card:nth-child(1) {
-          left: 5px;
-          top: 15px;
-        }
-        .stack-card:nth-child(2) {
-          left: 60px;
-          top: 0;
-        }
-        .stack-card:nth-child(3) {
-          left: 115px;
-          top: 20px;
-        }
-        .stack-card:nth-child(4) {
-          left: 165px;
-          top: 5px;
-        }
-
-        .stack-card .card-badge {
-          font-size: 0.75rem;
-          padding: 0.7rem 0.4rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/proximeet.css" />
+    <script src="assets/js/proximeet.js" defer></script>
   </head>
-  <body>
-    <header class="topbar">
-      <nav class="container nav" aria-label="Main navigation">
-        <a href="index.html" class="brand"
-          ><img src="assets/img/logo.png" alt="ProxiMeet"
-        /></a>
-        <ul class="nav-links">
-          <li><a href="#how">How It Works</a></li>
-          <li><a href="#safety">Safety</a></li>
-          <li><a href="#proof">Social Proof</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="download.html">Download</a></li>
-        </ul>
-        <div class="actions">
-          <a class="btn btn-secondary" href="waitlist.html">Join Waitlist</a>
-          <a class="btn btn-primary" href="download.html">Download Now</a>
-        </div>
-        <button class="hamburger" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+  <body class="page-home">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="ProxiMeet home">
+          <img src="assets/img/logo.png" alt="ProxiMeet" />
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span><span></span>
         </button>
-      </nav>
-      <div class="mobile-menu">
-        <ul>
-          <li><a href="#how">How It Works</a></li>
-          <li><a href="#safety">Safety</a></li>
-          <li><a href="#proof">Social Proof</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="download.html">Download</a></li>
-        </ul>
-        <div class="mobile-actions">
-          <a class="btn btn-secondary" href="waitlist.html">Join Waitlist</a>
-          <a class="btn btn-primary" href="download.html">Download Now</a>
-        </div>
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+          <a href="#how">How it works</a>
+          <a href="#choice">Your call</a>
+          <a href="#faq">FAQ</a>
+          <a class="button button--lime button--small" href="waitlist.html"
+            >Get early access <span aria-hidden="true">↗</span></a
+          >
+        </nav>
       </div>
     </header>
 
-    <div class="hero-banner" id="heroBanner">
-      <div class="slideshow-track" id="slideshowTrack">
-        <img
-          class="hero-image"
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80"
-          alt="Friends connecting and walking together outdoors"
-        />
-        <img
-          class="hero-image"
-          src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80"
-          alt="Group of young friends laughing and having coffee together"
-        />
-        <img
-          class="hero-image"
-          src="https://images.unsplash.com/photo-1752650143804-de2813c2b5bd?auto=format&fit=crop&w=1600&q=80"
-          alt="Three diverse friends taking a selfie together in the city"
-        />
-        <img
-          class="hero-image"
-          src="https://images.unsplash.com/photo-1758272133786-ee98adcc6837?auto=format&fit=crop&w=1600&q=80"
-          alt="Diverse group of friends including Black people smiling at a rooftop party"
-        />
-        <img
-          class="hero-image"
-          src="https://images.unsplash.com/photo-1758613171187-9a41d0fc93ab?auto=format&fit=crop&w=1600&q=80"
-          alt="Four diverse friends posing and laughing together outdoors"
-        />
+    <main id="main">
+      <section class="hero-v2" aria-labelledby="hero-title">
+        <div class="hero-v2-grid">
+          <div>
+            <p class="eyebrow">
+              <span class="status-dot"></span>Proximity, meet possibility
+            </p>
+            <h1 id="hero-title">
+              Your people are <span class="grad-word">closer</span> than you
+              think.
+            </h1>
+            <p class="hero-copy">
+              ProxiMeet turns wherever you are into somewhere you belong. Find
+              people nearby over the things you already love — then meet them
+              for real.
+            </p>
+            <div class="hero-actions">
+              <a class="button button--lime" href="waitlist.html"
+                >Get early access <span aria-hidden="true">↗</span></a
+              >
+              <a class="text-link text-link--light" href="#how"
+                >See how it works <span aria-hidden="true">↘</span></a
+              >
+            </div>
+            <p class="hero-note">
+              Free to join the list. First look before launch.
+            </p>
+          </div>
+          <div class="hero-stage" aria-hidden="true">
+            <span class="scene-ring scene-ring--1"></span>
+            <span class="scene-ring scene-ring--2"></span>
+            <span class="scene-ring scene-ring--3"></span>
+            <article class="vcard vcard--match">
+              <div class="vcard-head">
+                <div class="vavatar"></div>
+                <div><strong>Maya, 24</strong><span>~300 m away</span></div>
+              </div>
+              <div class="vchips">
+                <span>📷 Photography</span><span>☕ Coffee</span>
+              </div>
+            </article>
+            <article class="vcard vcard--toast">
+              <span class="vdot"></span>
+              <p><strong>Deji</strong> waved at you 👋</p>
+            </article>
+            <article class="vcard vcard--chat">
+              <p class="bubble bubble--them">wait, same gallery rn?? 🎨</p>
+              <p class="bubble bubble--me">by the sculptures — come say hi</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span
+            >Photography <em>✦</em> Live music <em>✦</em> Pickup ball
+            <em>✦</em> Film <em>✦</em> Coffee <em>✦</em> Gaming <em>✦</em> Books
+            <em>✦</em> Anime <em>✦</em> Fitness <em>✦</em> Art <em>✦</em> Tech
+            <em>✦</em> Fashion <em>✦</em></span
+          >
+          <span
+            >Photography <em>✦</em> Live music <em>✦</em> Pickup ball
+            <em>✦</em> Film <em>✦</em> Coffee <em>✦</em> Gaming <em>✦</em> Books
+            <em>✦</em> Anime <em>✦</em> Fitness <em>✦</em> Art <em>✦</em> Tech
+            <em>✦</em> Fashion <em>✦</em></span
+          >
+        </div>
       </div>
-      <div class="slideshow-dots" id="slideshowDots"></div>
-      <button
-        class="slide-bar slide-bar--prev"
-        id="slidePrev"
-        aria-label="Previous slide"
-      >
-        <span class="chevron">‹</span>
-      </button>
-      <button
-        class="slide-bar slide-bar--next"
-        id="slideNext"
-        aria-label="Next slide"
-      >
-        <span class="chevron">›</span>
-      </button>
-    </div>
 
-    <main class="container">
-      <section class="hero">
-        <div>
-          <p class="kicker">Real People. Real Spaces. Real Intent.</p>
-          <h1>
-            <span class="highlight-accent">Connect</span> Instantly,
-            <span class="highlight-primary">Meet</span> Nearby
-          </h1>
-          <p>
-            Find and connect with people around you in real-time based on shared
-            interests and immediate needs.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="waitlist.html"
-              >Join the Waitlist</a
-            >
-            <a class="btn btn-secondary" href="download.html">Download Now</a>
-          </div>
-        </div>
-        <aside class="hero-visual" aria-label="App preview">
-          <div class="phone-grid">
-            <div class="phone feature-matching">
-              <div class="feature-icon">🎯</div>
-              <h4>Real-time matching</h4>
-              <p>Find people nearby right now</p>
-            </div>
-            <div class="phone feature-safety">
-              <div class="feature-icon">🔒</div>
-              <h4>Safe by design</h4>
-              <p>Public meetups only</p>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section id="problem" class="full-bleed">
-        <div class="venue-layout" id="venueLayout">
-          <div class="venue-text">
-            <span class="venue-label">Where it happens</span>
-            <h2>
-              <span class="highlight-accent">Smart</span> Safety,
-              <span class="highlight-primary">Seamless</span> Connections
-            </h2>
-            <p class="venue-desc" id="venueDesc">
-              Sitting next to 200 students and no structured way to find a study
-              partner.
-            </p>
-            <div class="venue-indicators" id="venueDots"></div>
-          </div>
-          <div class="card-stack" id="cardStack">
-            <div
-              class="stack-card stack-active"
-              data-index="0"
-              data-desc="Sitting next to 200 students and no structured way to find a study partner."
-            >
-              <img
-                src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=520&h=700&fit=crop&q=80"
-                alt="Library"
-              />
-              <span class="card-badge badge-teal">Library</span>
-            </div>
-            <div
-              class="stack-card"
-              data-index="1"
-              data-desc="Training near dozens of potential partners with no safe signal to connect."
-            >
-              <img
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=520&h=700&fit=crop&q=80"
-                alt="Gym"
-              />
-              <span class="card-badge badge-coral">Gym</span>
-            </div>
-            <div
-              class="stack-card"
-              data-index="2"
-              data-desc="Hundreds of professionals in one room and no context-first introduction flow."
-            >
-              <img
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=520&h=700&fit=crop&q=80"
-                alt="Conferences"
-              />
-              <span class="card-badge badge-primary">Conferences</span>
-            </div>
-            <div
-              class="stack-card"
-              data-index="3"
-              data-desc="Creators in the same space but no intentional way to start collaboration."
-            >
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=520&h=700&fit=crop&q=80"
-                alt="Creative Hubs"
-              />
-              <span class="card-badge badge-purple">Creative Hubs</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="how" class="full-bleed">
-        <h2>
-          Your <span class="highlight-primary">Interests</span>, Your
-          <span class="highlight-accent">Network</span>
+      <section class="statement">
+        <h2 class="reveal">
+          You’ve probably already walked past your next best friend.
         </h2>
-        <p class="sub">
-          Select your interests, and we'll match you with like-minded
-          individuals nearby.
+        <p class="reveal" style="--d: 0.15s">
+          Cities are full of people who’d get you — sitting one table over,
+          training at the same gym, reading the same book. ProxiMeet makes sure
+          you don’t miss them twice.
         </p>
-        <div class="steps">
-          <article class="step">
-            <div class="index">1</div>
-            <h3>Set your reason</h3>
-            <p>
-              Choose Study, Workout, Network, or Create based on what you need
-              now.
-            </p>
-          </article>
-          <article class="step">
-            <div class="index">2</div>
-            <h3>Appear on the live map</h3>
-            <p>
-              Become visible to relevant nearby users in your current space.
-            </p>
-          </article>
-          <article class="step">
-            <div class="index">3</div>
-            <h3>Match intentionally</h3>
-            <p>
-              Only mutual interest opens chat so every interaction has clear
-              consent.
-            </p>
-          </article>
-          <article class="step">
-            <div class="index">4</div>
-            <h3>Meet in public zones</h3>
-            <p>
-              Coordinate in visible, approved locations built for safety and
-              clarity.
-            </p>
-          </article>
-        </div>
       </section>
 
-      <section id="safety" class="full-bleed">
-        <div class="safety">
-          <h2>Safety-first by design.</h2>
-          <p class="sub">
-            ProxiMeet is built for trust from first match to in-person meetup.
-          </p>
-          <div class="safety-grid">
-            <article class="safety-item">
-              <strong>Public Zones Only</strong>
-              Meetups are coordinated only in visible, public spaces.
-            </article>
-            <article class="safety-item">
-              <strong>Mutual Matching</strong>
-              No one can message unless both people opt in.
-            </article>
-            <article class="safety-item">
-              <strong>Profile Accountability</strong>
-              Structured identity signals discourage anonymous misuse.
-            </article>
-            <article class="safety-item">
-              <strong>Moderation System</strong>
-              Reports are reviewed to maintain a trusted environment.
-            </article>
-            <article class="safety-item">
-              <strong>Safe Zone Restrictions</strong>
-              Match visibility follows location and safety boundaries.
-            </article>
+      <section class="peek section-pad">
+        <div class="peek-grid">
+          <div class="peek-copy reveal">
+            <p class="eyebrow">A peek, not the whole tour</p>
+            <h2>Built to feel like the city — not another feed.</h2>
+            <p>
+              No endless scrolling. No swiping into the void. Just a living view
+              of what’s around you and the people in it. The rest, we’re saving
+              for launch.
+            </p>
+            <a class="text-link" href="waitlist.html"
+              >Be first to see it <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="peek-phone reveal" style="--d: 0.2s">
+            <div class="phone-frame">
+              <img
+                src="assets/img/product/glimpse-map.jpg"
+                alt="A glimpse of the ProxiMeet app"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="proof" class="full-bleed">
-        <article class="social-proof">
-          <h2>Launching soon with early adopters.</h2>
+      <section
+        class="steps-v2 section-pad"
+        id="how"
+        aria-labelledby="process-title"
+      >
+        <div class="section-kicker section-kicker--light">
+          <span>01</span><span>How it works</span>
+        </div>
+        <div class="process-intro">
+          <h2 id="process-title">Three small steps to<br />one real hello.</h2>
           <p>
-            Social proof is ready for rollout: testimonials, beta numbers, and
-            city-by-city expansion.
+            Here’s the whole journey, start to finish. No perfect profile, no
+            cold openers — the things you love do the heavy lifting.
           </p>
-          <div class="stats">
-            <div class="metric">
-              <strong>300+</strong>
-              Early waitlist signups
+        </div>
+        <div class="steps-v2-grid">
+          <article class="step-card reveal">
+            <div class="step-visual">
+              <div class="chip-cloud" aria-hidden="true">
+                <span class="on">📷 Photography</span><span>🎧 House music</span
+                ><span class="on on--p">📚 Novels</span><span>🧗 Climbing</span
+                ><span class="on on--c">☕ Coffee</span><span>🎮 Gaming</span>
+              </div>
             </div>
-            <div class="metric">
-              <strong>4 Cities</strong>
-              Pilot city shortlist
+            <div class="step-body">
+              <span>STEP 01</span>
+              <h3>Show up as yourself</h3>
+              <p>
+                Tell us what you’re into — the music, the hobbies, the little
+                obsessions. That’s your whole profile, and it’s all anyone
+                needs to see why they’d want to meet you.
+              </p>
             </div>
-            <div class="metric">
-              <strong>Q2 2026</strong>
-              Planned beta launch
+          </article>
+          <article class="step-card reveal" style="--d: 0.15s">
+            <div class="step-visual">
+              <div class="mini-radar" aria-hidden="true">
+                <i></i><i></i><i></i><b></b><b></b><b></b>
+              </div>
             </div>
-          </div>
-        </article>
+            <div class="step-body">
+              <span>STEP 02</span>
+              <h3>See who’s around</h3>
+              <p>
+                ProxiMeet then shows you the people nearby who share those
+                interests and are open to meeting someone new. Suddenly the
+                café down the street feels a lot friendlier.
+              </p>
+            </div>
+          </article>
+          <article class="step-card reveal" style="--d: 0.3s">
+            <div class="step-visual">
+              <div class="request-card" aria-hidden="true">
+                <div class="vcard-head">
+                  <div class="vavatar vavatar--b"></div>
+                  <div>
+                    <strong>Deji, 26</strong><span>📚 Novels · ☕ Coffee</span>
+                  </div>
+                </div>
+                <div class="req-actions">
+                  <span class="req-btn req-btn--accept">Accept</span
+                  ><span class="req-btn">Later</span>
+                </div>
+                <p class="req-note">Request accepted — chat unlocked 🎉</p>
+              </div>
+            </div>
+            <div class="step-body">
+              <span>STEP 03</span>
+              <h3>Say hi, for real</h3>
+              <p>
+                When someone catches your eye, send them a request. If they
+                accept, a chat opens just for the two of you — get talking,
+                then pick a public spot nearby and make it a real hello.
+              </p>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <section id="faq" class="full-bleed">
-        <h2>
-          Frequently Asked <span class="highlight-accent">Questions</span>
-        </h2>
-        <p class="sub">Everything you need to know about ProxiMeet.</p>
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              What is ProxiMeet?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>
-                ProxiMeet is a real-time, location-based app that helps you
-                discover and connect with people nearby who share your interests
-                or immediate needs — safely and intentionally in public spaces.
-              </p>
-            </div>
+      <section
+        class="safety section-pad"
+        id="choice"
+        aria-labelledby="choice-title"
+      >
+        <div class="section-kicker">
+          <span>02</span><span>Always your call</span>
+        </div>
+        <div class="safety-grid">
+          <div class="safety-title">
+            <h2 id="choice-title">Meeting someone new should be your call.</h2>
+            <p>
+              Good introductions need context, choice, and room to decide what
+              comes next. That’s the whole design.
+            </p>
           </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Is ProxiMeet safe to use?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
+          <div class="choice-grid">
+            <article class="choice-card reveal">
+              <span>01</span>
+              <h3>A reason to say hi</h3>
               <p>
-                Absolutely. Safety is built into every layer. All meetups happen
-                in public spaces, your precise location is never shared, and
-                every profile is verified. You always control who sees you and
-                when.
+                Shared interests make the why obvious before anyone says a
+                word.
               </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              How does matching work?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
+            </article>
+            <article class="choice-card reveal" style="--d: 0.1s">
+              <span>02</span>
+              <h3>People, not just pins</h3>
               <p>
-                ProxiMeet uses real-time proximity and shared intent signals to
-                match you with nearby people. Set your interest or need, and the
-                app surfaces compatible people around you right now — no endless
-                swiping.
+                Profiles put a person and their interests in the picture — never
+                just a dot on a map.
               </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              When will ProxiMeet launch?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
+            </article>
+            <article class="choice-card reveal" style="--d: 0.2s">
+              <span>03</span>
+              <h3>It takes two</h3>
               <p>
-                We're planning a beta launch in Q2 2026, starting in select
-                pilot cities. Join the waitlist to get early access and help
-                shape the product.
+                Chat only opens when you both say yes — nothing starts without
+                it.
               </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              Is ProxiMeet free?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
+            </article>
+            <article class="choice-card reveal" style="--d: 0.3s">
+              <span>04</span>
+              <h3>Meet on your terms</h3>
               <p>
-                ProxiMeet will be free to download and use. We may introduce
-                optional premium features in the future, but core matching and
-                safety features will always remain free.
+                Take it to a public place that feels comfortable — whenever
+                you’re both ready.
               </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">
-              What makes ProxiMeet different from other social apps?
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>
-                Unlike traditional social apps, ProxiMeet focuses on real-time,
-                in-person connection with built-in safety. No profiles to browse
-                endlessly — just genuine, context-first introductions with
-                people who are actually nearby.
-              </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="full-bleed">
-        <h2>Get in <span class="highlight-accent">Touch</span></h2>
-        <p class="sub">
-          Have a question, partnership idea, or just want to say hi? We'd love
-          to hear from you.
-        </p>
-        <div class="contact-details">
-          <div class="contact-card">
-            <div class="contact-card-icon">✉️</div>
-            <div>
-              <strong>Email</strong>
-              <span
-                ><a
-                  href="mailto:developer@proximeet.ca"
-                  style="color: var(--teal); text-decoration: none"
-                  >developer@proximeet.ca</a
-                ></span
-              >
-            </div>
+      <section class="join-band" aria-labelledby="join-title">
+        <div class="join-content">
+          <p class="eyebrow">Launching city by city</p>
+          <h2 id="join-title">
+            Be first when ProxiMeet reaches your corner of the map.
+          </h2>
+          <a class="button" href="waitlist.html"
+            >Join the waitlist <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="join-note" aria-hidden="true">
+          <span class="join-note-mark join-note-mark--pin"></span>
+          <p>Find your people.<br />Right around you.</p>
+        </div>
+      </section>
+
+      <section class="faq section-pad" id="faq" aria-labelledby="faq-title">
+        <div class="section-kicker">
+          <span>03</span><span>Good to know</span>
+        </div>
+        <div class="faq-layout">
+          <div>
+            <h2 id="faq-title">A few things<br />you might wonder.</h2>
+            <p>
+              Have another question?
+              <a href="mailto:developer@proximeet.ca">Talk to our team</a>.
+            </p>
           </div>
-          <div class="contact-card">
-            <div class="contact-card-icon">📞</div>
-            <div>
-              <strong>Phone</strong>
-              <span
-                ><a
-                  href="tel:+18058603490"
-                  style="color: inherit; text-decoration: none"
-                  >+1 (805) 860-3490</a
-                ></span
-              >
-            </div>
-          </div>
-          <div class="contact-card">
-            <div class="contact-card-icon">⏰</div>
-            <div>
-              <strong>Response time</strong>
-              <span>Usually within 24 hours</span>
-            </div>
+          <div class="faq-list">
+            <details>
+              <summary>
+                What is ProxiMeet?<span aria-hidden="true"></span>
+              </summary>
+              <p>
+                ProxiMeet is an app for meeting people near you who love what
+                you love — and turning that into a real-life hello.
+              </p>
+            </details>
+            <details>
+              <summary>
+                What kinds of interests can I add?<span
+                  aria-hidden="true"
+                ></span>
+              </summary>
+              <p>
+                Everyday passions — think music, books, photography, gaming,
+                film, fitness, and more. You choose what represents you.
+              </p>
+            </details>
+            <details>
+              <summary>
+                How do I find people nearby?<span aria-hidden="true"></span>
+              </summary>
+              <p>
+                ProxiMeet shows you people around you on a map-style view,
+                organized by the interests you share. The finer details are ours
+                to reveal at launch — waitlist members see them first.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Do I have to meet someone?<span aria-hidden="true"></span>
+              </summary>
+              <p>
+                No. Connections start with a request you choose to send or
+                accept — and chat only opens once both of you are in. What
+                happens next is always up to you.
+              </p>
+            </details>
+            <details>
+              <summary>
+                When can I try it?<span aria-hidden="true"></span>
+              </summary>
+              <p>
+                We’re launching city by city. Join the waitlist and you’ll hear
+                from us the moment there’s news for your area.
+              </p>
+            </details>
           </div>
         </div>
-        <div class="contact-form" id="contactForm">
-          <h3>Send us a message</h3>
+      </section>
+
+      <section
+        class="contact section-pad"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="section-kicker section-kicker--light">
+          <span>04</span><span>Let’s talk</span>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <h2 id="contact-title">Have a question?<br />We’re listening.</h2>
+            <p>
+              Partnerships, press, or just a thought you’d like to share — send
+              us a note.
+            </p>
+            <a class="contact-email" href="mailto:developer@proximeet.ca"
+              >developer@proximeet.ca <span aria-hidden="true">↗</span></a
+            >
+          </div>
           <form
-            id="contactFormEl"
+            class="contact-form"
             action="https://formsubmit.co/developer@proximeet.ca"
             method="POST"
+            data-async-form
           >
             <input
               type="hidden"
@@ -1845,337 +392,57 @@
               value="New message from ProxiMeet website"
             />
             <input type="hidden" name="_captcha" value="false" />
-            <div class="form-row">
-              <div class="form-group">
-                <label for="contactName">Name</label>
-                <input
-                  type="text"
-                  id="contactName"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="contactEmail">Email</label>
-                <input
-                  type="email"
-                  id="contactEmail"
-                  name="email"
-                  placeholder="you@example.com"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="contactMessage">Message</label>
-              <textarea
-                id="contactMessage"
+            <label
+              >Name<input
+                type="text"
+                name="name"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+            /></label>
+            <label
+              >Email<input
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+            /></label>
+            <label
+              >Message<textarea
                 name="message"
-                placeholder="Your message"
+                placeholder="What’s on your mind?"
                 required
               ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            </label>
+            <button class="button button--lime" type="submit">
+              Send message <span aria-hidden="true">↗</span>
+            </button>
+            <p class="form-status" role="status" aria-live="polite"></p>
           </form>
-          <div class="form-success" id="formSuccess">
-            <div class="checkmark">✓</div>
-            <h3>Message sent!</h3>
-            <p>Thanks for reaching out. We'll get back to you shortly.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="full-bleed">
-        <div class="final-cta">
-          <h2>Stop scrolling. Start meeting.</h2>
-          <p>
-            High-signal, safe in-person connection starts with one intentional
-            match.
-          </p>
-          <div class="actions">
-            <a class="btn btn-secondary" href="waitlist.html">Join Waitlist</a>
-            <a class="btn btn-primary" href="download.html">Download iOS</a>
-          </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container footer-wrap">
+    <footer class="site-footer">
+      <div class="footer-top">
+        <a
+          class="brand brand--footer"
+          href="index.html"
+          aria-label="ProxiMeet home"
+          ><img src="assets/img/logo.png" alt="ProxiMeet"
+        /></a>
+      </div>
+      <div class="footer-bottom">
         <small
-          >&copy; <span id="year"></span> Proximeet Limited, All Rights
-          Reserved</small
+          >© <span data-year></span> Proximeet Limited. All rights
+          reserved.</small
         >
-        <nav class="footer-nav" aria-label="Footer">
-          <a href="#contact">Contact</a>
-          <a href="terms.html">Terms</a>
-          <a href="privacy.html">Privacy</a>
+        <nav aria-label="Footer">
+          <a href="#contact">Contact us</a><a href="terms.html">Terms</a
+          ><a href="privacy-policy.html">Privacy</a>
         </nav>
       </div>
     </footer>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      // Hamburger menu toggle
-      const hamburger = document.querySelector(".hamburger");
-      const mobileMenu = document.querySelector(".mobile-menu");
-
-      hamburger.addEventListener("click", function () {
-        this.classList.toggle("active");
-        mobileMenu.classList.toggle("active");
-      });
-
-      // Close mobile menu when clicking a link (use delegation for reliability)
-      function closeMobileMenu() {
-        hamburger.classList.remove("active");
-        mobileMenu.classList.remove("active");
-      }
-
-      mobileMenu.addEventListener("click", function (e) {
-        if (e.target.closest("a")) {
-          closeMobileMenu();
-        }
-      });
-
-      // Close mobile menu when clicking outside of it
-      document.addEventListener("click", function (e) {
-        if (
-          mobileMenu.classList.contains("active") &&
-          !mobileMenu.contains(e.target) &&
-          !hamburger.contains(e.target)
-        ) {
-          closeMobileMenu();
-        }
-      });
-      // FAQ accordion
-      document.querySelectorAll(".faq-question").forEach((btn) => {
-        btn.addEventListener("click", function () {
-          const item = this.closest(".faq-item");
-          const isOpen = item.classList.contains("open");
-
-          // Close all items
-          document.querySelectorAll(".faq-item").forEach((i) => {
-            i.classList.remove("open");
-            i.querySelector(".faq-question").setAttribute(
-              "aria-expanded",
-              "false",
-            );
-          });
-
-          // Toggle clicked item
-          if (!isOpen) {
-            item.classList.add("open");
-            this.setAttribute("aria-expanded", "true");
-          }
-        });
-      });
-      // Contact form handling
-      const contactFormEl = document.getElementById("contactFormEl");
-      const formSuccess = document.getElementById("formSuccess");
-
-      if (contactFormEl) {
-        contactFormEl.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const formData = new FormData(contactFormEl);
-          fetch(contactFormEl.action, {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" },
-          })
-            .then((res) => {
-              contactFormEl.style.display = "none";
-              formSuccess.classList.add("show");
-            })
-            .catch(() => {
-              contactFormEl.style.display = "none";
-              formSuccess.classList.add("show");
-            });
-        });
-      }
-    </script>
-    <script>
-      // Hero banner slideshow
-      (function () {
-        const banner = document.getElementById("heroBanner");
-        const track = document.getElementById("slideshowTrack");
-        const dotsContainer = document.getElementById("slideshowDots");
-        const prevBtn = document.getElementById("slidePrev");
-        const nextBtn = document.getElementById("slideNext");
-        const slides = track.querySelectorAll(".hero-image");
-        const count = slides.length;
-        let current = 0;
-        let interval;
-
-        // Create dots
-        for (let i = 0; i < count; i++) {
-          const dot = document.createElement("button");
-          dot.className = "slideshow-dot" + (i === 0 ? " active" : "");
-          dot.setAttribute("aria-label", "Go to slide " + (i + 1));
-          dot.addEventListener("click", function () {
-            goTo(i);
-            resetInterval();
-          });
-          dotsContainer.appendChild(dot);
-        }
-
-        function goTo(index) {
-          current = ((index % count) + count) % count;
-          track.style.transform = "translateX(-" + current * 100 + "%)";
-          const dots = dotsContainer.querySelectorAll(".slideshow-dot");
-          dots.forEach(function (d, i) {
-            d.classList.toggle("active", i === current);
-          });
-        }
-
-        function next() {
-          goTo(current + 1);
-        }
-
-        function prev() {
-          goTo(current - 1);
-        }
-
-        // Edge bar tap
-        nextBtn.addEventListener("click", function () {
-          next();
-          resetInterval();
-        });
-        prevBtn.addEventListener("click", function () {
-          prev();
-          resetInterval();
-        });
-
-        // Touch / swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let isSwiping = false;
-
-        banner.addEventListener(
-          "touchstart",
-          function (e) {
-            // Ignore touches on the nav buttons
-            if (e.target.closest(".slide-bar")) return;
-            touchStartX = e.changedTouches[0].screenX;
-            touchEndX = touchStartX;
-            isSwiping = true;
-          },
-          { passive: true },
-        );
-
-        banner.addEventListener(
-          "touchmove",
-          function (e) {
-            if (!isSwiping) return;
-            touchEndX = e.changedTouches[0].screenX;
-          },
-          { passive: true },
-        );
-
-        banner.addEventListener("touchend", function (e) {
-          if (!isSwiping) return;
-          if (e.target.closest(".slide-bar")) return;
-          isSwiping = false;
-          const diff = touchStartX - touchEndX;
-          if (Math.abs(diff) > 50) {
-            if (diff > 0) next();
-            else prev();
-            resetInterval();
-          }
-        });
-
-        function resetInterval() {
-          clearInterval(interval);
-          interval = setInterval(next, 45000);
-        }
-
-        resetInterval();
-      })();
-    </script>
-    <script>
-      // Venue card stack: auto-cycle & interactions
-      (function () {
-        var layout = document.getElementById("venueLayout");
-        var stack = document.getElementById("cardStack");
-        var cards = stack.querySelectorAll(".stack-card");
-        var desc = document.getElementById("venueDesc");
-        var dotsWrap = document.getElementById("venueDots");
-        var current = 0;
-        var interval;
-
-        // Build dots
-        for (var i = 0; i < cards.length; i++) {
-          var dot = document.createElement("button");
-          dot.className = "venue-dot" + (i === 0 ? " active" : "");
-          dot.setAttribute(
-            "aria-label",
-            "Show " + cards[i].querySelector(".card-badge").textContent,
-          );
-          (function (idx) {
-            dot.addEventListener("click", function () {
-              goTo(idx);
-              resetInterval();
-            });
-          })(i);
-          dotsWrap.appendChild(dot);
-        }
-
-        // Click on card
-        cards.forEach(function (card) {
-          card.addEventListener("click", function () {
-            var idx = parseInt(card.dataset.index);
-            goTo(idx);
-            resetInterval();
-          });
-        });
-
-        function goTo(idx) {
-          current = idx;
-          cards.forEach(function (c) {
-            c.classList.remove("stack-active");
-          });
-          cards[current].classList.add("stack-active");
-          stack.classList.add("has-active");
-          desc.style.opacity = "0";
-          desc.style.transform = "translateY(8px)";
-          setTimeout(function () {
-            desc.textContent = cards[current].dataset.desc;
-            desc.style.opacity = "1";
-            desc.style.transform = "translateY(0)";
-          }, 250);
-          var dots = dotsWrap.querySelectorAll(".venue-dot");
-          dots.forEach(function (d, i) {
-            d.classList.toggle("active", i === current);
-          });
-        }
-
-        function next() {
-          goTo((current + 1) % cards.length);
-        }
-
-        function resetInterval() {
-          clearInterval(interval);
-          interval = setInterval(next, 3500);
-        }
-
-        // Scroll reveal
-        var observer = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                layout.classList.add("revealed");
-                resetInterval();
-                observer.unobserve(layout);
-              }
-            });
-          },
-          { threshold: 0.2 },
-        );
-        observer.observe(layout);
-
-        // Add transition to desc
-        desc.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-      })();
-    </script>
   </body>
 </html>
