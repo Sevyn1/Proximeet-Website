@@ -283,11 +283,12 @@ h2 { margin-bottom: 0; font-size: 58px; line-height: 1.04; }
   .steps-list h3 { font-size: 17px; }
   .steps-list p { max-width: 270px; font-size: 12px; }
   .safety-list article { grid-template-columns: 32px 1fr; padding: 20px 0; }
-  .join-band { min-height: 520px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 32px; padding: 66px 20px; }
-  .join-content h2 { font-size: 48px; }
-  .join-note { width: 150px; height: 150px; padding: 15px; }
+  .join-band { min-height: auto; align-items: flex-start; flex-direction: column; justify-content: center; gap: 44px; padding: 64px 20px 72px; }
+  .join-content h2 { font-size: 38px; }
+  .join-note { width: 176px; height: 176px; padding: 22px; align-self: flex-end; margin-right: 6px; }
   .join-note-mark { font-size: 30px; }
-  .join-note p { font-size: 13px; }
+  .join-note-mark--pin { width: 24px; height: 24px; margin: 10px 0 0 12px; box-shadow: 0 0 0 6px rgba(255,255,255,.16); }
+  .join-note p { font-size: 14px; }
   .faq-layout { gap: 24px; }
   .faq-list summary { min-height: 66px; font-size: 15px; }
   .contact-grid { gap: 34px; }
