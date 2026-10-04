@@ -17,7 +17,7 @@ Last reviewed: 2026-10-04
 - download.html removed from the worktree (2026-10-04, owner confirmation): it duplicated the waitlist's purpose. It was orphaned — no other page, script, stylesheet, or workflow references it — and its launch-notify FormSubmit form (with `_next` redirect) was retired with it. Old external inbound links to download.html will 404. The deletion is uncommitted, like the rest of the redesign work.
 - Footers deduped to Contact / Terms / Privacy; header owns all other navigation and the logo links home.
 - The CI workflow still verifies only that `index.html` exists.
-- Production hosting and deployment status remain unverified from the repository alone.
+- Redesign committed and pushed to `main` (2026-10-04, commit 3bca87d, owner request). GitHub Pages rebuilt successfully and the CI check passed; the new copy was confirmed live at https://sevyn1.github.io/Proximeet-Website/. Hosting is GitHub Pages (main branch root, no custom domain).
 
 ## Working tree at review
 
