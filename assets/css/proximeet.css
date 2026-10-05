@@ -502,3 +502,9 @@ body.is-leaving .page-loader { opacity: 1; visibility: visible; transition: opac
 @media (prefers-reduced-motion: reduce) {
   .carousel-track { transition: none; }
 }
+
+/* concept switcher */
+.concept-pill { position: fixed; bottom: 18px; right: 18px; z-index: 80; display: inline-flex; align-items: center; gap: 8px; padding: 9px 15px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: #14162b; color: rgba(255,255,255,.85); font-size: 12px; font-weight: 600; text-decoration: none; box-shadow: 0 12px 30px rgba(5,8,24,.35); }
+.concept-pill b { color: #4ad7c8; font-weight: 700; }
+.concept-pill:hover { color: #fff; }
+@media (max-width: 640px) { .concept-pill { bottom: 12px; right: 12px; } }
