@@ -3,263 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f3ea" />
     <title>Privacy Policy | ProxiMeet</title>
     <meta name="description" content="ProxiMeet Privacy Policy." />
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-    <style>
-      @font-face {
-        font-family: "Oxanium";
-        src: url("assets/fonts/Oxanium-VariableFont_wght.ttf")
-          format("truetype");
-        font-weight: 100 900;
-        font-display: swap;
-      }
-
-      :root {
-        --bg: #fafafa;
-        --surface: #ffffff;
-        --surface-soft: #f7f5f9;
-        --text: #2d2d2d;
-        --muted: #6b6b6b;
-        --primary: #1e3a8a;
-        --teal: #00a99d;
-        --coral: #ff6b6b;
-        --purple: #9b59b6;
-        --yellow: #f4d03f;
-        --grey-light: #ecf0f1;
-        --accent: #00a99d;
-        --line: #e8e8e8;
-        --radius-lg: 28px;
-        --radius-md: 18px;
-        --shadow: 0 12px 32px rgba(30, 58, 138, 0.12);
-      }
-
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 5rem;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Oxanium, Inter, "Segoe UI", Roboto, Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      .container {
-        width: min(900px, 92%);
-        margin: 0 auto;
-      }
-      @media (min-width: 761px) and (max-width: 1024px) {
-        .container {
-          width: min(850px, 90%);
-        }
-      }
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 20;
-        background: rgba(248, 249, 252, 0.92);
-        border-bottom: 1px solid var(--line);
-        backdrop-filter: blur(8px);
-      }
-
-      footer {
-        background: var(--surface);
-        border-top: 1px solid var(--line);
-      }
-
-      header .container {
-        min-height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      footer .container {
-        min-height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-      }
-
-      .brand img {
-        height: 42px;
-        width: auto;
-      }
-
-      article {
-        margin: 2rem 0;
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
-        padding: 2.2rem;
-        box-shadow: var(--shadow);
-      }
-
-      h1 {
-        margin-top: 0;
-        letter-spacing: -0.01em;
-      }
-
-      h2 {
-        margin-bottom: 0.35rem;
-        margin-top: 2rem;
-        color: var(--primary);
-        font-size: 1.2rem;
-      }
-
-      p,
-      li {
-        color: var(--muted);
-      }
-
-      nav a {
-        margin-left: 0.85rem;
-        color: var(--muted);
-        text-decoration: none;
-        padding: 0.5rem 0.75rem;
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        font-size: 15px;
-      }
-
-      nav a:hover {
-        color: var(--primary);
-        background: rgba(30, 58, 138, 0.08);
-      }
-
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        width: auto;
-        min-width: 44px;
-        min-height: 44px;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        transition: background 0.2s ease;
-      }
-
-      .hamburger:hover {
-        background: rgba(30, 58, 138, 0.08);
-        transform: none;
-      }
-
-      .hamburger span {
-        display: block;
-        width: 22px;
-        height: 2.5px;
-        background: var(--primary);
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-      }
-
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-      }
-
-      .mobile-menu {
-        display: none;
-        position: fixed;
-        top: 77px;
-        left: 0;
-        right: 0;
-        background: var(--surface);
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        z-index: 19;
-        padding: 1.5rem;
-      }
-
-      .mobile-menu.active {
-        display: block;
-      }
-
-      .mobile-menu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .mobile-menu ul li {
-        margin-bottom: 1rem;
-      }
-
-      .mobile-menu ul li a {
-        text-decoration: none;
-        color: var(--text);
-        font-weight: 600;
-        font-size: 1.1rem;
-        display: block;
-        padding: 0.5rem 0;
-      }
-
-      @media (max-width: 900px) {
-        nav {
-          display: none;
-        }
-
-        .hamburger {
-          display: flex;
-        }
-      }
-    </style>
-    <link rel="stylesheet" href="assets/css/proximeet.css?v=3" />
-    <script src="assets/js/proximeet.js?v=3" defer></script>
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="b.css" />
+    <script src="b.js" defer></script>
   </head>
-  <body class="page-legal">
+  <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="index.html" aria-label="ProxiMeet home"
-          ><img src="assets/img/logo.png" alt="ProxiMeet"
-        /></a>
+    <header class="b-header">
+      <div class="b-header-inner">
+        <a class="b-brand" href="index.html" aria-label="ProxiMeet home">
+          <img src="../assets/img/logo.png" alt="ProxiMeet" />
+        </a>
         <button
-          class="menu-toggle"
+          class="b-menu-toggle"
           type="button"
           aria-label="Open menu"
           aria-expanded="false"
-          aria-controls="primary-nav"
+          aria-controls="b-nav"
         >
-          <span></span><span></span>
+          <span></span><span></span><span></span>
         </button>
-        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+        <nav class="b-nav" id="b-nav" aria-label="Main navigation">
+          <a href="index.html#where">Where it happens</a>
           <a href="index.html#how">How it works</a>
-          <a href="index.html#choice">Your call</a>
+          <a href="index.html#call">Your call</a>
           <a href="index.html#faq">FAQ</a>
-          <a class="button button--lime button--small" href="waitlist.html"
-            >Get early access <span aria-hidden="true">↗︎</span></a
-          >
+          <a class="b-btn b-btn--small" href="waitlist.html">Join the waitlist</a>
         </nav>
       </div>
     </header>
-
-    <main class="container" id="main">
+    <main class="b-legal" id="main">
       <article>
         <h1>Privacy Policy</h1>
         <p><strong>Your Privacy Matters</strong></p>
@@ -531,27 +313,27 @@
         </p>
       </article>
     </main>
-
-    <footer class="site-footer">
-      <div class="footer-top">
-        <a
-          class="brand brand--footer"
-          href="index.html"
-          aria-label="ProxiMeet home"
-          ><img src="assets/img/logo.png" alt="ProxiMeet"
-        /></a>
+    <footer class="b-footer">
+      <div class="b-footer-top">
+        <a class="b-brand" href="index.html" aria-label="ProxiMeet home">
+          <img src="../assets/img/logo.png" alt="ProxiMeet" />
+        </a>
+        <p>Find your people. Right around you.</p>
       </div>
-      <div class="footer-bottom">
+      <div class="b-footer-bottom">
         <small
           >© <span data-year></span> Proximeet Limited. All rights
           reserved.</small
         >
         <nav aria-label="Footer">
-          <a href="index.html#contact">Contact us</a
+          <a href="mailto:developer@proximeet.ca">Contact us</a
           ><a href="terms.html">Terms</a
           ><a href="privacy-policy.html">Privacy</a>
         </nav>
       </div>
     </footer>
+    <a class="concept-pill" href="../privacy-policy.html"
+      >Viewing concept <b>B</b> · switch to A</a
+    >
   </body>
 </html>

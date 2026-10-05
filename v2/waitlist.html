@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f3ea" />
+    <title>Get early access | ProxiMeet</title>
+    <meta
+      name="description"
+      content="Join the ProxiMeet early-access list for product and availability updates."
+    />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="b.css" />
+    <script src="b.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="b-header">
+      <div class="b-header-inner">
+        <a class="b-brand" href="index.html" aria-label="ProxiMeet home">
+          <img src="../assets/img/logo.png" alt="ProxiMeet" />
+        </a>
+        <button
+          class="b-menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="b-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="b-nav" id="b-nav" aria-label="Main navigation">
+          <a href="index.html#where">Where it happens</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#call">Your call</a>
+          <a href="index.html#faq">FAQ</a>
+          <a class="b-btn b-btn--small" href="waitlist.html">Join the waitlist</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="b-signup" aria-labelledby="signup-title">
+        <div class="b-signup-copy">
+          <p class="b-kicker">Early access</p>
+          <h1 id="signup-title">
+            Meet people around <em>what you love.</em>
+          </h1>
+          <p class="lead">
+            A nearby map, shared interests, and a more natural way to say hello.
+          </p>
+          <p>
+            Join the list and you’ll hear from us first. Tell us your city too —
+            it helps us figure out where to show up next.
+          </p>
+          <a class="b-back-link" href="index.html"
+            >← Back to ProxiMeet</a
+          >
+        </div>
+        <div class="b-form-card">
+          <p class="b-kicker">Stay in the loop</p>
+          <h2>Get early access updates.</h2>
+          <p>
+            Drop your email and we’ll keep you posted as ProxiMeet comes to
+            life.
+          </p>
+          <form
+            class="b-form"
+            action="https://formsubmit.co/developer@proximeet.ca"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New waitlist signup from ProxiMeet"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <label for="email"
+              >Email address<input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+            /></label>
+            <label for="city"
+              ><span class="b-label-line"
+                >City <span>(optional)</span></span
+              ><input
+                id="city"
+                name="city"
+                type="text"
+                autocomplete="address-level2"
+                placeholder="Your city"
+            /></label>
+            <button class="b-btn" type="submit">Join the waitlist</button>
+          </form>
+          <p class="b-form-note">
+            By joining, you agree to our <a href="terms.html">Terms</a> and
+            <a href="privacy-policy.html">Privacy Policy</a>.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="b-section"
+        aria-label="What early access means"
+        style="padding-top: 0"
+      >
+        <div class="b-heading">
+          <p class="b-kicker">What early access means</p>
+          <h2>First on the list, <em>first on the map.</em></h2>
+        </div>
+        <div class="how-rows perk-rows">
+          <div class="how-row bv">
+            <span class="how-num" aria-hidden="true">01</span>
+            <h3>First look</h3>
+            <p>See ProxiMeet before the public does, straight from the team.</p>
+          </div>
+          <div class="how-row bv">
+            <span class="how-num" aria-hidden="true">02</span>
+            <h3>Shape the map</h3>
+            <p>Your city helps decide where we light up first.</p>
+          </div>
+          <div class="how-row bv">
+            <span class="how-num" aria-hidden="true">03</span>
+            <h3>Launch-day news</h3>
+            <p>
+              Availability updates when there’s something real to share. No
+              spam.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="b-footer">
+      <div class="b-footer-top">
+        <a class="b-brand" href="index.html" aria-label="ProxiMeet home">
+          <img src="../assets/img/logo.png" alt="ProxiMeet" />
+        </a>
+        <p>Find your people. Right around you.</p>
+      </div>
+      <div class="b-footer-bottom">
+        <small
+          >© <span data-year></span> Proximeet Limited. All rights
+          reserved.</small
+        >
+        <nav aria-label="Footer">
+          <a href="mailto:developer@proximeet.ca">Contact us</a
+          ><a href="terms.html">Terms</a
+          ><a href="privacy-policy.html">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+
+    <a class="concept-pill" href="../waitlist.html"
+      >Viewing concept <b>B</b> · switch to A</a
+    >
+  </body>
+</html>
