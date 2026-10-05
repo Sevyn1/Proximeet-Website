@@ -9,11 +9,11 @@ ProxiMeet is presented by its website as a service for connecting people nearby 
 ## Architecture
 
 - The repository is a lightweight static website made of top-level `.html` pages.
-- CSS and JavaScript are embedded in the HTML pages. Shared visual assets are under `assets/`, including the Oxanium font, logo, and favicons.
-- No package manifest, application framework, server-side application, or local test suite was found in the inspected repository.
+- Shared CSS and JavaScript are under assets/css and assets/js. Shared visual assets are under assets, including the Oxanium font, logo, and favicons.
+- No application framework or server-side application is present. A standard-library Python checker validates local static-site references and metadata.
 - The pages use FormSubmit for contact and waitlist form submissions. Configuration in HTML does not prove that this third-party integration is currently operational.
 - The Git remote is `https://github.com/Sevyn1/Proximeet-Website.git`, and the checked-out branch was `main` when this context was recorded.
-- `.github/workflows/ci.yml` runs on pushes to `main`, pull requests, and manual dispatch. Its current check is only that `index.html` exists.
+- `.github/workflows/ci.yml` runs on pushes to `main`, pull requests, and manual dispatch. The review branch replaces the homepage-existence check with static local-link/asset/fragment/metadata validation.
 - No server-side deployment configuration exists in the repository, but hosting was verified on 2026-10-04 via the GitHub API: the site is served by GitHub Pages from the root of `main` at https://sevyn1.github.io/Proximeet-Website/ (no custom domain configured on Pages as of that date, despite proximeet.ca email addresses in site copy).
 
 ## Conventions and constraints

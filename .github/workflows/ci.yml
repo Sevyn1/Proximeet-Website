@@ -1,21 +1,15 @@
-name: CI
-
+name: Validate static website
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
   workflow_dispatch:
-
 jobs:
   check:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Check index.html exists
-        run: |
-          if [ ! -f index.html ]; then
-            echo "index.html missing!"
-            exit 1
-          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/check_site.py
