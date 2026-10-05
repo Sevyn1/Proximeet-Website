@@ -31,3 +31,9 @@ The worktree already contained user changes to `.DS_Store`, `assets/.DS_Store`, 
 - Review the redesigned pages and confirm the teaser visuals and copy match the intended launch story.
 - Confirm the production hosting/deployment process and whether the configured forms and external assets are expected to remain in use.
 - Add functional or link checks to CI only when the project adopts an appropriate validation approach; the existing existence check is not a functional test.
+
+## Portfolio audit review branch on 2026-10-04
+
+Added README and standard-library local reference checker, strengthened CI, and ignored desktop metadata. Checks do not verify external form delivery. Changes are prepared for review; site content and design are preserved.
+
+Static checker result: 8 HTML pages checked, zero broken local references or missing required metadata. No external form submissions were made.

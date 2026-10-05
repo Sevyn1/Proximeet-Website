@@ -13,3 +13,7 @@
 **Rationale:** This makes durable project context available to multiple coding agents and across remote work sessions, while separating stable facts, rationale, and temporary status. Copilot instructions point to the shared documents rather than maintaining a second copy of their contents.
 
 **Constraints:** Keep the documents grounded in repository evidence, update current status after meaningful work, and do not store secrets or sensitive values.
+
+## 2026-10-04 Static verification without external submissions
+
+Use a dependency-free HTML parser to validate local files, anchors, and metadata in CI. Do not submit forms or claim delivery from static configuration.
