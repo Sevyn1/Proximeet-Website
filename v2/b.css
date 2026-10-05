@@ -55,7 +55,7 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 480; }
 .b-btn--cream:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
 
 .b-kicker { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 20px; color: var(--accent-deep); font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-.b-kicker::before { content: "✶"; color: var(--accent); }
+.b-kicker::before { content: "\2736"; color: var(--accent); }
 
 .b-section { padding: 110px var(--gutter); }
 
@@ -93,13 +93,14 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 480; }
 .b-heading--center p { margin-inline: auto; }
 
 /* venues */
-.venue-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.venue-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: start; }
 .venue-card { position: relative; }
-.venue-card img { width: 100%; height: 350px; object-fit: cover; border-radius: 150px 150px 20px 20px; }
+.venue-card:nth-child(even) { margin-top: 34px; }
+.venue-card img { width: 100%; height: 350px; object-fit: cover; border-radius: 18px; }
 .venue-card figcaption { padding: 16px 6px 0; }
 .venue-card h3 { margin: 0 0 4px; font-size: 21px; }
 .venue-card p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.55; }
-.venue-num { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); padding: 5px 13px; border-radius: 999px; background: rgba(36, 27, 18, 0.75); color: var(--paper); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; backdrop-filter: blur(4px); }
+.venue-num { position: absolute; top: 14px; left: 14px; padding: 5px 13px; border-radius: 999px; background: rgba(36, 27, 18, 0.75); color: var(--paper); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; backdrop-filter: blur(4px); }
 
 /* how it works — editorial rows */
 .how-rows { border-top: 1px solid var(--ink); }
@@ -214,6 +215,7 @@ h1 em, h2 em { font-style: italic; color: var(--accent); font-weight: 480; }
   .photo-row figure:nth-child(4) { display: none; }
   .photo-tag { font-size: 10px; padding: 6px 11px; }
   .venue-grid { grid-template-columns: 1fr; }
+  .venue-card:nth-child(even) { margin-top: 0; }
   .venue-card img { height: 300px; }
   .how-row { grid-template-columns: 1fr; gap: 10px; padding: 34px 0 38px; }
   .how-row > p { grid-column: 1; }
