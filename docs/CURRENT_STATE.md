@@ -1,8 +1,34 @@
 # Current State
 
-Last reviewed: 2026-10-04
+Last reviewed: 2026-10-16
 
 ## Repository snapshot
+
+- Concept C "Living Map" site built under `v3/` (2026-10-16, owner request for a third cohesive version merging the strongest elements of A, B, and the original audited site): index, waitlist, terms, privacy-policy with self-contained `v3/c.css` / `v3/c.js`. One continuous dark night-map canvas — animated pulsing radar hero (rings, sweep pulses, map-pin dots; owner asked for the "location thingies" to pulse), dotted route threads with pulsing waypoint pins stitching sections together (addresses "boxy / not connected" feedback), Oxanium display + Fraunces italic accents, floating vcard vignettes from A, editorial numbered rows from B.
+- v3 homepage sections, each intentional: radar hero → interest ticker → "Why go online at all?" (four reasons for going online to meet offline, owner request) → "Every pin becomes a moment" photo grid of real connection moments (library, gym high-five, bar, dog park, café, patio — all Unsplash IDs visually verified 2026-10-16) → how-it-works as three stops on a dotted route → "Your call" trust cards → FAQ → CTA → contact form.
+- Copy pass (2026-10-16, owner: "bring this to life"): hero now leads with "The person who'd get you is three tables away right now"; why-rows sharpened ("We're not building a feed. We're ending one."); waitlist leads with "You've probably already walked past your next best friend". Owner-approved tagline (h1) and the three step-body narratives from the 2026-10-04 brand-voice pass were preserved verbatim. No invented metrics; no claims contradicting Terms/Privacy.
+- Audit fixes applied in v3 (from the 2026-10-12 external site review): og:/twitter: share-preview meta tags on index + waitlist (og:image uses the GitHub Pages logo URL — a dedicated 1200×630 image is still a good follow-up); footer legal name unified to "Proximeet Technologies Inc." matching the legal pages (concepts A/B footers still say "Proximeet Limited"). Social-media links not added — handles not confirmed to exist. Contact email left as developer@proximeet.ca (changing form destinations requires owner verification).
+- v3 legal articles are verbatim copies of the v2/root legal copy (diff-verified by script 2026-10-16). FormSubmit actions/fields identical to concepts A and B.
+- Concept pills now cycle A→B→C→A: root pages still link to v2, all four v2 pages were edited to point at their v3 counterparts, v3 pages link back to root (A).
+- Concept switcher upgraded (2026-10-16, owner request): the corner pill on all 12 pages (4 per concept) is now a three-option A / B / C nav with the current concept highlighted (aria-current, per-concept accent colors), replacing the old "switch to next" link. Cache-busts bumped: proximeet.css?v=5, b.css?v=2, c.css?v=2. Verified in-browser on all three homepages.
+- Verified in-browser 2026-10-16 at ~620px: radar + route pins animate, mobile nav toggle works and is legible, moments grid, route steps, CTA, waitlist, and legal pages all render; no tooling errors. Gym photo given `object-position: center 22%` so the high-five survives the crop. Desktop widths rely on the same breakpoint structure as concepts A/B but were not individually screenshotted.
+- All v3 work, the switcher edits across root and v2 pages, and the cache-bust bumps are uncommitted.
+- Earlier state (redesign, concept B, carousel, footer passes, download.html removal) is described in git history and the 2026-10-04 notes below; commit 3bca87d is live on GitHub Pages.
+- The CI workflow still verifies only that `index.html` exists.
+
+## Working tree at review
+
+`git status` on 2026-10-16 showed only `.DS_Store` modifications before this work; the session added `v3/` (untracked) and modified the four `v2/*.html` concept pills. Recheck `git status` before further edits.
+
+## Next steps
+
+- Owner review of concept C against A and B; pick the launch direction.
+- If C (or any concept) is chosen: create a real 1200×630 og:image asset, decide on social handles before adding footer icons, decide whether to move to a support@/hello@ address, and align the chosen footer legal name across all concepts.
+- Remaining audit items that need owner input: confirm the +1 (805) number and street address exposure in the legal pages, and align product framing (four intents vs. campaign categories) across site, scoping doc, and campaign plan.
+- Confirm the production hosting/deployment process and whether the configured forms and external assets are expected to remain in use.
+
+
+## Historical notes (2026-10-04 review)
 
 - Full site redesign applied (launch-prep): shared design system in assets/css/proximeet.css and assets/js/proximeet.js, derived from the owner's Figma app export (thematic reference; see DECISIONS.md — a few dimmed, downscaled glimpses under assets/img/product/ are allowed as accents, never full screen galleries or UI walkthroughs).
 - index.html upgraded to a v2 marketing design (inspired by leading social/connection product sites): immersive dark hero with CSS-built UI vignettes (match card, wave toast, chat bubbles), interest marquee, editorial statement, tilted phone "peek" using the map glimpse, vignette step cards, hover choice cards, gradient CTA band, scroll-reveal motion (IntersectionObserver, reduced-motion safe), and a transparent-to-light fixed header. waitlist.html shares the same system; terms and privacy pages load the shared stylesheet with `page-legal` styling, legal copy untouched.
@@ -21,13 +47,88 @@ Last reviewed: 2026-10-04
 - Concept B alternate site built (2026-10-04, owner request, for team A/B comparison): a full second version under `v2/` (index, waitlist, terms, privacy-policy) with self-contained `v2/b.css` / `v2/b.js` — a "warm editorial" direction (cream/espresso/coral palette, Fraunces serif via Google Fonts, arched photo strip of the five lifestyle Unsplash photos, tilted coral interest ribbon, "Where it happens" venue grid reviving the four pre-redesign venue photos, numbered editorial how-it-works rows, dark manifesto, coral CTA band). Waitlist keeps the identical FormSubmit action/fields; legal articles were copied verbatim (diff-verified). Each v2 page has a floating "switch to A" pill linking to its concept-A counterpart, and concept-A pages gained a matching "switch to B" pill (CSS cache-bust bumped to `?v=4`). Verified in-browser at ~620px and 1440px: no horizontal overflow, nav toggle, reveals, and form render correctly. Uncommitted.
 - The CI workflow still verifies only that `index.html` exists.
 - Redesign committed and pushed to `main` (2026-10-04, commit 3bca87d, owner request). GitHub Pages rebuilt successfully and the CI check passed; the new copy was confirmed live at https://sevyn1.github.io/Proximeet-Website/. Hosting is GitHub Pages (main branch root, no custom domain).
-
-## Working tree at review
-
-The worktree already contained user changes to `.DS_Store`, `assets/.DS_Store`, `download.html`, `index.html`, `terms.html`, and `waitlist.html`, a deletion of `privacy.html`, and an untracked `privacy-policy.html`. These were not changed as part of the AI memory setup. Recheck `git status` before further edits because this snapshot can become stale.
-
-## Next steps
-
-- Review the redesigned pages and confirm the teaser visuals and copy match the intended launch story.
-- Confirm the production hosting/deployment process and whether the configured forms and external assets are expected to remain in use.
 - Add functional or link checks to CI only when the project adopts an appropriate validation approach; the existing existence check is not a functional test.
+
+
+## 2026-10-22: Local consolidated review version
+
+Added `revamp/` as the proposed consolidated site; A/B/C and existing uncommitted work preserved. Indigo/teal brand with warm photography, simplified proximity motif, no fictional profile activity, explicit 18+, carefully qualified geofencing, unchanged legal articles and existing FormSubmit destinations. Native form submission avoids unverified AJAX success. No commit/push/deployment. Four pages passed 70 local reference checks, JS syntax, HTTP checks, and overflow checks at 320/768/1440px. Mobile menu/Escape and FAQ verified. Form delivery and live hosting remain unverified; owner review and operational checks required before publication. Full findings and preview instructions are in the 2026-10-22 chat outputs/ProxiMeet Review.md.
+
+
+## 2026-10-22: Owner selected original Version C
+
+The active implementation is now `v3/`, edited directly at the owner’s request. `revamp/` remains a separate alternative, not the selected site. Preserved C’s Living Map layout, radar, imagery and route motif. Added 18+ clarity and signup confirmation, qualified geofencing, accurate availability copy, illustrative-activity label, animation pause control, no-JS-visible content, stronger muted text contrast, Escape menu handling and native form submission. Legal articles remain unchanged. Original C archived in the chat work folder before edits. Nothing published.
+
+
+### Owner correction: age framing
+Owner says ProxiMeet is not designed for adults 18+. Removed newly added adult-only marketing copy and required age checkbox from v3. Intended minimum age is awaiting clarification. Existing Terms/Privacy clauses still mention 18; do not infer policy or silently rewrite legal terms.
+
+
+## 2026-10-22: Light Version C and all-ages direction
+Owner clarified ProxiMeet is intended for all ages, requested a possible light palette, and explicitly rejected Concept B’s warm/paper/bookish aesthetic. Original v3 now uses crisp white/cool grey, brand indigo, teal and coral, Oxanium display typography without serif/italic accents, subtle radar/location motion, photo-led hero and concise sections. Reference principles reviewed from Timeleft, Bumble For Friends and 222; no competitor assets or copy copied. Removed adult-only marketing and checkbox. Replaced conflicting 18+ clauses in the local v3 legal drafts with intended-audience language and explicit pending age-related consent/privacy provisions; these drafts need review before publication. Other versions remain unchanged.
+
+
+## 2026-10-22: Motion refinement and divider removal
+Removed repeated route pins/dotted section dividers and how-step connector after owner feedback. Added native cross-document View Transitions where supported, short entrance fallback elsewhere, stable header/switcher, accessible animated mobile disclosure (Escape, outside click, focus exit, resize and history reset), optional session-persistent pause, slower ambient animation and offscreen/background suspension. Reduced-motion emulation verified: no radar animation, menu transition 0s, automatic scroll. Checked home → waitlist → terms → privacy → home, Back, motion persistence and menu focus return. 82 local references and JS syntax checks pass. No commits or deployment.
+
+
+## 2026-10-22: Legal layout correction
+Owner clarified legal-page issue is layout only. Decoupled legal reading width from homepage viewport gutter; title precedes draft notice, larger readable body text, simpler mobile layout. Legal wording unchanged. Homepage wording and pair-focused photography review remains in progress.
+
+
+### Homepage wording review: opening approved
+Owner approved the walking partner / gym buddy / books opening and requested removal of the hero’s “In development · Free to join the list” note. Applied to original v3; remaining sections await sequential review.
+
+
+## 2026-10-22: Purposeful homepage sequence and pair photography
+Owner approved combining repetitive why/photo sections into specific reasons to connect. Original v3 now presents walking, gym and reading scenarios with locally hosted Pexels pair photographs (credits in v3/images/CREDITS.md), followed by clear interests → nearby discovery → mutual request/chat/meet steps. Removed secondary hero collage/floating slogans and repeated interests card from safety section. Existing #why and #moments anchors preserved; navigation label now Ways to connect. Legal wording untouched. 86 local references pass; four pages HTTP 200; JS syntax passes; desktop/mobile photo rendering inspected. No forms submitted, commits, push or deployment.
+
+
+## 2026-10-22: Simplified hero motion
+Owner found static map rings plus pulsing rings confusing. Removed hero radar, orbit lines, coordinate decoration and pause control. Replaced moving ticker with a static wrapping interests list; removed unused ambient-motion JS. Photo is straight and stationary. Short navigation/menu transitions and reduced-motion support retained.
+
+Owner immediately clarified: retain the map pulse and pause capability; remove static rings only. Restored one expanding pulse with explicitly named Pause/Resume map animation control. Static orbit rings, dots and extra lines remain removed; interests list stays static. This supersedes the motion removal above.
+
+Owner preferred hero before the photography change: restored earlier outdoor photo, tilted main frame, circular inset and tags from preserved snapshot. Approved opening copy and lower-page connection stories retained; static orbit lines remain removed, single pulse/pause retained.
+
+Correction: owner likes the NEW park pair photo; only map background was intended for restoration. Restored new park photo, removed mistakenly reintroduced older inset/tags, restored earlier three staggered expanding pulses without static rings/dots/orbit outlines. Pause retained.
+
+Voice clarification: owner wants the concentric Find My-like locator layout visible, with pulse behind new photo. Restored three concentric range rings sharing the pulse centre; unrelated tilted map-line outlines stay absent. Mobile locator aligned behind photo instead of hero text.
+
+Owner approved concentric locator and requested removal of pause button. Removed control and stored pause-state handling; map animation unchanged and system reduced-motion CSS remains respected.
+
+Owner requested scrolling interests restored. Added seamless looping Walking/Fitness/Books/Music/Gaming/Photography strip, with duplicate hidden from assistive technology and static wrapping layout for reduced-motion preference.
+
+Owner approved restoring all twelve original interests plus Walking; both marquee groups now contain the same thirteen labels.
+
+Added owner-requested fourth Ways to connect story about creative collaboration, with original C wording rather than B copy. Hero retains park-pair image; walking story uses a new distinct photo. All four stories use a two-column desktop grid, stacking responsively. New Pexels credits recorded.
+
+Owner approved a slight lift on connection examples and how-it-works steps. Added 6px smooth pointer-hover lift with restrained image shadow, disabled for reduced-motion and touch devices. Retained balanced four-story grid; slightly shallower 8:5 photos reduce section height.
+
+Owner clarified intended connection flow in voice: after mutual acceptance the meeting-place interface is foregrounded; chat supports brief coordination of a nearby in-person meetup, not prolonged messaging. Do not invent a chat expiry or time limit. Revised marketing wording is being discussed and has not yet been applied.
+
+Applied agreed How it works wording: interests, nearby discovery/request, then agree on a public spot and meet face to face. Removed repeated chat badge and introductory sentence; mutual acceptance remains in Safety & choice.
+
+
+## 2026-10-23: Final copy pass
+Completed homepage FAQ/contact/waitlist cleanup: removed repeated hello slogans, unsupported first-access promises and vague exclusivity copy. Consistent Join the waitlist labels. Retained approved meetup-first steps, original legal wording, all-ages direction, current map animation, scrolling thirteen interests and hover lift. Desktop story photos capped at 260px after owner said they were too large. Other versions and form destinations preserved. Local preview only.
+
+
+## 2026-10-23: Safety & choice copy
+Replaced homepage legalistic no-guarantee paragraph with owner-approved choice/public-meeting wording. Reordered cards around mutual acceptance, agreeing on a public meeting spot, and a plain explanation of planned geofencing. No new safety guarantee, legal-page changes or deployment. Owner prefers routine improvements applied directly without repeated approval pitches.
+
+
+## 2026-10-23: Owner-provided Safety centre details
+Replaced generic homepage safety cards with Safe Meet timing/passcode/missed-check-in flow, optional SOS nudges after a chosen delay, duress PIN, live-location audience controls, saved-place exit notifications, hidden places that keep users offline, and blocking/mutual acceptance. Based on owner description and supplied product screenshots, not independently tested app behavior. Screenshots and their personal contact details were NOT copied into the repository. Web copy avoids guarantees, exact PIN rules, unconfirmed emergency-service escalation, and the screenshot’s ambiguous 24-hour escalation. Other versions, forms and legal text unchanged.
+
+Owner asked for a selective polished overview rather than every safety feature. Homepage now foregrounds Safe Meet, live location controls, hidden places and brief mutual-choice/blocking reassurance. Duress PIN and exit-buzz details retained in project context above but omitted from marketing overview.
+
+
+## 2026-10-23: Approved finishing suggestions
+Owner authorized all suggested refinements except signup testing. Scoped locator behind photo with two faint rings and one slow pulse; compact image/text connection stories; changed Safe Meet step to Notify your SOS contacts; consistent footer with brand statement, existing contact email and legal links. Removed Version C concept selector; A/B files preserved. Signup form fields/actions and experience unchanged; no submission tests or deployment.
+
+Immediate owner correction: retain the A/B/C selector for ongoing review. Restored the exact selector on all four C pages; footer reserves bottom spacing.
+
+
+## 2026-10-23: GitHub publication requested
+Owner requested one additional outer locator ring and pushing the Version C work to GitHub. Added a third aligned faint ring while keeping one pulse and the review selector. Preparing a scoped commit of v3 and project notes; root/A/B and revamp changes remain local and are excluded. Signup forms remain unchanged.
