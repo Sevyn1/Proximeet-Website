@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="b.css" />
+    <link rel="stylesheet" href="b.css?v=2" />
     <script src="b.js" defer></script>
   </head>
   <body>
@@ -264,8 +264,11 @@
         </nav>
       </div>
     </footer>
-    <a class="concept-pill" href="../terms.html"
-      >Viewing concept <b>B</b> · switch to A</a
-    >
+    <nav class="concept-pill" aria-label="Concept switcher">
+      <span>Concept</span>
+      <a href="../terms.html">A</a>
+      <a class="is-current" href="terms.html" aria-current="page">B</a>
+      <a href="../v3/terms.html">C</a>
+    </nav>
   </body>
 </html>
