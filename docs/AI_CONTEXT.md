@@ -14,7 +14,7 @@ ProxiMeet is presented by its website as a service for connecting people nearby 
 - The pages use FormSubmit for contact and waitlist form submissions. Configuration in HTML does not prove that this third-party integration is currently operational.
 - The Git remote is `https://github.com/Sevyn1/Proximeet-Website.git`, and the checked-out branch was `main` when this context was recorded.
 - `.github/workflows/ci.yml` runs on pushes to `main`, pull requests, and manual dispatch. Its current check is only that `index.html` exists.
-- No server-side deployment configuration exists in the repository, but hosting was verified on 2026-10-04 via the GitHub API: the site is served by GitHub Pages from the root of `main` at https://sevyn1.github.io/Proximeet-Website/ (no custom domain configured on Pages as of that date, despite proximeet.ca email addresses in site copy).
+- No server-side deployment configuration exists in the repository. The site is served by GitHub Pages from the root of `main`. As of 2026-10-24 the custom domain proximeet.ca is connected (CNAME file in repo root; DNS in Cloudflare: 4 GitHub Pages A records on `@`, `www` CNAME → sevyn1.github.io, all DNS-only). Email for proximeet.ca is separate — Namecheap/jellyfish.systems MX records in the same Cloudflare zone; do not remove the mail/cPanel DNS records.
 
 ## Conventions and constraints
 
