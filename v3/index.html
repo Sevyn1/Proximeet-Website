@@ -43,7 +43,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="c.css?v=21" />
+    <link rel="stylesheet" href="c.css?v=26" />
     <script src="c.js?v=13" defer></script>
   </head>
   <body>
@@ -67,9 +67,8 @@
           <a href="#call">Safety & choice</a>
           <a href="#how">How it works</a>
           <a href="#faq">FAQ</a>
-          <a class="c-btn c-btn--small" href="waitlist.html"
-            >Join the waitlist</a
-          >
+          <a href="contact.html">Contact</a>
+          <a class="c-btn c-btn--small" href="#download">Get the app</a>
         </nav>
       </div>
     </header>
@@ -79,19 +78,46 @@
       <section class="c-hero" aria-labelledby="hero-title">
         <div class="c-hero-grid">
           <div>
-            <p class="c-kicker">For everyone you almost met</p>
+            <p class="c-kicker">Live now on iOS and Android</p>
             <h1 id="hero-title">
               Connections are <em>closer</em> than you think.
             </h1>
             <p class="c-hero-copy">
               A walking partner. A gym buddy. Someone to talk books with.
-              ProxiMeet is built to help you connect with someone nearby who
-              shares your interests—and turn that connection into time together.
+              ProxiMeet helps you connect with someone nearby who shares your
+              interests—and turn that connection into time together.
             </p>
             <div class="c-hero-actions">
-              <a class="c-btn" href="waitlist.html">Join the waitlist</a>
-              <a class="c-btn c-btn--ghost" href="#why">Explore ProxiMeet ↘</a>
+              <div class="store-btns">
+                <a
+                  class="store-btn"
+                  href="https://apps.apple.com/app/id6754469114"
+                >
+                  <svg viewBox="0 0 384 512" aria-hidden="true">
+                    <path
+                      d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.7-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+                    />
+                  </svg>
+                  <span><small>Download on the</small><strong>App Store</strong></span>
+                </a>
+                <a
+                  class="store-btn"
+                  href="https://play.google.com/store/apps/details?id=com.proximeet.android"
+                >
+                  <svg viewBox="0 0 512 512" aria-hidden="true">
+                    <path
+                      d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"
+                    />
+                  </svg>
+                  <span><small>Get it on</small><strong>Google Play</strong></span>
+                </a>
+              </div>
             </div>
+            <p class="c-hero-note">
+              Free to download. Not in your city yet?
+              <a href="waitlist.html">Join the waitlist</a> — we’re rolling out
+              city by city.
+            </p>
           </div>
           <div class="people-map" aria-label="Everyday moments of connection">
             <div class="radar" aria-hidden="true">
@@ -266,6 +292,39 @@
         </div>
       </section>
 
+      <!-- App peek: live map screenshot in a phone frame -->
+      <section class="c-section" id="app" aria-labelledby="app-title">
+        <div class="app-peek">
+          <div class="app-peek-copy">
+            <p class="c-kicker">A look at the app</p>
+            <h2 id="app-title">Your neighbourhood, <em>live.</em></h2>
+            <p>
+              Open ProxiMeet and your area comes to life — a living map that
+              shows who’s nearby and online for the same reasons as you, from
+              networking to a workout to a walk.
+            </p>
+            <p>
+              Set your reasons, and when someone nearby matches them, you both
+              already know why you’re saying hi.
+            </p>
+            <a class="c-btn" href="#download">Get the app</a>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone-frame">
+              <img
+                src="images/app-map.jpg"
+                alt="ProxiMeet app map view showing your area with your current reason set to networking"
+                width="393"
+                height="820"
+                loading="lazy"
+              />
+            </div>
+            <span class="map-tag app-tag-1" aria-hidden="true"><i></i>Networking · online now</span>
+            <span class="map-tag app-tag-2" aria-hidden="true"><i></i>Change my reasons</span>
+          </div>
+        </div>
+      </section>
+
       <!-- Safety features described from owner-provided product information. -->
       <section class="c-section" id="call" aria-labelledby="call-title">
         <div class="c-heading">
@@ -389,81 +448,74 @@
                 When can I try it?<span aria-hidden="true">+</span>
               </summary>
               <p>
-                ProxiMeet is in development. Join the waitlist for product and
-                availability updates as launch details are confirmed.
+                Right now — ProxiMeet is live. Download it on the
+                <a href="https://apps.apple.com/app/id6754469114">App Store</a>
+                or
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.proximeet.android"
+                  >Google Play</a
+                >. If it isn’t available in your city yet, join the
+                <a href="waitlist.html">waitlist</a> and you’ll hear the day it
+                arrives.
               </p>
             </details>
           </div>
         </div>
       </section>
 
-      <!-- 8 · CTA: back to the map -->
-      <section class="c-cta" aria-labelledby="cta-title">
-        <p class="c-kicker">Be part of what comes next</p>
-        <h2 id="cta-title">Be there when <em>ProxiMeet launches.</em></h2>
-        <a class="c-btn" href="waitlist.html">Join the waitlist</a>
-        <p>Get updates as ProxiMeet gets ready to launch.</p>
+      <!-- 8 · Download -->
+      <section class="c-cta" id="download" aria-labelledby="cta-title">
+        <p class="c-kicker">ProxiMeet is live</p>
+        <h2 id="cta-title">Your people are nearby. <em>Go say hi.</em></h2>
+        <div class="store-btns store-btns--center">
+          <a class="store-btn" href="https://apps.apple.com/app/id6754469114">
+            <svg viewBox="0 0 384 512" aria-hidden="true">
+              <path
+                d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.7-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+              />
+            </svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <a
+            class="store-btn"
+            href="https://play.google.com/store/apps/details?id=com.proximeet.android"
+          >
+            <svg viewBox="0 0 512 512" aria-hidden="true">
+              <path
+                d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"
+              />
+            </svg>
+            <span><small>Get it on</small><strong>Google Play</strong></span>
+          </a>
+        </div>
+        <p>
+          Free to download. Not in your city yet?
+          <a href="waitlist.html">Join the waitlist</a> — we’re rolling out city
+          by city.
+        </p>
       </section>
 
-      <!-- 9 · Contact -->
+      <!-- 9 · Contact (simplified — full form lives on contact.html) -->
       <section
-        class="c-section"
+        class="c-section contact-strip"
         id="contact"
         aria-labelledby="contact-title"
-        style="padding-top: 0"
       >
-        <div class="c-contact-grid">
+        <div class="contact-strip-inner">
           <div>
             <p class="c-kicker">Let’s talk</p>
-            <h2 id="contact-title">Get in touch</h2>
+            <h2 id="contact-title">Have a question? We’re listening.</h2>
             <p>
-              Have a question, an idea, or a partnership in mind? Send us a
-              message.
+              Support, feedback, press, or partnerships — send us a message and
+              we’ll get back to you.
             </p>
+          </div>
+          <div class="contact-strip-actions">
+            <a class="c-btn" href="contact.html">Contact us</a>
             <a class="c-contact-email" href="mailto:developer@proximeet.ca"
               >developer@proximeet.ca</a
             >
           </div>
-          <form
-            class="c-form"
-            action="https://formsubmit.co/developer@proximeet.ca"
-            method="POST"
-          >
-            <input
-              type="hidden"
-              name="_subject"
-              value="New message from ProxiMeet website"
-            />
-            <input type="hidden" name="_captcha" value="false" />
-            <label
-              >Name<input
-                type="text"
-                name="name"
-                autocomplete="name"
-                placeholder="Your name"
-                required
-            /></label>
-            <label
-              >Email<input
-                type="email"
-                name="email"
-                autocomplete="email"
-                placeholder="you@example.com"
-                required
-            /></label>
-            <label
-              >Message<textarea
-                name="message"
-                placeholder="What’s on your mind?"
-                required
-              ></textarea>
-            </label>
-            <button class="c-btn" type="submit">Send message</button>
-            <p class="c-form-note">
-              Your message is submitted through FormSubmit. You can also
-              <a href="mailto:developer@proximeet.ca">email us directly</a>.
-            </p>
-          </form>
         </div>
       </section>
     </main>
@@ -487,8 +539,9 @@
           reserved.</small
         >
         <nav aria-label="Footer">
-          <a href="index.html#contact">Contact</a><a href="terms.html">Terms</a
-          ><a href="privacy-policy.html">Privacy</a>
+          <a href="contact.html">Contact</a><a href="terms.html">Terms</a
+          ><a href="privacy-policy.html">Privacy</a
+          ><a href="child-safety.html">Child safety</a>
         </nav>
       </div>
     </footer>

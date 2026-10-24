@@ -603,3 +603,50 @@ html.motion-paused{scroll-behavior:auto}
 /* One additional outer range ring, aligned with the existing locator. */
 .people-map .radar-ring--3{width:116%;border-color:#527eaa24}
 .people-map .radar{mask-image:radial-gradient(circle,#000 62%,transparent 78%)}
+
+/* App store badges (live launch) */
+.store-btns{display:flex;flex-wrap:wrap;gap:12px}
+.store-btns--center{justify-content:center}
+.store-btn{display:inline-flex;align-items:center;gap:11px;min-height:58px;padding:0 20px;border-radius:14px;background:#141830;color:#fff;text-decoration:none;border:1px solid #141830;box-shadow:0 5px 0 #1f295a0d;transition:transform .2s,box-shadow .2s,background .2s}
+.store-btn:hover{transform:translateY(-2px);background:#1f2547;box-shadow:0 10px 24px #1418302e}
+.store-btn svg{width:22px;height:22px;flex:0 0 auto;fill:currentColor}
+.store-btn span{display:grid;line-height:1.2;text-align:left}
+.store-btn span small{font-size:9.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;opacity:.75}
+.store-btn span strong{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.c-cta p a,.c-hero-note a{color:#303c87;font-weight:700;text-underline-offset:4px}
+.c-hero-note{margin-top:18px}
+@media(max-width:540px){.store-btn{min-height:54px;padding:0 16px;flex:1 1 auto;justify-content:center}}
+
+/* Waitlist "what to expect" cards */
+.c-signup+.c-section .why-rows{border:0;gap:16px}
+.c-signup+.c-section .why-row{background:#fff;border:1px solid #dce2ed;border-radius:18px;padding:26px 24px 28px;box-shadow:0 10px 32px #233a650d}
+.c-signup+.c-section .why-num{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#e2f3ef;color:#087d79;font-size:13px;font-weight:700}
+.c-signup+.c-section .why-row h3{margin:16px 0 8px}
+.c-signup+.c-section .why-row>p{margin:0}
+
+/* App peek — phone mockup of the live map */
+.app-peek{display:grid;grid-template-columns:1.05fr .95fr;gap:7%;align-items:center}
+.app-peek-copy>p{max-width:460px;color:#525d75;font-size:16px;line-height:1.75}
+.app-peek-copy .c-btn{margin-top:10px}
+.phone-wrap{position:relative;display:flex;justify-content:center;padding:30px 0}
+.phone-frame{position:relative;width:min(295px,70vw);aspect-ratio:393/820;overflow:hidden;border:10px solid #141830;border-radius:46px;background:#141830;box-shadow:0 45px 90px #233a6530;transform:rotate(4deg)}
+.phone-frame::before{content:"";position:absolute;top:10px;left:50%;z-index:2;width:84px;height:20px;transform:translateX(-50%);border-radius:999px;background:#141830}
+.phone-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.phone-wrap .map-tag{position:absolute}
+.app-tag-1{top:10%;left:2%;--tilt:-2deg}
+.app-tag-2{bottom:9%;right:0;--tilt:3deg}
+@media(max-width:800px){.app-peek{grid-template-columns:1fr;gap:40px}.app-tag-1{left:0}.app-tag-2{right:0}}
+
+/* Standalone contact page */
+.contact-page{padding-top:165px;min-height:70vh}
+.contact-side-note{margin-top:26px;font-size:14px;color:#525d75}
+.contact-side-note a{color:#303c87;font-weight:600;text-underline-offset:4px}
+
+/* Simplified homepage contact strip */
+.contact-strip{padding-top:0}
+.contact-strip-inner{display:grid;grid-template-columns:1fr auto;gap:5%;align-items:center;padding:42px 46px;background:#fff;border:1px solid #dce2ed;border-radius:22px;box-shadow:0 15px 50px #233a6510}
+.contact-strip-inner h2{margin:0 0 10px;font-size:clamp(1.6rem,2.8vw,2.2rem)}
+.contact-strip-inner>div>p:last-child{max-width:440px;margin:0;color:#525d75;font-size:15px}
+.contact-strip-actions{display:grid;justify-items:start;gap:14px}
+.contact-strip-actions .c-contact-email{margin:0;font-size:14px;color:#303c87}
+@media(max-width:800px){.contact-strip-inner{grid-template-columns:1fr;gap:26px;padding:30px 24px}}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e1024" />
+    <title>Contact & Support | ProxiMeet</title>
+    <meta
+      name="description"
+      content="Contact the ProxiMeet team for support, questions, feedback, or partnerships."
+    />
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="c.css?v=26" />
+    <script src="c.js?v=13" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="c-header">
+      <div class="c-header-inner">
+        <a class="c-brand" href="index.html" aria-label="ProxiMeet home">
+          <img src="../assets/img/logo.png" alt="ProxiMeet" />
+        </a>
+        <button
+          class="c-menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="c-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="c-nav" id="c-nav" aria-label="Main navigation">
+          <a href="index.html#why">Ways to connect</a>
+          <a href="index.html#call">Safety & choice</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="contact.html">Contact</a>
+          <a class="c-btn c-btn--small" href="index.html#download">Get the app</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="c-section contact-page" aria-labelledby="contact-title">
+        <div class="c-contact-grid">
+          <div>
+            <p class="c-kicker">Support</p>
+            <h2 id="contact-title">Get in touch</h2>
+            <p>
+              Need help with the app, found a bug, or have a question, an idea,
+              or a partnership in mind? Send us a message — we read everything.
+            </p>
+            <a class="c-contact-email" href="mailto:developer@proximeet.ca"
+              >developer@proximeet.ca</a
+            >
+            <p class="contact-side-note">
+              Looking for quick answers? Check the
+              <a href="index.html#faq">FAQ</a>. For child safety concerns, see
+              our <a href="child-safety.html">Child Safety Standards</a>.
+            </p>
+          </div>
+          <form
+            class="c-form"
+            action="https://formsubmit.co/developer@proximeet.ca"
+            method="POST"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New message from ProxiMeet website"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <label
+              >Name<input
+                type="text"
+                name="name"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+            /></label>
+            <label
+              >Email<input
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+            /></label>
+            <label
+              >Message<textarea
+                name="message"
+                placeholder="What’s on your mind?"
+                required
+              ></textarea>
+            </label>
+            <button class="c-btn" type="submit">Send message</button>
+            <p class="c-form-note">
+              Your message is submitted through FormSubmit. You can also
+              <a href="mailto:developer@proximeet.ca">email us directly</a>.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="c-footer">
+      <div class="c-footer-top">
+        <div class="footer-brand-copy">
+          <a class="c-brand" href="index.html" aria-label="ProxiMeet home"><img src="../assets/img/logo.png" alt="ProxiMeet" /></a>
+          <p>Shared interests. Nearby people.<br>Time together in person.</p>
+        </div>
+        <div class="footer-contact">
+          <p>Get in touch</p>
+          <a href="mailto:developer@proximeet.ca">developer@proximeet.ca</a>
+        </div>
+      </div>
+      <div class="c-footer-bottom">
+        <small>© <span data-year></span> Proximeet Technologies Inc. All rights reserved.</small>
+        <nav aria-label="Footer"><a href="contact.html">Contact</a><a href="terms.html">Terms</a><a href="privacy-policy.html">Privacy</a><a href="child-safety.html">Child safety</a></nav>
+      </div>
+    </footer>
+  </body>
+</html>

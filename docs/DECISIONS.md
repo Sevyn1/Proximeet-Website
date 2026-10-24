@@ -1,5 +1,11 @@
 # Technical Decisions
 
+## 2026-10-23: App UI may now be shown (supersedes 2026-10-04 "no app UI" decision)
+
+**Decision:** With the app live and the owner supplying a real app screenshot for the website, the pre-launch rule against publishing app UI no longer applies to v3. An "app peek" section on the v3 homepage shows the live map screen in a phone mockup (`v3/images/app-map.jpg`). Keep to curated single screens the owner provides — not full walkthrough galleries — and keep the screenshot file free of real user data or precise home locations before publishing.
+
+**Rationale:** The mystery rationale was pre-launch; the owner now wants the site to sell the real product.
+
 ## 2026-10-16: Concept C "Living Map" direction and audit-fix scope
 
 **Decision:** Concept C (`v3/`) merges the strongest elements of A, B, and the original audited site into one continuous dark night-map canvas: A's radar/pin visual language animated to pulse, B's Fraunces editorial accents and numbered rows, and new verified Unsplash photography of real connection moments (library, gym, bar, dog park, café, patio). Sections are stitched by dotted route threads with pulsing waypoint pins to counter the "boxy / not connected" feedback. A new "Why go online at all?" section answers the owner's request for reasons to go online, framed as "an app whose whole job is to get you off it." Concept pills cycle A→B→C→A.
