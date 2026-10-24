@@ -65,3 +65,18 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '80px' });
   document.querySelectorAll('.c-hero, .c-ticker').forEach(el => observer.observe(el));
 }
+
+// Scroll reveals: one-shot entrances as sections come into view (concept A style).
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  const reveal = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        reveal.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.cv').forEach(el => reveal.observe(el));
+} else {
+  document.querySelectorAll('.cv').forEach(el => el.classList.add('in-view'));
+}

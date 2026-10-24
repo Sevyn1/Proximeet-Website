@@ -739,6 +739,11 @@ html.motion-paused{scroll-behavior:auto}
 .contact-side-note{margin-top:26px;font-size:14px;color:#525d75}
 .contact-side-note a{color:#303c87;font-weight:600;text-underline-offset:4px}
 
+/* Scroll reveals re-enabled (gated on .js so no-script users see everything) */
+.js .cv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .cv.in-view{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .cv{opacity:1;transform:none;transition:none}}
+
 /* Simplified homepage contact strip */
 .contact-strip{padding-top:0}
 .contact-strip-inner{display:grid;grid-template-columns:1fr auto;gap:5%;align-items:center;padding:42px 46px;background:#fff;border:1px solid #dce2ed;border-radius:22px;box-shadow:0 15px 50px #233a6510}
