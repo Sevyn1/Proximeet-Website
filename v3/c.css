@@ -468,6 +468,41 @@ main{animation:none}h1,h2,h3{letter-spacing:-.035em}h1 em,h2 em,h3 em,.c-serif{f
 .people-map .radar-pulse{border-color:#0e9e9b4d}
 .radar-dot{opacity:.9;width:12px;height:12px}
 @media(prefers-reduced-motion:reduce){.c-hero .c-kicker::before{animation:none}}
+
+/* App-screen mockup: fictional downtown, people online nearby (replaces real screenshot) */
+.app-screen{position:absolute;inset:0;background:#efede3;overflow:hidden}
+.street{position:absolute;background:#fff;box-shadow:0 0 0 1px #e3dfd0}
+.st-1{top:18%;left:-10%;right:-10%;height:13px;transform:rotate(-7deg)}
+.st-2{top:44%;left:-10%;right:-10%;height:17px;transform:rotate(4deg)}
+.st-3{top:76%;left:-10%;right:-10%;height:12px;transform:rotate(-3deg)}
+.st-4{top:-10%;bottom:-10%;left:26%;width:13px;transform:rotate(8deg)}
+.st-5{top:-10%;bottom:-10%;left:68%;width:15px;transform:rotate(-5deg)}
+.park{position:absolute;background:#cde5bd;border-radius:38%}
+.park-1{width:38%;height:17%;top:5%;right:-6%;transform:rotate(-10deg)}
+.park-2{width:44%;height:19%;bottom:6%;left:-8%;transform:rotate(7deg)}
+.water{position:absolute;width:30%;height:11%;bottom:22%;right:-8%;border-radius:45%;background:#bcd9ea;transform:rotate(-14deg)}
+.app-chip{position:absolute;top:5.5%;z-index:3;width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#9b59c6;color:#fff;font-size:15px;box-shadow:0 5px 14px #0003}
+.app-chip--filters{left:6%}
+.app-chip--shield{left:22%;background:#2fae63}
+.app-chip--bell{right:6%}
+.app-chip--bell b{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;display:grid;place-items:center;border-radius:50%;background:#f4504f;font-size:10px;font-weight:700}
+.app-pill{position:absolute;top:14.5%;left:50%;z-index:3;display:inline-flex;align-items:center;gap:7px;transform:translateX(-50%);padding:9px 15px;border-radius:999px;background:#fffffff2;color:#1f2740;font-size:11.5px;font-weight:700;white-space:nowrap;box-shadow:0 5px 16px #0002}
+.app-pill i{width:8px;height:8px;border-radius:50%;background:#22a06b}
+.app-radar{position:absolute;top:50%;left:50%;z-index:2;width:120%;aspect-ratio:1;transform:translate(-50%,-52%)}
+.app-radar .ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%}
+.app-radar .r1{width:34%;height:34%;background:#28bfb03a;border:2px solid #28bfb0}
+.app-radar .r2{width:62%;height:62%;background:#efe9f533;border:1.5px solid #b793d6}
+.app-radar .r3{width:88%;height:88%;border:1.5px solid #caa9e0a6}
+.app-radar .you{position:absolute;top:50%;left:50%;width:58px;height:58px;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(from 210deg,#4ad7c8,#9e59b8,#ff696f,#4ad7c8);box-shadow:0 0 0 5px #e5538c,0 0 0 10px #17b3a6,0 6px 18px #0004}
+.peer{position:absolute;width:36px;height:36px;border-radius:50%;border:3px solid #fff;box-shadow:0 4px 12px #0003;animation:float-y 7s ease-in-out infinite}
+.peer::after{content:"";position:absolute;right:-2px;bottom:-2px;width:11px;height:11px;border-radius:50%;background:#22a06b;border:2px solid #fff}
+.peer-1{top:26%;left:66%;background:conic-gradient(from 40deg,#ffb46b,#ff696f,#9e59b8,#ffb46b)}
+.peer-2{top:62%;left:24%;background:conic-gradient(from 160deg,#4ad7c8,#303c87,#4ad7c8);animation-delay:1.3s}
+.peer-3{top:38%;left:18%;background:conic-gradient(from 300deg,#9e59b8,#e5538c,#9e59b8);animation-delay:2.4s}
+.peer-4{top:68%;left:72%;background:conic-gradient(from 90deg,#2fae63,#4ad7c8,#2fae63);animation-delay:3.2s}
+.app-nav{position:absolute;bottom:3.5%;left:5%;right:5%;z-index:3;height:58px;display:flex;align-items:center;justify-content:space-around;border-radius:18px;background:#9b59c6f0;color:#fff;font-size:19px;box-shadow:0 8px 24px #0003}
+.app-me{width:28px;height:28px;border-radius:50%;background:conic-gradient(from 200deg,#4ad7c8,#9e59b8,#ff696f,#4ad7c8);box-shadow:inset 0 0 0 2px #fff}
+@media(prefers-reduced-motion:reduce){.peer{animation:none}}
 .radar-dot{animation:quiet-pin 5s ease-in-out infinite;box-shadow:none!important}
 @keyframes quiet-pin{0%,100%{opacity:.45;transform:rotate(-45deg) scale(1)}50%{opacity:.8;transform:rotate(-45deg) scale(1.12)}}
 .map-tag{animation:gentle-drift 9s ease-in-out infinite}
