@@ -650,3 +650,17 @@ html.motion-paused{scroll-behavior:auto}
 .contact-strip-actions{display:grid;justify-items:start;gap:14px}
 .contact-strip-actions .c-contact-email{margin:0;font-size:14px;color:#303c87}
 @media(max-width:800px){.contact-strip-inner{grid-template-columns:1fr;gap:26px;padding:30px 24px}}
+
+/* Page transitions — radar loader between pages, daylight palette */
+main{animation:page-in .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes page-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+body.is-leaving main{opacity:0;transition:opacity .3s ease}
+.page-loader{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:#f7f9fcf0;backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .3s}
+body.is-leaving .page-loader{opacity:1;visibility:visible;transition:opacity .3s ease}
+.loader-rings{position:relative;width:130px;height:130px}
+.loader-rings i{position:absolute;inset:0;border:1px solid #303c8745;border-radius:50%;animation:loader-pulse 1.5s ease-out infinite}
+.loader-rings i:nth-child(2){animation-delay:.35s}
+.loader-rings i:nth-child(3){animation-delay:.7s}
+.loader-pin{position:absolute;top:50%;left:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#087d79;box-shadow:0 0 0 7px #087d7926}
+@keyframes loader-pulse{from{transform:scale(.5);opacity:1}to{transform:scale(1.3);opacity:0}}
+@media(prefers-reduced-motion:reduce){main{animation:none}.loader-rings i{animation:none}}

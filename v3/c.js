@@ -35,15 +35,26 @@ if (header) {
 }
 document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 
-// Native document transitions keep links, history, downloads and forms intact.
-// Unsupported browsers receive a short entrance rather than delayed navigation.
-if (!('onpagereveal' in window) && !reducedMotion.matches &&
-    performance.getEntriesByType('navigation')[0]?.type !== 'back_forward') {
-  document.querySelector('main')?.animate(
-    [{ opacity: .65, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }],
-    { duration: 220, easing: 'cubic-bezier(.2,.7,.2,1)' }
-  );
-}
+// Page transitions: radar-pulse loader between internal pages (concept A style).
+const loader = document.createElement('div');
+loader.className = 'page-loader';
+loader.setAttribute('aria-hidden', 'true');
+loader.innerHTML = '<div class="loader-rings"><i></i><i></i><i></i><span class="loader-pin"></span></div>';
+document.body.appendChild(loader);
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href]');
+  if (!link || event.defaultPrevented || event.button !== 0) return;
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (link.target || link.hasAttribute('download')) return;
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('#') || /^(https?:|mailto:|tel:)/.test(href)) return;
+  event.preventDefault();
+  document.body.classList.add('is-leaving');
+  setTimeout(() => { location.href = href; }, reducedMotion.matches ? 0 : 420);
+});
+window.addEventListener('pageshow', event => {
+  if (event.persisted) document.body.classList.remove('is-leaving');
+});
 // Suspend ambient motion when the tab or animated region is not visible.
 function syncVisibility() { root.classList.toggle('tab-hidden', document.hidden); }
 document.addEventListener('visibilitychange', syncVisibility);
