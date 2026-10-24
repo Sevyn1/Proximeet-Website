@@ -8,7 +8,7 @@ ProxiMeet is presented by its website as a service for connecting people nearby 
 
 ## Architecture
 
-- The repository is a lightweight static website made of top-level `.html` pages.
+- The repository is a lightweight static website: top-level pages (index, waitlist, terms, privacy-policy, contact, child-safety) sharing one stylesheet (c.css) and one script (c.js), with photography under images/ and brand assets (logo, favicon, Oxanium font) under assets/. The former multi-concept layout (concept A at root, B under v2/, C under v3/) was consolidated on 2026-10-23: concept C is now the only site and lives at the root.
 - CSS and JavaScript are embedded in the HTML pages. Shared visual assets are under `assets/`, including the Oxanium font, logo, and favicons.
 - No package manifest, application framework, server-side application, or local test suite was found in the inspected repository.
 - The pages use FormSubmit for contact and waitlist form submissions. Configuration in HTML does not prove that this third-party integration is currently operational.
