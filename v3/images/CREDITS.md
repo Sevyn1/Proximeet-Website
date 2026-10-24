@@ -7,3 +7,5 @@ These stock photographs illustrate possible activities, not ProxiMeet users or t
 
 - walking-pair.jpg — Armin Rimoldi: https://www.pexels.com/photo/cheerful-multiethnic-students-walking-together-in-park-5554256/
 - collaboration-pair.jpg — Airam Dato-on: https://www.pexels.com/photo/men-working-on-laptop-at-cafe-20044371/
+
+app-map.jpg (edited 2026-10-23): owner's app screenshot, composited with illustrative profile portraits from Unsplash (Unsplash license, https://unsplash.com/license) — photo IDs 1494790108377, 1507003211169, 1534528741775, 1500648767791, 1438761681033, 1506794778202, 1544005313. The portraits are illustrative, not real ProxiMeet users.
