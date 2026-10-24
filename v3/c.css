@@ -455,6 +455,19 @@ main{animation:none}h1,h2,h3{letter-spacing:-.035em}h1 em,h2 em,h3 em,.c-serif{f
 /* waitlist expectation badges rotate */
 .c-signup+.c-section .why-row:nth-child(2) .why-num{background:var(--pm-purple-t);color:var(--pm-purple)}
 .c-signup+.c-section .why-row:nth-child(3) .why-num{background:var(--pm-coral-t);color:var(--pm-coral)}
+
+/* hero colour boost: multi-hue washes, gradient headline word, live pill, tinted radar */
+.c-hero{background:radial-gradient(ellipse at 78% 42%,#d5f1ec 0%,transparent 52%),radial-gradient(ellipse at 12% 18%,#efe7fa 0%,transparent 45%),radial-gradient(ellipse at 90% 88%,#fdeaee 0%,transparent 42%),#f7f9fc}
+.c-hero h1 em{background:linear-gradient(100deg,#0b9d92,#7a44a8 55%,#e5538c);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.c-hero .c-kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;padding:8px 15px;border-radius:999px;background:#e2f3ef;color:#0b7c70;border:1px solid #c3e6de}
+.c-hero .c-kicker::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#22a06b;transform:none;animation:live-dot 2.6s ease-in-out infinite}
+@keyframes live-dot{0%,100%{box-shadow:0 0 0 0 #22a06b55}50%{box-shadow:0 0 0 7px #22a06b11}}
+.people-map .radar-ring--1{border-color:#15a79a42}
+.people-map .radar-ring--2{border-color:#7a44a830}
+.people-map .radar-ring--3{border-color:#e5538c2b}
+.people-map .radar-pulse{border-color:#0e9e9b4d}
+.radar-dot{opacity:.9;width:12px;height:12px}
+@media(prefers-reduced-motion:reduce){.c-hero .c-kicker::before{animation:none}}
 .radar-dot{animation:quiet-pin 5s ease-in-out infinite;box-shadow:none!important}
 @keyframes quiet-pin{0%,100%{opacity:.45;transform:rotate(-45deg) scale(1)}50%{opacity:.8;transform:rotate(-45deg) scale(1.12)}}
 .map-tag{animation:gentle-drift 9s ease-in-out infinite}
