@@ -408,6 +408,53 @@ main{animation:none}h1,h2,h3{letter-spacing:-.035em}h1 em,h2 em,h3 em,.c-serif{f
 .map-line{border-style:solid;border-color:#7497b020}
 .radar-pulse{animation-duration:10s;animation-timing-function:linear}
 .radar-pulse--2{animation-delay:-3.33s}.radar-pulse--3{animation-delay:-6.66s}
+
+/* Brand colour pass — full official palette: indigo, teal, purple, coral + app green */
+:root{--pm-blue:#303c87;--pm-teal:#087d79;--pm-purple:#7a44a8;--pm-coral:#cf4455;--pm-green:#22805a;--pm-blue-t:#e9edfa;--pm-teal-t:#e2f3ef;--pm-purple-t:#f1eaf8;--pm-coral-t:#fdecee;--pm-green-t:#e6f4ec}
+/* interest marquee: coloured chips */
+.interest-group span{padding:8px 15px;border-radius:999px;background:var(--pm-blue-t);color:var(--pm-blue);letter-spacing:.04em}
+.interest-group span:nth-child(4n+2){background:var(--pm-teal-t);color:var(--pm-teal)}
+.interest-group span:nth-child(4n+3){background:var(--pm-coral-t);color:var(--pm-coral)}
+.interest-group span:nth-child(4n){background:var(--pm-purple-t);color:var(--pm-purple)}
+.interest-group{gap:18px}
+/* ways to connect: each place has its own hue */
+.connection-story:nth-child(1) .connection-place{color:var(--pm-teal)}
+.connection-story:nth-child(2) .connection-place{color:var(--pm-coral)}
+.connection-story:nth-child(3) .connection-place{color:var(--pm-purple)}
+.connection-story:nth-child(4) .connection-place{color:var(--pm-blue)}
+/* per-section kicker hues */
+#why .c-kicker{color:var(--pm-teal)}
+#app .c-kicker{color:var(--pm-purple)}
+#how .c-kicker{color:var(--pm-blue)}
+#faq .c-kicker{color:var(--pm-coral)}
+#download>.c-kicker{color:var(--pm-teal)}
+.contact-strip .c-kicker,.contact-page .c-kicker{color:var(--pm-purple)}
+/* how steps: labels match their coloured rules */
+.how-stop:nth-child(1)>span:first-child{color:var(--pm-teal)}
+.how-stop:nth-child(2)>span:first-child{color:var(--pm-purple)}
+.how-stop:nth-child(3)>span:first-child{color:var(--pm-coral)}
+.how-stop:nth-child(1){border-top-color:#8fcac4}
+.how-stop:nth-child(2){border-top-color:#c3a8dd}
+.how-stop:nth-child(3){border-top-color:#eeb3bd}
+/* safety: green system, mirroring the app's safety shield */
+#call .c-kicker{color:var(--pm-green)}
+.safe-meet-feature{background:var(--pm-green-t);border-color:#cde8d9}
+.safe-meet-feature .c-kicker,.safe-meet-feature .safety-label{color:var(--pm-green)}
+.safety-features .safety-feature:nth-child(1) .safety-label{color:var(--pm-purple)}
+.safety-features .safety-feature:nth-child(2) .safety-label{color:var(--pm-coral)}
+/* app peek floating tags pick up the app's purple and pink */
+.app-tag-1 i{background:#9b59c6}
+.app-tag-2 i{background:#e5538c}
+/* moments pins rotate accent hues over the photos */
+.moment:nth-child(4n+1) .moment-pin{color:#7ce4d8}
+.moment:nth-child(4n+2) .moment-pin{color:#ffb3ba}
+.moment:nth-child(4n+3) .moment-pin{color:#d9b6f2}
+.moment:nth-child(4n) .moment-pin{color:#b7c6ff}
+/* download band: soft wash through the whole palette */
+.c-cta{background:linear-gradient(115deg,#e3f3f1 0%,#e9edfa 55%,#f6ecf4 100%)}
+/* waitlist expectation badges rotate */
+.c-signup+.c-section .why-row:nth-child(2) .why-num{background:var(--pm-purple-t);color:var(--pm-purple)}
+.c-signup+.c-section .why-row:nth-child(3) .why-num{background:var(--pm-coral-t);color:var(--pm-coral)}
 .radar-dot{animation:quiet-pin 5s ease-in-out infinite;box-shadow:none!important}
 @keyframes quiet-pin{0%,100%{opacity:.45;transform:rotate(-45deg) scale(1)}50%{opacity:.8;transform:rotate(-45deg) scale(1.12)}}
 .map-tag{animation:gentle-drift 9s ease-in-out infinite}
