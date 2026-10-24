@@ -524,6 +524,8 @@ main{animation:none}h1,h2,h3{letter-spacing:-.035em}h1 em,h2 em,h3 em,.c-serif{f
 }
 .motion-offscreen *,.motion-offscreen *::before,.motion-offscreen *::after,
 .tab-hidden *,.tab-hidden *::before,.tab-hidden *::after{animation-play-state:paused!important}
+/* one-shot entrance must finish even in hidden tabs, or main stays invisible */
+.tab-hidden main{animation-play-state:running!important}
 html.motion-paused::view-transition-old(root),html.motion-paused::view-transition-new(root){animation:none!important}
 html.motion-paused{scroll-behavior:auto}
 @media(max-width:800px){.how-path{padding-left:0}.how-stop{padding-top:20px}}
