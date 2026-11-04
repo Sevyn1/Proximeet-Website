@@ -775,7 +775,11 @@ body.is-leaving .page-loader{opacity:1;visibility:visible;transition:opacity .3s
 .home-moment-copy .c-kicker{color:#8fd8d2}
 .home-moment-copy h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.15;margin:10px 0 16px}
 .home-moment-copy p{color:#c6cfe4;font-size:16px;line-height:1.75;margin:0 0 14px;max-width:420px}
-.home-moment-copy .home-moment-lines{color:#8fd8d2;font-weight:600;font-size:13px;letter-spacing:.04em}
 .home-moment-copy .c-btn{margin-top:8px;background:#0e9e9b}
 .home-moment-copy .c-btn:hover{background:#0b8a87}
 @media(max-width:800px){.home-moment-inner{grid-template-columns:1fr}.home-moment-photo{min-height:0;max-height:300px;aspect-ratio:3/2}.home-moment-copy{padding:32px 28px}}
+
+/* Connection-check prompts inside the tagline moment. */
+.moment-prompts{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px;padding:0}
+.moment-prompts li{padding:8px 14px;border:1px solid #2e3f6e;border-radius:999px;background:#1a2750;color:#8fd8d2;font-size:13px;font-weight:600;white-space:nowrap}
+@media(max-width:540px){.moment-prompts li{white-space:normal}}
