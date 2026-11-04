@@ -1,5 +1,11 @@
 # Technical Decisions
 
+## 2026-11-04: Region-aware hero photo via client-side IP lookup
+
+**Decision:** The homepage hero shows a stack of four regional photos; `c.js` picks the front photo from the visitor's country using a one-time browser fetch to `https://api.country.is` (free, keyless), caching only the two-letter country code in `sessionStorage` (`pm-country`). Fallback chain: IP lookup → browser locale region (`Intl.Locale(navigator.language).maximize().region`) → default photo order. Country→region mapping lives in `c.js` (africa / south-asia / east-asia / default).
+
+**Rationale:** The site is static (Namecheap cPanel) with no backend, so IP geolocation must happen client-side; country.is needs no key and no markup changes. The feature degrades gracefully: with the API unreachable, fetch blocked, or storage denied, visitors simply see the default stack. No personal data beyond the browser's own request is sent, and nothing but the country code is stored. If country.is ever shuts down, the catch path keeps the page working; swap in another keyless endpoint then.
+
 ## 2026-10-23: App UI may now be shown (supersedes 2026-10-04 "no app UI" decision)
 
 **Decision:** With the app live and the owner supplying a real app screenshot for the website, the pre-launch rule against publishing app UI no longer applies to v3. An "app peek" section on the v3 homepage shows the live map screen in a phone mockup (`v3/images/app-map.jpg`). Keep to curated single screens the owner provides — not full walkthrough galleries — and keep the screenshot file free of real user data or precise home locations before publishing.

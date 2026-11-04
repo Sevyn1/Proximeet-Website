@@ -8,4 +8,11 @@ These stock photographs illustrate possible activities, not ProxiMeet users or t
 - walking-pair.jpg — Armin Rimoldi: https://www.pexels.com/photo/cheerful-multiethnic-students-walking-together-in-park-5554256/
 - collaboration-pair.jpg — Airam Dato-on: https://www.pexels.com/photo/men-working-on-laptop-at-cafe-20044371/
 
+Hero regional stack and tagline photos (added 2026-11-04). Pexels license unless noted:
+
+- friends-india.jpg — Vikesh zen: https://www.pexels.com/photo/smiling-friends-enjoying-outdoor-laughter-39756854/
+- friends-asia.jpg — Kenneth Surillo (cropped to portrait): https://www.pexels.com/photo/smiling-friends-talking-at-park-26633730/
+- picnic-pair.jpg — owner-supplied photo (cropped to portrait); confirm original source/license before wider reuse.
+- home-couch.jpg — owner-supplied photo; confirm original source/license before wider reuse.
+
 app-map.jpg (edited 2026-10-23): owner's app screenshot, composited with illustrative profile portraits from Unsplash (Unsplash license, https://unsplash.com/license) — photo IDs 1494790108377, 1507003211169, 1534528741775, 1500648767791, 1438761681033, 1506794778202, 1544005313. The portraits are illustrative, not real ProxiMeet users.

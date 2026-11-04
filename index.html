@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0e1024" />
-    <title>ProxiMeet | Connections are closer than you think</title>
+    <title>ProxiMeet | Your kind of people could be closer than you think</title>
     <meta
       name="description"
       content="ProxiMeet helps you find people nearby who share your interests and are open to meeting."
@@ -13,7 +13,7 @@
     <meta property="og:site_name" content="ProxiMeet" />
     <meta
       property="og:title"
-      content="ProxiMeet | Connections are closer than you think"
+      content="ProxiMeet | Your kind of people could be closer than you think"
     />
     <meta
       property="og:description"
@@ -26,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="ProxiMeet | Connections are closer than you think"
+      content="ProxiMeet | Your kind of people could be closer than you think"
     />
     <meta
       name="twitter:description"
@@ -43,8 +43,8 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="c.css?v=33" />
-    <script src="c.js?v=15" defer></script>
+    <link rel="stylesheet" href="c.css?v=34" />
+    <script src="c.js?v=16" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -80,7 +80,7 @@
           <div>
             <p class="c-kicker">Live now on iOS and Android</p>
             <h1 id="hero-title">
-              Connections are <em>closer</em> than you think.
+              Your kind of people could be <em>closer</em> than you think.
             </h1>
             <p class="c-hero-copy">
               A walking partner. A gym buddy. Someone to talk books with.
@@ -131,13 +131,66 @@
               ><span class="radar-ring radar-ring--3"></span
               ><span class="radar-pulse"></span>
             </div>
-            <figure class="map-photo map-photo--main">
+            <!-- Photo stack: c.js brings the visitor's regional photo to the front. -->
+            <figure
+              class="map-photo map-photo--main hero-card"
+              data-region="default"
+              data-pos="0"
+            >
               <img
                 src="images/park-pair.jpg"
                 alt="Two people chatting on a walk in a park"
                 width="460"
                 height="560"
                 fetchpriority="high"
+              />
+              <figcaption>
+                A shared interest.<br /><em>A real connection.</em>
+              </figcaption>
+            </figure>
+            <figure
+              class="map-photo map-photo--main hero-card"
+              data-region="africa"
+              data-pos="1"
+            >
+              <img
+                src="images/picnic-pair.jpg"
+                alt="Two friends laughing together over a picnic in a sunny park"
+                width="614"
+                height="768"
+                loading="lazy"
+              />
+              <figcaption>
+                A shared interest.<br /><em>A real connection.</em>
+              </figcaption>
+            </figure>
+            <figure
+              class="map-photo map-photo--main hero-card"
+              data-region="south-asia"
+              data-pos="2"
+            >
+              <img
+                src="images/friends-india.jpg"
+                alt="Two friends laughing together outdoors"
+                width="700"
+                height="933"
+                loading="lazy"
+              />
+              <figcaption>
+                A shared interest.<br /><em>A real connection.</em>
+              </figcaption>
+            </figure>
+            <figure
+              class="map-photo map-photo--main hero-card"
+              data-region="east-asia"
+              data-pos="3"
+            >
+              <img
+                src="images/friends-asia.jpg"
+                alt="A group of friends laughing together in a park"
+                width="760"
+                height="950"
+                loading="lazy"
               />
               <figcaption>
                 A shared interest.<br /><em>A real connection.</em>
@@ -153,18 +206,18 @@
             class="interest-group"
             aria-label="Interests you could connect over"
           >
-            <span>Walking</span><span>Photography</span><span>Live music</span
-            ><span>Pickup ball</span><span>Film</span><span>Coffee</span
-            ><span>Gaming</span><span>Books</span><span>Anime</span
-            ><span>Fitness</span><span>Art</span><span>Tech</span
-            ><span>Fashion</span>
+            <span>Walking</span><span>Dog walks</span><span>Photography</span
+            ><span>Live music</span><span>Pickup ball</span><span>Film</span
+            ><span>Coffee</span><span>Gaming</span><span>Books</span
+            ><span>Anime</span><span>Fitness</span><span>Art</span
+            ><span>Tech</span><span>Fashion</span>
           </div>
           <div class="interest-group" aria-hidden="true">
-            <span>Walking</span><span>Photography</span><span>Live music</span
-            ><span>Pickup ball</span><span>Film</span><span>Coffee</span
-            ><span>Gaming</span><span>Books</span><span>Anime</span
-            ><span>Fitness</span><span>Art</span><span>Tech</span
-            ><span>Fashion</span>
+            <span>Walking</span><span>Dog walks</span><span>Photography</span
+            ><span>Live music</span><span>Pickup ball</span><span>Film</span
+            ><span>Coffee</span><span>Gaming</span><span>Books</span
+            ><span>Anime</span><span>Fitness</span><span>Art</span
+            ><span>Tech</span><span>Fashion</span>
           </div>
         </div>
       </div>
@@ -198,9 +251,9 @@
               <span class="connection-place">At the park</span>
               <h3>Company for your next walk</h3>
               <p>
-                You’re heading out for some fresh air. Someone nearby enjoys a
-                walk too. A shared route gives you time to talk and get to know
-                each other.
+                You’re heading out for some fresh air — maybe with your dog in
+                tow. Someone nearby enjoys a walk too. A shared route gives you
+                time to talk, and four-legged friends make great company.
               </p>
             </div>
           </article>
@@ -259,6 +312,36 @@
               </p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <!-- Tagline moment: an everyday reason to open the app. -->
+      <section
+        class="c-section home-moment"
+        aria-labelledby="home-moment-title"
+      >
+        <div class="home-moment-inner cv">
+          <figure class="home-moment-photo">
+            <img
+              src="images/home-couch.jpg"
+              alt="A woman lying on her couch at home, scrolling on her phone"
+              width="1150"
+              height="768"
+              loading="lazy"
+            />
+          </figure>
+          <div class="home-moment-copy">
+            <p class="c-kicker">For moments like this</p>
+            <h2 id="home-moment-title">Bored at home?</h2>
+            <p>
+              Find someone nearby to chat with, hang out with or share an
+              activity.
+            </p>
+            <p class="home-moment-lines">
+              Different moments. Different reasons. Real connections.
+            </p>
+            <a class="c-btn" href="#download">See who’s nearby</a>
+          </div>
         </div>
       </section>
 
@@ -476,7 +559,7 @@
       <!-- 8 · Download -->
       <section class="c-cta" id="download" aria-labelledby="cta-title">
         <p class="c-kicker cv">ProxiMeet is live</p>
-        <h2 id="cta-title" class="cv" style="--d: 0.08s">Your people are nearby. <em>Go say hi.</em></h2>
+        <h2 id="cta-title" class="cv" style="--d: 0.08s">Meet people nearby. <em>Connect in real life.</em></h2>
         <div class="store-btns store-btns--center cv" style="--d: 0.16s">
           <a class="store-btn" href="https://apps.apple.com/app/id6754469114">
             <svg viewBox="0 0 384 512" aria-hidden="true">

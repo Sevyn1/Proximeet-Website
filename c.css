@@ -755,3 +755,27 @@ body.is-leaving .page-loader{opacity:1;visibility:visible;transition:opacity .3s
 .loader-pin{position:absolute;top:50%;left:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#087d79;box-shadow:0 0 0 7px #087d7926}
 @keyframes loader-pulse{from{transform:scale(.5);opacity:1}to{transform:scale(1.3);opacity:0}}
 @media(prefers-reduced-motion:reduce){main{animation:none}.loader-rings i{animation:none}}
+
+/* Hero photo stack: the front photo follows the visitor's region (see c.js). */
+.people-map .hero-card{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.people-map .hero-card[data-pos="0"]{z-index:4}
+.people-map .hero-card[data-pos="1"]{z-index:3;transform:rotate(3deg) translate(3.5%,-2%) scale(.96)}
+.people-map .hero-card[data-pos="2"]{z-index:2;transform:rotate(-6deg) translate(-3%,1.5%) scale(.93)}
+.people-map .hero-card[data-pos="3"]{z-index:1;transform:rotate(5deg) translate(1%,3.5%) scale(.9)}
+.hero-card figcaption{transition:opacity .45s ease}
+.hero-card:not([data-pos="0"]) figcaption{opacity:0}
+@media(prefers-reduced-motion:reduce){.people-map .hero-card,.hero-card figcaption{transition:none}}
+
+/* "Bored at home?" tagline moment. */
+.home-moment{padding-top:0}
+.home-moment-inner{display:grid;grid-template-columns:1.05fr 1fr;align-items:stretch;background:#111c3b;border-radius:26px;overflow:hidden}
+.home-moment-photo{margin:0;min-height:320px}
+.home-moment-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.home-moment-copy{padding:48px 52px;align-self:center}
+.home-moment-copy .c-kicker{color:#8fd8d2}
+.home-moment-copy h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.15;margin:10px 0 16px}
+.home-moment-copy p{color:#c6cfe4;font-size:16px;line-height:1.75;margin:0 0 14px;max-width:420px}
+.home-moment-copy .home-moment-lines{color:#8fd8d2;font-weight:600;font-size:13px;letter-spacing:.04em}
+.home-moment-copy .c-btn{margin-top:8px;background:#0e9e9b}
+.home-moment-copy .c-btn:hover{background:#0b8a87}
+@media(max-width:800px){.home-moment-inner{grid-template-columns:1fr}.home-moment-photo{min-height:0;max-height:300px;aspect-ratio:3/2}.home-moment-copy{padding:32px 28px}}

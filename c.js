@@ -80,3 +80,51 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
 } else {
   document.querySelectorAll('.cv').forEach(el => el.classList.add('in-view'));
 }
+
+// Hero photo stack: bring the photo matching the visitor's country to the front.
+// Country comes from a one-time IP lookup (api.country.is, no key, no data stored
+// beyond this tab's sessionStorage); falls back to the browser locale, then the
+// default photo order.
+const heroCards = [...document.querySelectorAll('.hero-card[data-region]')];
+if (heroCards.length > 1) {
+  const regions = {
+    africa: 'DZ AO BJ BW BF BI CM CV CF TD KM CG CD CI DJ EG GQ ER SZ ET GA GM GH GN GW KE LS LR LY MG MW ML MR MU MA MZ NA NE NG RW ST SN SC SL SO ZA SS SD TZ TG TN UG ZM ZW',
+    'south-asia': 'IN PK BD LK NP BT MV AF',
+    'east-asia': 'CN JP KR KP TW HK MO MN PH VN TH ID MY SG BN KH LA MM TL'
+  };
+  const regionFor = code => {
+    for (const region in regions) {
+      if (regions[region].split(' ').includes(code)) return region;
+    }
+    return 'default';
+  };
+  const focusCountry = code => {
+    const region = regionFor(String(code || '').toUpperCase());
+    const target = heroCards.find(card => card.dataset.region === region);
+    if (!target || target.dataset.pos === '0') return;
+    heroCards
+      .filter(card => card !== target)
+      .sort((a, b) => Number(a.dataset.pos) - Number(b.dataset.pos))
+      .forEach((card, i) => { card.dataset.pos = String(i + 1); });
+    target.dataset.pos = '0';
+  };
+  let cached = null;
+  try { cached = sessionStorage.getItem('pm-country'); } catch { /* storage blocked */ }
+  if (cached) {
+    focusCountry(cached);
+  } else {
+    fetch('https://api.country.is/')
+      .then(res => (res.ok ? res.json() : Promise.reject()))
+      .then(data => {
+        if (!data || !data.country) return Promise.reject();
+        try { sessionStorage.setItem('pm-country', data.country); } catch { /* storage blocked */ }
+        focusCountry(data.country);
+      })
+      .catch(() => {
+        try {
+          const locale = new Intl.Locale(navigator.language).maximize();
+          if (locale.region) focusCountry(locale.region);
+        } catch { /* keep the default photo order */ }
+      });
+  }
+}
