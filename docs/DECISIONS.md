@@ -1,5 +1,11 @@
 # Technical Decisions
 
+## 2026-11-04: ProxiMeet is 18+ (supersedes the 2026-10-22 "all ages" direction)
+
+**Decision:** The owner confirmed ProxiMeet is currently for adults 18 and older, matching the 2026-11 campaign documents. Site updated accordingly: homepage FAQ ("built for adults 18 and older"), terms.html Intended audience ("must be at least 18 years old"), and privacy-policy.html §7 Age-Related Privacy (no knowing collection from under-18s, deletion contact). Legal pages' "Last updated" bumped to November 4, 2026. The child-safety standards page needed no change.
+
+**Rationale:** Externally visible age claims must match the actual product audience, app-store listings, and campaign creative ("all people shown should be clearly 18 or older"). Legal drafts still warrant professional review before being treated as final.
+
 ## 2026-11-04: Region-aware hero photo via client-side IP lookup
 
 **Decision:** The homepage hero shows a stack of four regional photos; `c.js` picks the front photo from the visitor's country using a one-time browser fetch to `https://api.country.is` (free, keyless), caching only the two-letter country code in `sessionStorage` (`pm-country`). Fallback chain: IP lookup → browser locale region (`Intl.Locale(navigator.language).maximize().region`) → default photo order. Country→region mapping lives in `c.js` (africa / south-asia / east-asia / default).
