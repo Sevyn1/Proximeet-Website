@@ -81,10 +81,36 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   document.querySelectorAll('.cv').forEach(el => el.classList.add('in-view'));
 }
 
+// Visitor country: one-time IP lookup (api.country.is, no key, nothing stored
+// beyond this tab's sessionStorage), falling back to the browser locale. Shared
+// by the hero photo stack and the localized emergency number.
+function getCountry() {
+  if (getCountry.p) return getCountry.p;
+  getCountry.p = (async () => {
+    try {
+      const cached = sessionStorage.getItem('pm-country');
+      if (cached) return cached;
+    } catch { /* storage blocked */ }
+    try {
+      const res = await fetch('https://api.country.is/');
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.country) {
+          try { sessionStorage.setItem('pm-country', data.country); } catch { /* storage blocked */ }
+          return data.country;
+        }
+      }
+    } catch { /* lookup failed */ }
+    try {
+      const locale = new Intl.Locale(navigator.language).maximize();
+      if (locale.region) return locale.region;
+    } catch { /* keep defaults */ }
+    return null;
+  })();
+  return getCountry.p;
+}
+
 // Hero photo stack: bring the photo matching the visitor's country to the front.
-// Country comes from a one-time IP lookup (api.country.is, no key, no data stored
-// beyond this tab's sessionStorage); falls back to the browser locale, then the
-// default photo order.
 const heroCards = [...document.querySelectorAll('.hero-card[data-region]')];
 if (heroCards.length > 1) {
   const regions = {
@@ -113,18 +139,29 @@ if (heroCards.length > 1) {
   if (cached) {
     focusCountry(cached);
   } else {
-    fetch('https://api.country.is/')
-      .then(res => (res.ok ? res.json() : Promise.reject()))
-      .then(data => {
-        if (!data || !data.country) return Promise.reject();
-        try { sessionStorage.setItem('pm-country', data.country); } catch { /* storage blocked */ }
-        focusCountry(data.country);
-      })
-      .catch(() => {
-        try {
-          const locale = new Intl.Locale(navigator.language).maximize();
-          if (locale.region) focusCountry(locale.region);
-        } catch { /* keep the default photo order */ }
-      });
+    getCountry().then(code => { if (code) focusCountry(code); });
   }
+}
+
+// Localized emergency number in the safety tips (markup defaults to 911).
+const emergencyEls = document.querySelectorAll('[data-emergency]');
+if (emergencyEls.length) {
+  const emergencyNumbers = {
+    '000': 'AU',
+    '111': 'NZ',
+    '110': 'CN ID',
+    '190': 'BR',
+    '999': 'GB MY SG HK BD KE UG QA AE',
+    '911': 'US CA MX PH AR PE EC CR PA DO GT HN SV NI UY PY BO VE'
+  };
+  getCountry().then(code => {
+    code = String(code || '').toUpperCase();
+    if (!code) return;
+    // 112 is the GSM standard and reaches local services in most other countries.
+    let number = '112';
+    for (const n in emergencyNumbers) {
+      if (emergencyNumbers[n].split(' ').includes(code)) { number = n; break; }
+    }
+    emergencyEls.forEach(el => { el.textContent = number; });
+  });
 }

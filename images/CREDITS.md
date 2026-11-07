@@ -16,3 +16,5 @@ Hero regional stack and tagline photos (added 2026-11-04). Pexels license unless
 - home-couch.jpg — owner-supplied photo; confirm original source/license before wider reuse.
 
 app-map.jpg (edited 2026-10-23): owner's app screenshot, composited with illustrative profile portraits from Unsplash (Unsplash license, https://unsplash.com/license) — photo IDs 1494790108377, 1507003211169, 1534528741775, 1500648767791, 1438761681033, 1506794778202, 1544005313. The portraits are illustrative, not real ProxiMeet users.
+
+safety-centre.jpg (added 2026-11-06): owner-supplied ProxiMeet app screenshot of the Safety centre (light mode), resized/converted for the homepage Safety & Choice panel. Shows no real user data.

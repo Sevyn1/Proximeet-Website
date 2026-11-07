@@ -43,8 +43,8 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="c.css?v=35" />
-    <script src="c.js?v=16" defer></script>
+    <link rel="stylesheet" href="c.css?v=42" />
+    <script src="c.js?v=17" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -64,7 +64,7 @@
         </button>
         <nav class="c-nav" id="c-nav" aria-label="Main navigation">
           <a href="#why">Ways to connect</a>
-          <a href="#call">Safety & choice</a>
+          <a href="#call">Safety & Choice</a>
           <a href="#how">How it works</a>
           <a href="#faq">FAQ</a>
           <a href="contact.html">Contact</a>
@@ -85,7 +85,7 @@
             <p class="c-hero-copy">
               A walking partner. A gym buddy. Someone to talk books with.
               ProxiMeet helps you find people nearby who are into what you’re
-              into—and turn a shared interest into time together.
+              into — and turn a shared interest into time together.
             </p>
             <div class="c-hero-actions">
               <div class="store-btns">
@@ -268,11 +268,12 @@
             />
             <div>
               <span class="connection-place">At the gym</span>
-              <h3>Someone to workout with</h3>
+              <h3>Someone to work out with</h3>
               <p>
-                Find someone who shares your interest in fitness. Arrange a
-                session together, encourage each other, and have someone to
-                celebrate the effort with.
+                You’re planning a workout and the energy is better with two.
+                Arrange a session with someone who shares your interest in
+                fitness, encourage each other, and celebrate the effort
+                together.
               </p>
             </div>
           </article>
@@ -335,8 +336,8 @@
             <p class="c-kicker">For moments like this</p>
             <h2 id="home-moment-title">Bored at home?</h2>
             <p>
-              Find someone nearby to chat with, hang out with or share an
-              activity.
+              Find someone nearby to chat, hang out, or share an activity
+              with.
             </p>
             <ul
               class="moment-prompts"
@@ -424,21 +425,20 @@
         </div>
       </section>
 
-      <!-- Safety features described from owner-provided product information. -->
+      <!-- Safety features and tips from owner-provided product information. -->
       <section class="c-section" id="call" aria-labelledby="call-title">
         <div class="c-heading cv">
-          <p class="c-kicker">Safety & choice</p>
+          <p class="c-kicker">Safety & Choice</p>
           <h2 id="call-title">Safety tools for real-world meetups.</h2>
           <p>
-            Plan your check-in and manage what you share, all from your Safety
-            centre.
+            Plan your check-in, manage what you share, and meet smart — all
+            from your Safety centre.
           </p>
         </div>
-        <div class="safety-layout">
-          <article class="safe-meet-feature cv" aria-labelledby="safe-meet-title">
-            <p class="c-kicker">Safe Meet</p>
-            <h3 id="safe-meet-title">A check-in plan for your meetup</h3>
-            <ol class="safe-meet-steps">
+        <div class="safety-centre cv" role="group" aria-label="Safety centre features">
+          <div class="sc-main">
+            <h3>A check-in plan for every meetup</h3>
+            <ol class="sc-steps">
               <li>
                 <strong>Set the time.</strong
                 ><span>Choose how long your meetup will last.</span>
@@ -450,34 +450,121 @@
               <li>
                 <strong>Notify your SOS contacts.</strong
                 ><span
-                  >With alerts enabled, a missed check-in sends your SOS
-                  contacts a nudge after the delay you choose.</span
+                  >With alerts on, a missed check-in sends your SOS contacts a
+                  calm nudge after the delay you choose.</span
                 >
               </li>
             </ol>
-          </article>
-          <div class="safety-features cv" style="--d: 0.12s">
-            <article class="safety-feature">
-              <p class="safety-label">Location sharing</p>
-              <h3>Keep someone you trust in the loop.</h3>
-              <p>Choose who can see your live location during a meetup.</p>
-            </article>
-            <article class="safety-feature">
-              <p class="safety-label">Hidden places</p>
-              <h3>Keep personal places private.</h3>
+          </div>
+          <div class="sc-features">
+            <article>
+              <h4><span class="sc-dot sc-dot--coral" aria-hidden="true"></span>SOS contacts</h4>
               <p>
-                Save places such as home where ProxiMeet keeps you offline
-                automatically.
+                Add people you trust — an SOS sends them your name, your
+                meetup details and a live location link.
               </p>
             </article>
+            <article>
+              <h4><span class="sc-dot sc-dot--purple" aria-hidden="true"></span>Duress PIN</h4>
+              <p>
+                Forced to check in? Enter your duress PIN instead. ProxiMeet
+                looks normal but quietly alerts your SOS contacts.
+              </p>
+            </article>
+            <article>
+              <h4><span class="sc-dot sc-dot--blue" aria-hidden="true"></span>Live location sharing</h4>
+              <p>Choose who can see where you are during a live meet-up.</p>
+            </article>
+            <article>
+              <h4><span class="sc-dot sc-dot--green" aria-hidden="true"></span>My safe places</h4>
+              <p>
+                Get a buzz if you leave somewhere you feel safe. Only you can
+                see your places.
+              </p>
+            </article>
+            <article>
+              <h4><span class="sc-dot sc-dot--teal" aria-hidden="true"></span>Hidden places</h4>
+              <p>
+                Stay offline automatically at the places you save, like home
+                or the office.
+              </p>
+            </article>
+            <article>
+              <h4><span class="sc-dot sc-dot--coral" aria-hidden="true"></span>Safety reminder</h4>
+              <p>A short safety reminder each time a meet-up starts.</p>
+            </article>
+          </div>
+          <figure class="sc-phone">
+            <div class="phone-frame phone-frame--sc">
+              <img
+                src="images/safety-centre.jpg"
+                alt="The ProxiMeet Safety centre screen, showing the Safe Meet check-in plan, SOS contacts and the check-in passcode"
+                width="640"
+                height="1390"
+                loading="lazy"
+              />
+            </div>
+          </figure>
+          <div class="sc-note">
+            <strong>Every connection starts with a choice.</strong>
+            <span
+              >Accept the requests you want — people you block can’t see you
+              on the map, message you, or send requests.</span
+            >
           </div>
         </div>
-        <div class="safety-choice-note cv" style="--d: 0.2s">
-          <h3>Every connection starts with a choice.</h3>
-          <p>
-            Accept the requests you want. Block the people you don’t want to
-            hear from.
-          </p>
+        <div class="safety-tips cv" style="--d: 0.16s">
+          <div class="tips-panel">
+          <div class="safety-tips-head">
+            <p class="c-kicker">Do your part</p>
+            <h3>Meet smart, every time</h3>
+            <p>The app brings the tools. You bring the habits.</p>
+          </div>
+          <div class="tip-groups">
+            <div class="tip-group tip-group--teal">
+              <p class="tip-label">The prep</p>
+              <ul>
+                <li>Add an SOS contact before you meet anyone.</li>
+                <li>
+                  Set up your duress PIN — if you’re ever forced to check
+                  in, it quietly alerts your SOS contacts.
+                </li>
+              </ul>
+            </div>
+            <div class="tip-group tip-group--purple">
+              <p class="tip-label">The place</p>
+              <ul>
+                <li>Meet somewhere public and well-lit, never an isolated spot after dark.</li>
+                <li>Stick to green zones — the map marks them as safer. Red means keep out.</li>
+                <li>
+                  Lock in an exact meeting point ahead of time — no
+                  spur-of-the-moment street meetups.
+                </li>
+              </ul>
+            </div>
+            <div class="tip-group tip-group--coral">
+              <p class="tip-label">The meetup</p>
+              <ul>
+                <li>Check in the moment your timer ends, so the people you trust never worry.</li>
+                <li>
+                  Call <span data-emergency>911</span> if someone is in
+                  danger. Help only when it’s safe to.
+                </li>
+                <li>
+                  Keep your next few meetups in the app — share personal
+                  details once trust is earned.
+                </li>
+              </ul>
+            </div>
+            <div class="tip-group tip-group--green">
+              <p class="tip-label">The ground rules</p>
+              <ul>
+                <li>Report anything that feels off — the report button is one tap away.</li>
+                <li>Respect boundaries and accept “no” — kindness is the baseline.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
         </div>
       </section>
 
@@ -495,20 +582,14 @@
           <div class="c-faq-list cv" style="--d: 0.12s">
             <details>
               <summary>
-                Who is ProxiMeet for?<span aria-hidden="true">+</span>
+                What is ProxiMeet, and who is it for?<span aria-hidden="true"
+                  >+</span
+                >
               </summary>
               <p>
-                ProxiMeet is built for adults 18 and older to find common
-                ground through shared interests and real-world connection.
-              </p>
-            </details>
-            <details>
-              <summary>
-                What is ProxiMeet?<span aria-hidden="true">+</span>
-              </summary>
-              <p>
-                ProxiMeet helps two people nearby connect over shared interests
-                and arrange to meet in person.
+                ProxiMeet helps you meet someone new based on shared interests
+                and proximity — then arrange to meet in person. It’s built for
+                adults 18 and older.
               </p>
             </details>
             <details>
@@ -534,12 +615,40 @@
             </details>
             <details>
               <summary>
-                Do I have to meet someone?<span aria-hidden="true">+</span>
+                Are the profiles real?<span aria-hidden="true">+</span>
               </summary>
               <p>
-                No. Connections start with a request you choose to send or
-                accept — and chat only opens once both of you are in. What
-                happens next is always up to you.
+                Yes — every person is verified before they’re able to connect
+                and meet with you.
+              </p>
+            </details>
+            <details>
+              <summary>
+                How do I connect safely?<span aria-hidden="true">+</span>
+              </summary>
+              <p>
+                Every meetup is timed: you set how long it lasts, check in
+                with your passcode when it ends, and if you miss a check-in
+                your SOS contacts get an alert. You can also share your
+                live location with someone you trust during a meetup — and you
+                always choose which requests to accept and who to block. More
+                meetup tips live in our
+                <a href="#call">Safety &amp; Choice</a> section.
+              </p>
+            </details>
+            <details>
+              <summary>
+                What privacy options do I have?<span aria-hidden="true"
+                  >+</span
+                >
+              </summary>
+              <p>
+                ProxiMeet doesn’t track your location until you go online, and
+                you never appear online unless you choose to. You can save
+                hidden places — like home or the office — where ProxiMeet
+                keeps you offline
+                automatically, and closing the app logs you out so you’re never
+                visible in the background.
               </p>
             </details>
             <details>
@@ -556,6 +665,16 @@
                 >. If it isn’t available in your city yet, join the
                 <a href="waitlist.html">waitlist</a> and you’ll hear the day it
                 arrives.
+              </p>
+            </details>
+            <details>
+              <summary>
+                Do I have to meet someone?<span aria-hidden="true">+</span>
+              </summary>
+              <p>
+                No. Connections start with a request you choose to send or
+                accept — and chat only opens once both of you are in. What
+                happens next is always up to you.
               </p>
             </details>
           </div>
